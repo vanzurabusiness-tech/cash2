@@ -25,7 +25,7 @@
         }
         .gift-card-3d { animation: float 5s ease-in-out infinite; perspective: 1000px; }
 
-        /* Card Shine effect [cite: 280-282] */
+        /* Dynamic Shine Effect [cite: 280-282] */
         .card-shine::before {
             content: ''; position: absolute; top: 0; left: -150%; width: 50%; height: 100%;
             background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
@@ -37,7 +37,7 @@
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
         
         .quiz-button { transition: all 0.2s ease; background-color: #1e293b; border: 1px solid #334155; }
-        .quiz-button:active { transform: scale(0.98); }
+        .quiz-button:active { transform: scale(0.98); background-color: #334155; }
     </style>
 </head>
 <body class="min-h-screen flex flex-col items-center px-6 py-6">
@@ -55,7 +55,7 @@
     <div id="hero-card" class="relative w-full max-w-[280px] gift-card-3d mb-8">
         <div class="absolute inset-0 bg-green-500/20 blur-[60px] rounded-full"></div>
         <div class="relative card-shine overflow-hidden rounded-2xl border border-white/10 shadow-2xl">
-            <img src="assets/cash-balance-750-Bs3MQuLl.png" alt="Cash App Reward" class="w-full">
+            <img src="assets/cash-balance-750-Bs3MQuLl.png" alt="Reward Card" class="w-full">
         </div>
     </div>
 
@@ -79,8 +79,12 @@
         <div id="q3" class="quiz-step hidden">
             <h2 class="text-xl font-black mb-6 uppercase tracking-tight">Select Your Device</h2>
             <div class="space-y-3">
-                <button onclick="startLoading()" class="quiz-button w-full py-5 rounded-2xl font-bold text-lg flex items-center justify-center gap-2"><i class="fab fa-apple"></i> iPHONE</button>
-                <button onclick="startLoading()" class="quiz-button w-full py-5 rounded-2xl font-bold text-lg flex items-center justify-center gap-2"><i class="fab fa-android"></i> ANDROID</button>
+                <button onclick="startLoading()" class="quiz-button w-full py-5 rounded-2xl font-bold text-lg flex items-center justify-center gap-2">
+                    <i class="fab fa-apple"></i> iPHONE
+                </button>
+                <button onclick="startLoading()" class="quiz-button w-full py-5 rounded-2xl font-bold text-lg flex items-center justify-center gap-2">
+                    <i class="fab fa-android"></i> ANDROID
+                </button>
             </div>
         </div>
 
@@ -97,7 +101,7 @@
                     <div class="bg-green-500 text-black rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">
                         <i class="fas fa-check text-sm"></i>
                     </div>
-                    <h2 class="text-2xl font-black tracking-tight uppercase italic">Qualified!</h2>
+                    <h2 class="text-2xl font-black tracking-tight uppercase italic">Congratulations!</h2>
                 </div>
                 
                 <p class="text-gray-400 font-bold mb-6 text-xs uppercase tracking-widest">Complete instructions to claim $750:</p>
@@ -105,15 +109,15 @@
                 <div class="space-y-6">
                     <div class="flex items-start space-x-4">
                         <div class="bg-white text-black text-[10px] font-black w-6 h-6 flex items-center justify-center rounded-full flex-shrink-0 mt-0.5">1</div>
-                        <p class="text-gray-400 text-sm leading-snug">Download our payout partner app <span class="text-white font-bold">FreeCash</span> clicking the link below.</p>
+                        <p class="text-gray-400 text-sm leading-snug">Download our payout partner app <span class="text-white font-bold">FreeCash</span> via the link below.</p>
                     </div>
                     <div class="flex items-start space-x-4 border-t border-gray-800 pt-5">
                         <div class="bg-white text-black text-[10px] font-black w-6 h-6 flex items-center justify-center rounded-full flex-shrink-0 mt-0.5">2</div>
-                        <p class="text-gray-400 text-sm leading-snug">Signup & create your free account instantly.</p>
+                        <p class="text-gray-400 text-sm leading-snug">Signup and create your free account immediately (Must).</p>
                     </div>
                     <div class="flex items-start space-x-4 border-t border-gray-800 pt-5">
                         <div class="bg-white text-black text-[10px] font-black w-6 h-6 flex items-center justify-center rounded-full flex-shrink-0 mt-0.5">3</div>
-                        <p class="text-gray-400 text-sm leading-snug">Open the app & play any game for <span class="text-white font-bold">60 seconds</span> to verify activity.</p>
+                        <p class="text-gray-400 text-sm leading-snug">Open the app and play any game for <span class="text-white font-bold">60 seconds</span> to verify activity.</p>
                     </div>
                 </div>
             </div>
@@ -126,8 +130,11 @@
 
     <script>
         function nextStep(step) {
+            // Hide all steps
             document.querySelectorAll('.quiz-step').forEach(el => el.classList.add('hidden'));
+            // Show the next step
             document.getElementById('q' + step).classList.remove('hidden');
+            // Update progress bar
             const progress = (step / 3) * 100;
             document.getElementById('progress-bar').style.width = progress + '%';
             document.getElementById('progress-text').innerText = Math.round(progress) + '%';
@@ -137,12 +144,14 @@
             document.querySelectorAll('.quiz-step').forEach(el => el.classList.add('hidden'));
             document.getElementById('progress-container').classList.add('hidden');
             document.getElementById('loading-state').classList.remove('hidden');
-            const messages = [\"Analyzing...\", \"Verifying Eligibility...\", \"Finalizing $750.00...\"];
+
+            const messages = ["Analyzing answers...", "Verifying eligibility...", "Finalizing $750.00..."];
             let i = 0;
             const interval = setInterval(() => {
                 i++;
-                if (i < messages.length) document.getElementById('loading-text').innerText = messages[i];
-                else {
+                if (i < messages.length) {
+                    document.getElementById('loading-text').innerText = messages[i];
+                } else {
                     clearInterval(interval);
                     document.getElementById('loading-state').classList.add('hidden');
                     document.getElementById('success-state').classList.remove('hidden');
@@ -150,7 +159,7 @@
             }, 1200);
         }
 
-        /* Source Tracking Script at bottom [cite: 233, 240] */
+        /* Source Tracking Logic [cite: 240, 246] */
         (function() {
             function appendSource() {
                 var s = new URLSearchParams(window.location.search).get('source'); 
@@ -159,7 +168,9 @@
                     var href = link.getAttribute('href');
                     if (!href || href.startsWith('#')) return;
                     var sep = href.includes('?') ? '&' : '?';
-                    if (!href.includes('source=')) link.setAttribute('href', href + sep + 'source=' + encodeURIComponent(s));
+                    if (!href.includes('source=')) {
+                        link.setAttribute('href', href + sep + 'source=' + encodeURIComponent(s));
+                    }
                 });
             }
             new MutationObserver(appendSource).observe(document.body, { childList: true, subtree: true });

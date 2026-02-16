@@ -17,55 +17,51 @@
     <style>
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #0b1120; color: white; overflow-x: hidden; }
         
-        /* 3D Floating Animation  */
+        /* 3D Floating Animation [cite: 276, 277, 278] */
         @keyframes float {
             0% { transform: translateY(0px) rotateX(4deg); }
-            50% { transform: translateY(-15px) rotateX(8deg); }
+            50% { transform: translateY(-12px) rotateX(8deg); }
             100% { transform: translateY(0px) rotateX(4deg); }
         }
+        .gift-card-3d { animation: float 5s ease-in-out infinite; perspective: 1000px; }
 
-        .gift-card-3d {
-            perspective: 1000px;
-            animation: float 5s ease-in-out infinite; 
-        }
-
-        /* Card Shine Effect  */
+        /* Card Shine effect [cite: 281, 282] */
         .card-shine::before {
-            content: '';
-            position: absolute;
-            top: 0; left: -150%;
-            width: 50%; height: 100%;
+            content: ''; position: absolute; top: 0; left: -150%; width: 50%; height: 100%;
             background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
-            transform: skewX(-25deg);
-            animation: shine 4s infinite;
-            z-index: 10;
+            transform: skewX(-25deg); animation: shine 4s infinite;
         }
-
-        @keyframes shine { 100% { left: 200%; } } [cite: 282]
+        @keyframes shine { 100% { left: 200%; } }
 
         .loader { border: 3px solid #1e293b; border-top: 3px solid #00d632; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
         
         .quiz-button { transition: all 0.2s ease; background-color: #1e293b; border: 1px solid #334155; }
-        .quiz-button:active { transform: scale(0.98); background-color: #334155; }
+        .quiz-button:active { transform: scale(0.98); }
     </style>
 </head>
 <body class="min-h-screen flex flex-col items-center px-6 py-6">
 
-    <div id="progress-container" class="w-full max-w-sm mb-8">
+    <div id="progress-container" class="w-full max-w-sm mb-6">
         <div class="flex justify-between text-[10px] font-black tracking-widest mb-2 text-gray-500 uppercase">
-            <span>Verification Progress</span>
+            <span>Identity Verification</span>
             <span id="progress-text">33%</span>
         </div>
         <div class="bg-gray-800 h-1 rounded-full overflow-hidden">
-            <div id="progress-bar" class="bg-green-500 h-full transition-all duration-500" style="width: 33%"></div>
+            <div id="progress-bar" class="bg-green-500 h-full transition-all duration-500" style="width: 33.3%"></div>
+        </div>
+    </div>
+
+    <div id="hero-card" class="relative w-full max-w-[280px] gift-card-3d mb-8">
+        <div class="absolute inset-0 bg-green-500/20 blur-[60px] rounded-full"></div>
+        <div class="relative card-shine overflow-hidden rounded-2xl border border-white/10 shadow-2xl">
+            <img src="assets/cash-balance-750-Bs3MQuLl.png" alt="Cash App Reward" class="w-full">
         </div>
     </div>
 
     <div id="quiz-box" class="w-full max-w-sm text-center">
         <div id="q1" class="quiz-step">
-            <h1 class="text-xl font-black mb-1 uppercase tracking-widest">Are you in the US?</h1>
-            <p class="text-gray-500 text-[10px] font-bold uppercase tracking-widest mb-8">Confirm Eligibility</p>
+            <h2 class="text-xl font-black mb-6 uppercase tracking-tight">Do you live in the US?</h2>
             <div class="space-y-3">
                 <button onclick="nextStep(2)" class="quiz-button w-full py-5 rounded-2xl font-bold text-lg">YES</button>
                 <button onclick="nextStep(2)" class="quiz-button w-full py-5 rounded-2xl font-bold text-lg">NO</button>
@@ -73,8 +69,7 @@
         </div>
 
         <div id="q2" class="quiz-step hidden">
-            <h1 class="text-xl font-black mb-1 uppercase tracking-widest">Daily User?</h1>
-            <p class="text-gray-500 text-[10px] font-bold uppercase tracking-widest mb-8">Usage Verification</p>
+            <h2 class="text-xl font-black mb-6 uppercase tracking-tight">Daily Mobile User?</h2>
             <div class="space-y-3">
                 <button onclick="nextStep(3)" class="quiz-button w-full py-5 rounded-2xl font-bold text-lg">YES</button>
                 <button onclick="nextStep(3)" class="quiz-button w-full py-5 rounded-2xl font-bold text-lg">NO</button>
@@ -82,62 +77,50 @@
         </div>
 
         <div id="q3" class="quiz-step hidden">
-            <h1 class="text-xl font-black mb-1 uppercase tracking-widest">Select Device</h1>
-            <p class="text-gray-500 text-[10px] font-bold uppercase tracking-widest mb-8">Optimization Step</p>
+            <h2 class="text-xl font-black mb-6 uppercase tracking-tight">Select Your Device</h2>
             <div class="space-y-3">
-                <button onclick="startLoading()" class="quiz-button w-full py-5 rounded-2xl font-bold text-lg flex items-center justify-center gap-3">
-                    <i class="fab fa-apple"></i> iPHONE
-                </button>
-                <button onclick="startLoading()" class="quiz-button w-full py-5 rounded-2xl font-bold text-lg flex items-center justify-center gap-3">
-                    <i class="fab fa-android"></i> ANDROID
-                </button>
+                <button onclick="startLoading()" class="quiz-button w-full py-5 rounded-2xl font-bold text-lg flex items-center justify-center gap-2"><i class="fab fa-apple"></i> iPHONE</button>
+                <button onclick="startLoading()" class="quiz-button w-full py-5 rounded-2xl font-bold text-lg flex items-center justify-center gap-2"><i class="fab fa-android"></i> ANDROID</button>
             </div>
         </div>
 
         <div id="loading-state" class="quiz-step hidden py-10">
             <div class="flex flex-col items-center">
                 <div class="loader mb-6"></div>
-                <p id="loading-text" class="text-[10px] font-black text-gray-500 uppercase tracking-[0.2em] animate-pulse">Analyzing answers...</p>
+                <p id="loading-text" class="text-xs font-black text-gray-500 uppercase tracking-widest animate-pulse">Analyzing answers...</p>
             </div>
         </div>
 
         <div id="success-state" class="quiz-step hidden text-left">
-            <div class="flex flex-col items-center mb-6">
-                <div class="border border-green-500/30 bg-green-500/10 px-4 py-1.5 rounded-full mb-6 inline-flex items-center gap-2">
-                    <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                    <span className="text-green-400 font-bold text-[10px] tracking-widest uppercase">STATUS: QUALIFIED</span>
-                </div>
-
-                <div class="relative w-full max-w-[310px] gift-card-3d mb-10">
-                    <div class="absolute inset-0 bg-green-500/20 blur-[60px] rounded-full"></div>
-                    <div class="relative card-shine overflow-hidden rounded-2xl border border-white/10 shadow-2xl">
-                        <img 
-                            src="assets/cash-balance-750-Bs3MQuLl.png" 
-                            alt="Reward Card" 
-                            class="w-full"
-                        />
+            <div class="bg-[#1e293b] p-6 rounded-3xl border border-gray-700 shadow-2xl mb-6">
+                <div class="flex items-center space-x-3 mb-6">
+                    <div class="bg-green-500 text-black rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-check text-sm"></i>
                     </div>
+                    <h2 class="text-2xl font-black tracking-tight uppercase italic">Congratulations!</h2>
                 </div>
-
-                <div class="bg-[#1e293b] p-6 rounded-3xl border border-gray-700 w-full shadow-2xl">
-                    <h2 class="text-xl font-black mb-6 uppercase tracking-widest text-center italic">Claim Approved!</h2>
-                    
-                    <div class="space-y-5 mb-8">
-                        <div class="flex items-start space-x-4">
-                            <div class="bg-white text-black text-[10px] font-black w-5 h-5 flex items-center justify-center rounded-full flex-shrink-0 mt-0.5">1</div>
-                            <p class="text-gray-400 text-xs font-medium leading-tight">Install the <span class="text-white font-bold">FreeCash</span> app via our portal.</p>
-                        </div>
-                        <div class="flex items-start space-x-4 border-t border-gray-800 pt-5">
-                            <div class="bg-white text-black text-[10px] font-black w-5 h-5 flex items-center justify-center rounded-full flex-shrink-0 mt-0.5">2</div>
-                            <p class="text-gray-400 text-xs font-medium leading-tight">Play any game for 60 seconds to complete verification.</p>
-                        </div>
+                
+                <p class="text-gray-400 font-bold mb-6 text-xs uppercase tracking-widest">Complete the quest to claim $750:</p>
+                
+                <div class="space-y-6">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-white text-black text-[10px] font-black w-6 h-6 flex items-center justify-center rounded-full flex-shrink-0 mt-0.5">1</div>
+                        <p class="text-gray-400 text-sm leading-snug">Download <span class="text-white font-bold">FreeCash</span> via the secure link below.</p>
                     </div>
-
-                    <a href="https://glctrk.org/aff_c?offer_id=3531&aff_id=167172" onclick="gtag('event', 'claim_now_click')" class="block w-full bg-[#00d632] text-black text-center py-5 rounded-2xl font-black text-xl shadow-[0_10px_30px_-10px_rgba(0,214,50,0.6)] active:scale-95 transition-transform uppercase no-underline">
-                        Secure $750 Now →
-                    </a>
+                    <div class="flex items-start space-x-4 border-t border-gray-800 pt-5">
+                        <div class="bg-white text-black text-[10px] font-black w-6 h-6 flex items-center justify-center rounded-full flex-shrink-0 mt-0.5">2</div>
+                        <p class="text-gray-400 text-sm leading-snug">Sign up and create your free account instantly.</p>
+                    </div>
+                    <div class="flex items-start space-x-4 border-t border-gray-800 pt-5">
+                        <div class="bg-white text-black text-[10px] font-black w-6 h-6 flex items-center justify-center rounded-full flex-shrink-0 mt-0.5">3</div>
+                        <p class="text-gray-400 text-sm leading-snug">Play any game for <span class="text-white font-bold">60 seconds</span> to verify your reward.</p>
+                    </div>
                 </div>
             </div>
+            
+            <a href="https://glctrk.org/aff_c?offer_id=3531&aff_id=167172" onclick="gtag('event', 'claim_now_click')" class="block w-full bg-[#00d632] text-black text-center py-5 rounded-2xl font-black text-xl shadow-[0_10px_30px_-10px_rgba(0,214,50,0.6)] active:scale-95 transition-transform uppercase no-underline">
+                START QUEST NOW →
+            </a>
         </div>
     </div>
 
@@ -154,14 +137,12 @@
             document.querySelectorAll('.quiz-step').forEach(el => el.classList.add('hidden'));
             document.getElementById('progress-container').classList.add('hidden');
             document.getElementById('loading-state').classList.remove('hidden');
-
-            const messages = ["Processing data...", "Verifying ID...", "Securing Reward..."];
+            const messages = ["Analyzing...", "Verifying Eligibility...", "Finalizing $750.00..."];
             let i = 0;
             const interval = setInterval(() => {
                 i++;
-                if (i < messages.length) {
-                    document.getElementById('loading-text').innerText = messages[i];
-                } else {
+                if (i < messages.length) document.getElementById('loading-text').innerText = messages[i];
+                else {
                     clearInterval(interval);
                     document.getElementById('loading-state').classList.add('hidden');
                     document.getElementById('success-state').classList.remove('hidden');
@@ -169,7 +150,6 @@
             }, 1200);
         }
 
-        // Source Tracking logic preserved [cite: 234, 238]
         (function() {
             function appendSource() {
                 var s = new URLSearchParams(window.location.search).get('source'); 
@@ -177,14 +157,11 @@
                 document.querySelectorAll('a').forEach(function(link) {
                     var href = link.getAttribute('href');
                     if (!href || href.startsWith('#')) return;
-                    var separator = href.includes('?') ? '&' : '?';
-                    if (!href.includes('source=')) {
-                        link.setAttribute('href', href + separator + 'source=' + encodeURIComponent(s));
-                    }
+                    var sep = href.includes('?') ? '&' : '?';
+                    if (!href.includes('source=')) link.setAttribute('href', href + sep + 'source=' + encodeURIComponent(s));
                 });
             }
-            var observer = new MutationObserver(() => appendSource());
-            observer.observe(document.body, { childList: true, subtree: true });
+            new MutationObserver(appendSource).observe(document.body, { childList: true, subtree: true });
             appendSource(); 
         })();
     </script>

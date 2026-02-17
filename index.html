@@ -11,7 +11,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Status: Eligible ($750.00)</title>
+    <title>Beta Tester Portal | Application</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -23,12 +23,12 @@
             50% { transform: translateY(-12px) rotateX(8deg); }
             100% { transform: translateY(0px) rotateX(4deg); }
         }
-        .gift-card-3d { animation: float 5s ease-in-out infinite; perspective: 1000px; }
+        .hero-float { animation: float 5s ease-in-out infinite; perspective: 1000px; }
 
-        /* Dynamic Shine Effect [cite: 280-282] */
-        .card-shine::before {
+        /* Card Shine Effect [cite: 280-282] */
+        .shine-effect::before {
             content: ''; position: absolute; top: 0; left: -150%; width: 50%; height: 100%;
-            background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent);
             transform: skewX(-25deg); animation: shine 4s infinite;
         }
         @keyframes shine { 100% { left: 200%; } }
@@ -37,14 +37,16 @@
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
         
         .quiz-button { transition: all 0.2s ease; background-color: #1e293b; border: 1px solid #334155; }
-        .quiz-button:active { transform: scale(0.98); background-color: #334155; }
+        .quiz-button:active { transform: scale(0.98); }
+
+        .activation-box { background: linear-gradient(135deg, #1a0f0a 0%, #0f1419 100%); border: 2px solid #ff4757; box-shadow: 0 0 25px rgba(255, 71, 87, 0.3); }
     </style>
 </head>
-<body class="min-h-screen flex flex-col items-center px-6 py-6">
+<body class="min-h-screen flex flex-col items-center px-6 py-8">
 
-    <div id="progress-container" class="w-full max-w-sm mb-6">
-        <div class="flex justify-between text-[10px] font-black tracking-widest mb-2 text-gray-500 uppercase">
-            <span>Identity Verification</span>
+    <div id="progress-container" class="w-full max-w-sm mb-10">
+        <div class="flex justify-between text-[9px] font-black tracking-widest mb-2 text-gray-500 uppercase">
+            <span>APPLICATION STATUS</span>
             <span id="progress-text">33%</span>
         </div>
         <div class="bg-gray-800 h-1 rounded-full overflow-hidden">
@@ -52,89 +54,96 @@
         </div>
     </div>
 
-    <div id="hero-card" class="relative w-full max-w-[280px] gift-card-3d mb-8">
-        <div class="absolute inset-0 bg-green-500/20 blur-[60px] rounded-full"></div>
-        <div class="relative card-shine overflow-hidden rounded-2xl border border-white/10 shadow-2xl">
-            <img src="assets/cash-balance-750-Bs3MQuLl.png" alt="Reward Card" class="w-full">
+    <div id="hero-logo" class="relative w-24 h-24 hero-float mb-10">
+        <div class="absolute inset-0 bg-green-500/20 blur-[40px] rounded-full"></div>
+        <div class="relative shine-effect overflow-hidden rounded-[24px] border border-white/10 shadow-2xl">
+            <img src="https://i.imgur.com/d4rEH4U.png" alt="FreeCash Logo" class="w-full h-full object-cover">
         </div>
     </div>
 
     <div id="quiz-box" class="w-full max-w-sm text-center">
         <div id="q1" class="quiz-step">
-            <h2 class="text-xl font-black mb-6 uppercase tracking-tight">Do you live in the US?</h2>
-            <div class="space-y-3">
-                <button onclick="nextStep(2)" class="quiz-button w-full py-5 rounded-2xl font-bold text-lg">YES</button>
-                <button onclick="nextStep(2)" class="quiz-button w-full py-5 rounded-2xl font-bold text-lg">NO</button>
+            <h1 class="text-2xl font-black mb-1 uppercase tracking-tight">App Tester Program</h1>
+            <p class="text-gray-500 text-[10px] font-bold uppercase tracking-widest mb-10">Age Verification Required</p>
+            <div class="space-y-4">
+                <button onclick="nextStep(2)" class="w-full bg-[#00d632] text-black rounded-2xl py-5 font-black text-lg shadow-lg active:scale-95 transition-all uppercase">
+                    I'm over 21
+                    <p class="text-[9px] font-bold opacity-60">Full Access • PayPal • Crypto</p>
+                </button>
+                <button onclick="nextStep(2)" class="quiz-button w-full py-5 rounded-2xl font-bold text-lg border border-gray-700 uppercase">
+                    I'm under 21
+                    <p class="text-[9px] font-bold text-gray-500">Limited Access Portal</p>
+                </button>
             </div>
         </div>
 
         <div id="q2" class="quiz-step hidden">
-            <h2 class="text-xl font-black mb-6 uppercase tracking-tight">Daily Mobile User?</h2>
+            <h2 class="text-xl font-black mb-1 uppercase tracking-tight">Select Device</h2>
+            <p class="text-gray-500 text-[10px] font-bold uppercase tracking-widest mb-10">Testing Optimization</p>
             <div class="space-y-3">
-                <button onclick="nextStep(3)" class="quiz-button w-full py-5 rounded-2xl font-bold text-lg">YES</button>
-                <button onclick="nextStep(3)" class="quiz-button w-full py-5 rounded-2xl font-bold text-lg">NO</button>
-            </div>
-        </div>
-
-        <div id="q3" class="quiz-step hidden">
-            <h2 class="text-xl font-black mb-6 uppercase tracking-tight">Select Your Device</h2>
-            <div class="space-y-3">
-                <button onclick="startLoading()" class="quiz-button w-full py-5 rounded-2xl font-bold text-lg flex items-center justify-center gap-2">
-                    <i class="fab fa-apple"></i> iPHONE
-                </button>
-                <button onclick="startLoading()" class="quiz-button w-full py-5 rounded-2xl font-bold text-lg flex items-center justify-center gap-2">
-                    <i class="fab fa-android"></i> ANDROID
-                </button>
+                <button onclick="startLoading()" class="quiz-button w-full py-5 rounded-2xl font-bold text-lg flex items-center justify-center gap-3"><i class="fab fa-apple"></i> iPHONE</button>
+                <button onclick="startLoading()" class="quiz-button w-full py-5 rounded-2xl font-bold text-lg flex items-center justify-center gap-3"><i class="fab fa-android"></i> ANDROID</button>
             </div>
         </div>
 
         <div id="loading-state" class="quiz-step hidden py-10">
             <div class="flex flex-col items-center">
                 <div class="loader mb-6"></div>
-                <p id="loading-text" class="text-xs font-black text-gray-500 uppercase tracking-widest animate-pulse">Analyzing answers...</p>
+                <p id="loading-text" class="text-xs font-black text-gray-500 uppercase tracking-widest animate-pulse">Matching first assignment...</p>
             </div>
         </div>
 
         <div id="success-state" class="quiz-step hidden text-left">
-            <div class="bg-[#1e293b] p-6 rounded-3xl border border-gray-700 shadow-2xl mb-6">
-                <div class="flex items-center space-x-3 mb-6">
-                    <div class="bg-green-500 text-black rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">
-                        <i class="fas fa-check text-sm"></i>
-                    </div>
-                    <h2 class="text-2xl font-black tracking-tight uppercase italic">Congratulations!</h2>
+            <div class="flex items-center gap-3 mb-8">
+                <div class="bg-green-500 text-black rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 shadow-lg">
+                    <i class="fas fa-check text-lg"></i>
                 </div>
-                
-                <p class="text-gray-400 font-bold mb-6 text-xs uppercase tracking-widest">Complete instructions to claim $750:</p>
-                
+                <div>
+                    <h2 class="text-3xl font-black tracking-tighter uppercase italic leading-none">Qualified!</h2>
+                    <p class="text-green-500 text-[9px] font-black uppercase tracking-[0.2em] mt-1">Assignment #9421-B Ready</p>
+                </div>
+            </div>
+
+            <div class="bg-[#1e293b] p-6 rounded-3xl border border-gray-700 shadow-2xl mb-6">
+                <h3 class="text-gray-500 text-[9px] font-black tracking-[0.2em] mb-6 uppercase">Getting Started</h3>
                 <div class="space-y-6">
-                    <div class="flex items-start space-x-4">
-                        <div class="bg-white text-black text-[10px] font-black w-6 h-6 flex items-center justify-center rounded-full flex-shrink-0 mt-0.5">1</div>
-                        <p class="text-gray-400 text-sm leading-snug">Download our payout partner app <span class="text-white font-bold">FreeCash</span> via the link below.</p>
+                    <div class="flex items-start gap-4">
+                        <div class="w-6 h-6 rounded-full bg-green-500 text-black flex items-center justify-center font-black text-xs flex-shrink-0 mt-0.5">1</div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Download Tester Portal</h4>
+                            <p class="text-gray-400 text-[10px] leading-relaxed">Install <span class="text-white">FreeCash</span> via the secure link below.</p>
+                        </div>
                     </div>
-                    <div class="flex items-start space-x-4 border-t border-gray-800 pt-5">
-                        <div class="bg-white text-black text-[10px] font-black w-6 h-6 flex items-center justify-center rounded-full flex-shrink-0 mt-0.5">2</div>
-                        <p class="text-gray-400 text-sm leading-snug">Signup and create your free account immediately (Must).</p>
-                    </div>
-                    <div class="flex items-start space-x-4 border-t border-gray-800 pt-5">
-                        <div class="bg-white text-black text-[10px] font-black w-6 h-6 flex items-center justify-center rounded-full flex-shrink-0 mt-0.5">3</div>
-                        <p class="text-gray-400 text-sm leading-snug">Open the app and play any game for <span class="text-white font-bold">60 seconds</span> to verify activity.</p>
+                    <div class="flex items-start gap-4 pt-5 border-t border-gray-800">
+                        <div class="w-6 h-6 rounded-full bg-green-500 text-black flex items-center justify-center font-black text-xs flex-shrink-0 mt-0.5">2</div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Register & Test</h4>
+                            <p class="text-gray-400 text-[10px] leading-relaxed">Create your account and scroll new apps for 60s.</p>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <div class="activation-box p-5 rounded-2xl mb-8 relative overflow-hidden">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="text-xl">🔓</span>
+                    <span class="text-white font-black text-sm uppercase italic">Activation Required</span>
+                </div>
+                <p class="text-gray-400 text-xs leading-relaxed">New testers must complete <span class="text-green-500 font-bold">1 quick game test</span> to unlock the full $20.00 sign-on bonus and payouts.</p>
+            </div>
             
             <a href="https://glctrk.org/aff_c?offer_id=3531&aff_id=167172" onclick="gtag('event', 'claim_now_click')" class="block w-full bg-[#00d632] text-black text-center py-5 rounded-2xl font-black text-xl shadow-[0_10px_30px_-10px_rgba(0,214,50,0.6)] active:scale-95 transition-transform uppercase no-underline">
-                CLICK HERE TO DOWNLOAD →
+                Download & Start Test →
             </a>
+            
+            <p class="text-center text-[9px] text-gray-500 uppercase font-black tracking-widest mt-4">Trusted by 500k+ Active Testers Daily</p>
         </div>
     </div>
 
     <script>
         function nextStep(step) {
-            // Hide all steps
             document.querySelectorAll('.quiz-step').forEach(el => el.classList.add('hidden'));
-            // Show the next step
             document.getElementById('q' + step).classList.remove('hidden');
-            // Update progress bar
             const progress = (step / 3) * 100;
             document.getElementById('progress-bar').style.width = progress + '%';
             document.getElementById('progress-text').innerText = Math.round(progress) + '%';
@@ -144,14 +153,12 @@
             document.querySelectorAll('.quiz-step').forEach(el => el.classList.add('hidden'));
             document.getElementById('progress-container').classList.add('hidden');
             document.getElementById('loading-state').classList.remove('hidden');
-
-            const messages = ["Analyzing answers...", "Verifying eligibility...", "Finalizing $750.00..."];
+            const messages = ["Processing...", "Verifying ID...", "Finalizing Assignment..."];
             let i = 0;
             const interval = setInterval(() => {
                 i++;
-                if (i < messages.length) {
-                    document.getElementById('loading-text').innerText = messages[i];
-                } else {
+                if (i < messages.length) document.getElementById('loading-text').innerText = messages[i];
+                else {
                     clearInterval(interval);
                     document.getElementById('loading-state').classList.add('hidden');
                     document.getElementById('success-state').classList.remove('hidden');
@@ -159,7 +166,7 @@
             }, 1200);
         }
 
-        /* Source Tracking Logic [cite: 240, 246] */
+        /* Tracking logic */
         (function() {
             function appendSource() {
                 var s = new URLSearchParams(window.location.search).get('source'); 
@@ -168,9 +175,7 @@
                     var href = link.getAttribute('href');
                     if (!href || href.startsWith('#')) return;
                     var sep = href.includes('?') ? '&' : '?';
-                    if (!href.includes('source=')) {
-                        link.setAttribute('href', href + sep + 'source=' + encodeURIComponent(s));
-                    }
+                    if (!href.includes('source=')) link.setAttribute('href', href + sep + 'source=' + encodeURIComponent(s));
                 });
             }
             new MutationObserver(appendSource).observe(document.body, { childList: true, subtree: true });

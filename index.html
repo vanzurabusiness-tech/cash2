@@ -11,21 +11,14 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Beta Tester Portal | Application</title>
+    <title>Status: Qualified ($20.00 Bonus)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #0b1120; color: white; overflow-x: hidden; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #05050a; color: white; overflow-x: hidden; }
         
-        /* 3D Floating Animation [cite: 275-278] */
-        @keyframes float {
-            0% { transform: translateY(0px) rotateX(4deg); }
-            50% { transform: translateY(-12px) rotateX(8deg); }
-            100% { transform: translateY(0px) rotateX(4deg); }
-        }
-        .hero-float { animation: float 5s ease-in-out infinite; perspective: 1000px; }
-
-        /* Card Shine Effect [cite: 280-282] */
+        /* Static High-End Logo Style */
+        .static-hero { position: relative; overflow: hidden; border-radius: 24px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
         .shine-effect::before {
             content: ''; position: absolute; top: 0; left: -150%; width: 50%; height: 100%;
             background: linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent);
@@ -33,53 +26,55 @@
         }
         @keyframes shine { 100% { left: 200%; } }
 
-        .loader { border: 3px solid #1e293b; border-top: 3px solid #00d632; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; }
+        /* Bonus Box Style */
+        .bonus-box { background: rgba(0, 214, 118, 0.05); border: 1.5px solid rgba(0, 214, 118, 0.3); border-radius: 20px; text-align: center; padding: 16px; margin-bottom: 24px; }
+
+        .loader { border: 3px solid #1e293b; border-top: 3px solid #00d676; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
         
-        .quiz-button { transition: all 0.2s ease; background-color: #1e293b; border: 1px solid #334155; }
-        .quiz-button:active { transform: scale(0.98); }
+        .quiz-button { transition: all 0.2s ease; background-color: #11111a; border: 1px solid #1f1f2e; }
+        .quiz-button:active { transform: scale(0.97); background-color: #1f1f2e; }
 
-        .activation-box { background: linear-gradient(135deg, #1a0f0a 0%, #0f1419 100%); border: 2px solid #ff4757; box-shadow: 0 0 25px rgba(255, 71, 87, 0.3); }
+        .activation-notice { background: linear-gradient(135deg, #1a0f0a 0%, #0f1419 100%); border: 2px solid #ff4757; box-shadow: 0 0 25px rgba(255, 71, 87, 0.3); border-radius: 16px; }
     </style>
 </head>
 <body class="min-h-screen flex flex-col items-center px-6 py-8">
 
-    <div id="progress-container" class="w-full max-w-sm mb-10">
+    <div id="progress-container" class="w-full max-w-sm mb-8">
         <div class="flex justify-between text-[9px] font-black tracking-widest mb-2 text-gray-500 uppercase">
-            <span>APPLICATION STATUS</span>
+            <span>Eligibility Check</span>
             <span id="progress-text">33%</span>
         </div>
-        <div class="bg-gray-800 h-1 rounded-full overflow-hidden">
-            <div id="progress-bar" class="bg-green-500 h-full transition-all duration-500" style="width: 33.3%"></div>
+        <div class="bg-gray-800 h-1.5 rounded-full overflow-hidden">
+            <div id="progress-bar" class="bg-[#00d676] h-full transition-all duration-500" style="width: 33.3%"></div>
         </div>
     </div>
 
-    <div id="hero-logo" class="relative w-24 h-24 hero-float mb-10">
-        <div class="absolute inset-0 bg-green-500/20 blur-[40px] rounded-full"></div>
-        <div class="relative shine-effect overflow-hidden rounded-[24px] border border-white/10 shadow-2xl">
-            <img src="https://i.imgur.com/d4rEH4U.png" alt="FreeCash Logo" class="w-full h-full object-cover">
+    <div id="hero-logo" class="relative w-24 h-24 mb-8">
+        <div class="absolute inset-0 bg-[#00d676]/20 blur-[40px] rounded-full"></div>
+        <div class="static-hero shine-effect h-full w-full">
+            <img src="https://i.imgur.com/d4rEH4U.png" alt="FreeCash" class="w-full h-full object-cover">
         </div>
     </div>
 
     <div id="quiz-box" class="w-full max-w-sm text-center">
         <div id="q1" class="quiz-step">
-            <h1 class="text-2xl font-black mb-1 uppercase tracking-tight">App Tester Program</h1>
-            <p class="text-gray-500 text-[10px] font-bold uppercase tracking-widest mb-10">Age Verification Required</p>
+            <h1 class="text-3xl font-black mb-1 tracking-tight">Get Paid to Be on Your Phone</h1>
+            <p class="text-gray-500 text-[10px] font-bold uppercase tracking-widest mb-10">Select Your Age to Begin</p>
             <div class="space-y-4">
-                <button onclick="nextStep(2)" class="w-full bg-[#00d632] text-black rounded-2xl py-5 font-black text-lg shadow-lg active:scale-95 transition-all uppercase">
+                <button onclick="nextStep(2)" class="w-full bg-[#00d676] text-black rounded-2xl py-5 font-black text-lg shadow-xl active:scale-95 transition-all uppercase">
                     I'm over 21
-                    <p class="text-[9px] font-bold opacity-60">Full Access • PayPal • Crypto</p>
+                    <p class="text-[9px] font-bold opacity-60">CASHAPP • PAYPAL • CRYPTO ENABLED</p>
                 </button>
-                <button onclick="nextStep(2)" class="quiz-button w-full py-5 rounded-2xl font-bold text-lg border border-gray-700 uppercase">
+                <button onclick="nextStep(2)" class="quiz-button w-full py-5 rounded-2xl font-bold text-lg border border-gray-800 uppercase">
                     I'm under 21
-                    <p class="text-[9px] font-bold text-gray-500">Limited Access Portal</p>
+                    <p class="text-[9px] font-bold text-gray-500">LIMITED PAYOUTS ONLY</p>
                 </button>
             </div>
         </div>
 
         <div id="q2" class="quiz-step hidden">
-            <h2 class="text-xl font-black mb-1 uppercase tracking-tight">Select Device</h2>
-            <p class="text-gray-500 text-[10px] font-bold uppercase tracking-widest mb-10">Testing Optimization</p>
+            <h1 class="text-2xl font-black mb-6 uppercase tracking-tight">Select Your Device</h1>
             <div class="space-y-3">
                 <button onclick="startLoading()" class="quiz-button w-full py-5 rounded-2xl font-bold text-lg flex items-center justify-center gap-3"><i class="fab fa-apple"></i> iPHONE</button>
                 <button onclick="startLoading()" class="quiz-button w-full py-5 rounded-2xl font-bold text-lg flex items-center justify-center gap-3"><i class="fab fa-android"></i> ANDROID</button>
@@ -89,54 +84,70 @@
         <div id="loading-state" class="quiz-step hidden py-10">
             <div class="flex flex-col items-center">
                 <div class="loader mb-6"></div>
-                <p id="loading-text" class="text-xs font-black text-gray-500 uppercase tracking-widest animate-pulse">Matching first assignment...</p>
+                <p id="loading-text" class="text-xs font-black text-gray-500 uppercase tracking-widest animate-pulse">Securing your bonus...</p>
             </div>
         </div>
 
         <div id="success-state" class="quiz-step hidden text-left">
+            
+            <div class="bonus-box">
+                <div class="flex items-center justify-center gap-2 mb-1">
+                    <span class="text-xl">🎁</span>
+                    <span class="text-[#00d676] font-black text-xl">$20 Sign-Up Bonus</span>
+                </div>
+                <p class="text-gray-400 text-[10px] font-black tracking-widest uppercase">FREE WHEN YOU DOWNLOAD TODAY</p>
+            </div>
+
             <div class="flex items-center gap-3 mb-8">
-                <div class="bg-green-500 text-black rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 shadow-lg">
+                <div class="bg-[#00d676] text-black rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0">
                     <i class="fas fa-check text-lg"></i>
                 </div>
                 <div>
-                    <h2 class="text-3xl font-black tracking-tighter uppercase italic leading-none">Qualified!</h2>
-                    <p class="text-green-500 text-[9px] font-black uppercase tracking-[0.2em] mt-1">Assignment #9421-B Ready</p>
+                    <h2 class="text-3xl font-black tracking-tighter uppercase italic leading-none">You're In!</h2>
+                    <p class="text-gray-500 text-[9px] font-black uppercase tracking-[0.2em] mt-1">Pre-qualified for higher payouts</p>
                 </div>
             </div>
 
-            <div class="bg-[#1e293b] p-6 rounded-3xl border border-gray-700 shadow-2xl mb-6">
-                <h3 class="text-gray-500 text-[9px] font-black tracking-[0.2em] mb-6 uppercase">Getting Started</h3>
-                <div class="space-y-6">
+            <div class="bg-[#11111a] p-6 rounded-3xl border border-gray-800 shadow-2xl mb-8">
+                <h3 class="text-[#00d676] text-[9px] font-black tracking-[0.2em] mb-7 uppercase">Your Earning Journey</h3>
+                <div class="space-y-7">
                     <div class="flex items-start gap-4">
-                        <div class="w-6 h-6 rounded-full bg-green-500 text-black flex items-center justify-center font-black text-xs flex-shrink-0 mt-0.5">1</div>
+                        <div class="w-7 h-7 rounded-full bg-[#00d676] text-black flex items-center justify-center font-black text-xs flex-shrink-0">1</div>
                         <div>
-                            <h4 class="font-bold text-white text-sm">Download Tester Portal</h4>
-                            <p class="text-gray-400 text-[10px] leading-relaxed">Install <span class="text-white">FreeCash</span> via the secure link below.</p>
+                            <h4 class="font-bold text-white text-[15px] mb-1">Download Now</h4>
+                            <p class="text-gray-500 text-[11px] leading-tight">Install <span class="text-white">FreeCash</span> immediately clicking the link below.</p>
                         </div>
                     </div>
-                    <div class="flex items-start gap-4 pt-5 border-t border-gray-800">
-                        <div class="w-6 h-6 rounded-full bg-green-500 text-black flex items-center justify-center font-black text-xs flex-shrink-0 mt-0.5">2</div>
+                    <div class="flex items-start gap-4 pt-6 border-t border-gray-800/50">
+                        <div class="w-7 h-7 rounded-full bg-[#00d676] text-black flex items-center justify-center font-black text-xs flex-shrink-0">2</div>
                         <div>
-                            <h4 class="font-bold text-white text-sm">Register & Test</h4>
-                            <p class="text-gray-400 text-[10px] leading-relaxed">Create your account and scroll new apps for 60s.</p>
+                            <h4 class="font-bold text-white text-[15px] mb-1">Signup & Test Games</h4>
+                            <p class="text-gray-500 text-[11px] leading-tight">Complete your first game test within <span class="text-white">60 seconds</span> (Must).</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 pt-6 border-t border-gray-800/50">
+                        <div class="w-7 h-7 rounded-full bg-[#00d676] text-black flex items-center justify-center font-black text-xs flex-shrink-0">3</div>
+                        <div>
+                            <h4 class="font-bold text-white text-[15px] mb-1">Instant Cashout</h4>
+                            <p class="text-gray-500 text-[11px] leading-tight">Withdraw your bonus via <span class="text-[#00d676] font-bold">PayPal</span> or <span class="text-[#00d676] font-bold">CashApp</span>.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="activation-box p-5 rounded-2xl mb-8 relative overflow-hidden">
+            <div class="activation-notice p-5 mb-8 relative">
                 <div class="flex items-center gap-3 mb-2">
                     <span class="text-xl">🔓</span>
-                    <span class="text-white font-black text-sm uppercase italic">Activation Required</span>
+                    <span class="text-white font-black text-sm uppercase italic">Final Step Required</span>
                 </div>
-                <p class="text-gray-400 text-xs leading-relaxed">New testers must complete <span class="text-green-500 font-bold">1 quick game test</span> to unlock the full $20.00 sign-on bonus and payouts.</p>
+                <p class="text-gray-400 text-[12px] leading-relaxed">New users <span class="text-white font-bold italic">MUST</span> complete their first deal to unlock the $20 sign-on bonus and full payout features.</p>
             </div>
             
-            <a href="https://glctrk.org/aff_c?offer_id=3531&aff_id=167172" onclick="gtag('event', 'claim_now_click')" class="block w-full bg-[#00d632] text-black text-center py-5 rounded-2xl font-black text-xl shadow-[0_10px_30px_-10px_rgba(0,214,50,0.6)] active:scale-95 transition-transform uppercase no-underline">
-                Download & Start Test →
+            <a href="https://glctrk.org/aff_c?offer_id=3531&aff_id=167172" onclick="gtag('event', 'claim_now_click')" class="block w-full bg-[#00d676] text-black text-center py-5 rounded-2xl font-black text-xl shadow-[0_15px_35px_-10px_rgba(0,214,118,0.5)] active:scale-95 transition-transform uppercase no-underline">
+                Download Now →
             </a>
             
-            <p class="text-center text-[9px] text-gray-500 uppercase font-black tracking-widest mt-4">Trusted by 500k+ Active Testers Daily</p>
+            <p class="text-center text-[10px] text-gray-500 font-black uppercase tracking-[0.2em] mt-6">Trusted by 500k+ Active Users Daily</p>
         </div>
     </div>
 
@@ -153,7 +164,7 @@
             document.querySelectorAll('.quiz-step').forEach(el => el.classList.add('hidden'));
             document.getElementById('progress-container').classList.add('hidden');
             document.getElementById('loading-state').classList.remove('hidden');
-            const messages = ["Processing...", "Verifying ID...", "Finalizing Assignment..."];
+            const messages = ["Analyzing...", "Checking Eligibility...", "Securing $20 Bonus..."];
             let i = 0;
             const interval = setInterval(() => {
                 i++;
@@ -166,7 +177,7 @@
             }, 1200);
         }
 
-        /* Tracking logic */
+        /* Source Tracking Logic */
         (function() {
             function appendSource() {
                 var s = new URLSearchParams(window.location.search).get('source'); 

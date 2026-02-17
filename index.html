@@ -11,162 +11,227 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Get Paid to Be on Your Phone</title>
+    <title>Verified Partnership - Earn Rewards</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+    
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #05050a; color: white; overflow-x: hidden; }
-        
-        .static-hero { position: relative; overflow: hidden; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        .shine-effect::before {
-            content: ''; position: absolute; top: 0; left: -150%; width: 50%; height: 100%;
-            background: linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent);
-            transform: skewX(-25deg); animation: shine 4s infinite;
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #050505; 
+            color: white; 
+            -webkit-font-smoothing: antialiased;
         }
-        @keyframes shine { 100% { left: 200%; } }
 
-        /* Optimized Bonus Box */
-        .bonus-box { background: rgba(18, 18, 22, 0.8); border: 2px solid rgba(0, 214, 118, 0.4); border-radius: 24px; text-align: center; padding: 20px 16px; margin-bottom: 32px; }
+        /* The Neon Green from your video */
+        .text-neon { color: #25F496; }
+        .bg-neon { background-color: #25F496; }
+        .border-neon { border-color: #25F496; }
+        .shadow-neon { box-shadow: 0 0 20px rgba(37, 244, 150, 0.15); }
 
-        .payout-btn-primary { background-color: #00d676; color: #000; transition: all 0.2s; box-shadow: 0 8px 25px rgba(0, 214, 118, 0.3); }
-        .payout-btn-primary:active { transform: scale(0.96); }
-        .payout-btn-secondary { background-color: #11111a; border: 1px solid #1f1f2e; color: #fff; }
+        /* Card Styling */
+        .step-card {
+            background-color: #121212;
+            border: 1px solid #222;
+            border-radius: 20px;
+            padding: 24px;
+            margin-bottom: 16px;
+            transition: transform 0.2s ease;
+        }
+        
+        .step-circle {
+            width: 32px;
+            height: 32px;
+            background-color: #25F496;
+            color: black;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
 
-        .loader { border: 4px solid #1e293b; border-top: 4px solid #00d676; border-radius: 50%; width: 44px; height: 44px; animation: spin 0.8s linear infinite; }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        /* Button Styles */
+        .btn-primary {
+            background-color: #25F496;
+            color: #000;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            padding: 12px 24px;
+            border-radius: 12px;
+            width: 100%;
+            display: block;
+            text-align: center;
+            margin-top: 16px;
+            transition: all 0.2s;
+        }
+        .btn-primary:active { transform: scale(0.98); opacity: 0.9; }
 
-        .journey-card { background: #0E0E14; border: 1px solid #1a1a27; border-radius: 24px; overflow: hidden; }
-        .journey-step { border-bottom: 1px solid #1a1a27; padding: 18px 20px; display: flex; gap: 16px; align-items: flex-start; }
-        .journey-step:last-child { border-bottom: none; }
-        .step-circle { background: #00d676; color: #000; width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 13px; }
+        .btn-outline {
+            background: transparent;
+            border: 1px solid #25F496;
+            color: #25F496;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 12px;
+            padding: 10px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 12px;
+        }
+
+        /* Verified Badge */
+        .verified-badge {
+            background: rgba(37, 244, 150, 0.1);
+            border: 1px solid rgba(37, 244, 150, 0.3);
+            color: #25F496;
+            padding: 6px 12px;
+            border-radius: 100px;
+            font-size: 11px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 24px;
+        }
+
+        .earning-pill {
+            background: #1A1A1A;
+            border: 1px solid #333;
+            border-radius: 100px;
+            padding: 8px 16px;
+            font-size: 13px;
+            color: #ccc;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 12px;
+        }
     </style>
 </head>
-<body class="min-h-screen flex flex-col items-center px-6 py-10">
+<body class="flex flex-col min-h-screen px-5 py-8 max-w-md mx-auto">
 
-    <div id="quiz-box" class="w-full max-w-sm text-center">
-        <div id="q1" class="quiz-step-content flex flex-col items-center">
-            <div class="w-[80px] h-[80px] mb-8 static-hero shine-effect">
-                <img src="https://i.imgur.com/d4rEH4U.png" alt="FreeCash" class="w-full h-full object-cover rounded-2xl">
-            </div>
+    <div class="text-center mb-8">
+        <div class="verified-badge">
+            <div class="w-2 h-2 rounded-full bg-neon animate-pulse"></div>
+            Verified Partnership
+        </div>
 
-            <h1 class="text-[42px] leading-[1.05] font-black mb-5 tracking-tighter">Get Paid to Be on Your Phone</h1>
-            <p class="text-gray-400 text-[14px] leading-relaxed mb-8 px-4 opacity-80">Join thousands earning daily rewards and cashing out instantly to your preferred wallet.</p>
-
-            <div class="bonus-box w-full shadow-[0_0_30px_rgba(0,214,118,0.1)]">
-                <div class="flex items-center justify-center gap-3 mb-1">
-                    <span class="text-2xl">🎁</span>
-                    <span class="text-[#00d676] font-black text-2xl">$20 Sign-Up Bonus</span>
-                </div>
-                <p class="text-gray-500 text-[10px] font-black tracking-widest uppercase">LOCKED FOR NEW USERS TODAY</p>
-            </div>
-
-            <div class="w-full space-y-4">
-                <button onclick="startLoading()" class="payout-btn-primary w-full py-6 rounded-[28px] font-black text-xl uppercase tracking-tight">
-                    ACTIVATE (OVER 21)
-                    <p class="text-[9px] font-bold mt-1 opacity-70">Instant CashApp & PayPal Enabled</p>
-                </button>
-                <button onclick="startLoading()" class="payout-btn-secondary w-full py-6 rounded-[28px] font-black text-xl uppercase opacity-30">
-                    I'm under 21
-                </button>
+        <div class="flex items-center justify-center gap-4 mb-6 opacity-90">
+            <i class="fa-brands fa-tiktok text-2xl text-white"></i>
+            <span class="text-gray-600 text-xs font-bold">X</span>
+            <div class="flex items-center gap-1 font-bold text-xl tracking-tight">
+                <span class="text-neon">$</span>FreeCash
             </div>
         </div>
 
-        <div id="loading-state" class="hidden py-24">
-            <div class="flex flex-col items-center">
-                <div class="loader mb-10"></div>
-                <p class="text-[10px] font-black text-[#00d676] uppercase tracking-[0.25em] animate-pulse">Securing $20.00 Bonus...</p>
+        <h1 class="text-4xl font-black tracking-tighter leading-[0.95] mb-3">
+            Get paid to <br>
+            <span class="text-neon">scroll TikTok</span>
+        </h1>
+        <p class="text-gray-400 text-sm font-medium leading-relaxed">
+            Turn your screen time into cash. <br> Complete the setup below to start.
+        </p>
+
+        <div class="earning-pill">
+            Earn up to <span class="text-neon font-bold">$1,500/week</span>
+            <i class="fas fa-info-circle text-gray-600 text-xs"></i>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <p class="text-xs font-bold text-gray-500 uppercase tracking-widest text-center mb-5">How to Start</p>
+
+        <div class="step-card shadow-neon relative overflow-hidden">
+            <div class="flex gap-4">
+                <div class="step-circle">1</div>
+                <div>
+                    <h3 class="font-bold text-lg leading-tight">Confirm Eligibility</h3>
+                    <p class="text-gray-400 text-xs mt-1">Must be 21+ to participate.</p>
+                </div>
             </div>
+            <button onclick="markComplete(this, 'step2')" class="btn-primary">
+                I Am 21 Or Older
+            </button>
         </div>
 
-        <div id="success-state" class="hidden text-center">
-            <div class="w-[60px] h-[60px] mx-auto mb-8 static-hero">
-                <img src="https://i.imgur.com/d4rEH4U.png" alt="Logo" class="w-full h-full object-cover rounded-2xl">
-            </div>
-
-            <div class="flex items-center justify-center gap-4 mb-5">
-                <div class="bg-[#00d676] text-black rounded-full w-10 h-10 flex items-center justify-center shadow-[0_0_25px_rgba(0,214,118,0.4)]">
-                    <i class="fas fa-check text-lg"></i>
+        <div id="step2" class="step-card opacity-50 pointer-events-none transition-all duration-300">
+            <div class="flex gap-4">
+                <div class="step-circle bg-gray-700 text-white">2</div>
+                <div>
+                    <h3 class="font-bold text-lg leading-tight">Download the App</h3>
+                    <p class="text-gray-400 text-xs mt-1">Install FreeCash & get <span class="text-neon font-bold">$5 instantly.</span></p>
                 </div>
-                <h2 class="text-[48px] font-black tracking-tighter uppercase italic leading-none">You're In!</h2>
             </div>
-
-            <p class="text-gray-400 text-[14px] leading-relaxed mb-8 px-2">Account pre-qualified. Download and register below to activate your <span class="text-[#00d676] font-bold">$20.00 bonus</span>.</p>
-
-            <a href="https://glctrk.org/aff_c?offer_id=3531&aff_id=167172" onclick="gtag('event', 'claim_now_click')" class="payout-btn-primary block w-full py-5 rounded-[24px] font-black text-xl shadow-[0_15px_30px_-5px_rgba(0,214,118,0.4)] transition-transform active:scale-95 no-underline mb-4">
-                CLAIM $20 BONUS NOW →
+            <a href="https://glctrk.org/aff_c?offer_id=3531&aff_id=167172" target="_blank" onclick="unlockStep3()" class="btn-outline w-full text-center no-underline">
+                FREE DOWNLOAD
             </a>
-            <p class="text-gray-500 text-[11px] font-bold mb-10 italic">Users earn <span class="text-[#00d676]">$50+</span> after completing the first deal</p>
+        </div>
 
-         <div class="journey-card text-left mb-10 shadow-2xl">
-    <div class="text-center py-4 bg-white/5">
-        <h3 class="text-[#00d676] text-[10px] font-black tracking-[0.2em] uppercase">Earning Assignment</h3>
-    </div>
-    
-    <div class="journey-step">
-        <div class="step-circle">1</div>
-        <div>
-            <b class="text-white text-[15px]">Confirm Eligibility</b>
-            <p class="text-gray-500 text-[12px] leading-tight mt-1">Make sure you are older than 21 to access rewards.</p>
+        <div id="step3" class="step-card opacity-50 pointer-events-none transition-all duration-300">
+            <div class="flex gap-4">
+                <div class="step-circle bg-gray-700 text-white">3</div>
+                <div>
+                    <h3 class="font-bold text-lg leading-tight">Sign Up & Unlock</h3>
+                    <p class="text-gray-400 text-xs mt-1">Create account & complete <span class="text-white font-bold">1 offer</span> to unlock "Scroll & Earn".</p>
+                </div>
+            </div>
+            <a href="https://glctrk.org/aff_c?offer_id=3531&aff_id=167172" class="btn-primary mt-4 no-underline">
+                START EARNING
+            </a>
         </div>
     </div>
-    
-    <div class="journey-step">
-        <div class="step-circle">2</div>
-        <div>
-            <b class="text-white text-[15px]">Install FreeCash (Get $5)</b>
-            <p class="text-gray-500 text-[12px] leading-tight mt-1">Download and register to claim your <span class="text-[#00d676] font-bold">$5 sign-up bonus</span>.</p>
-        </div>
-    </div>
-    
-    <div class="journey-step">
-        <div class="step-circle">3</div>
-        <div>
-            <b class="text-white text-[15px]">Unlock Scroll Offer</b>
-            <p class="text-gray-500 text-[12px] leading-tight mt-1">Complete one simple task on the app to release the final reward.</p>
-        </div>
-    </div>
-</div>
 
-            <p class="text-gray-600 text-[10px] font-black uppercase tracking-widest pb-10 opacity-50">Secure Connection Verified</p>
+    <div class="mt-4 text-center pb-8 border-t border-gray-900 pt-6">
+        <div class="flex items-center justify-center gap-1 text-neon text-xs mb-2">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+        <p class="text-gray-500 text-xs font-bold mb-1">4.8 • 251k Reviews</p>
+        <p class="text-gray-600 text-[10px] uppercase tracking-wider">iOS & Android • No Credit Card Required</p>
+        
+        <div class="flex justify-center gap-4 mt-6 opacity-40">
+            <i class="fab fa-apple text-2xl"></i>
+            <i class="fab fa-android text-2xl"></i>
+            <i class="fab fa-paypal text-2xl"></i>
         </div>
     </div>
 
     <script>
-        function startLoading() {
-            document.getElementById('q1').classList.add('hidden');
-            document.getElementById('loading-state').classList.remove('hidden');
+        // Simple script to handle the "Flow" without loading screens
+        function markComplete(btn, nextStepId) {
+            // Change button to checked state
+            btn.innerHTML = '<i class="fas fa-check"></i> Verified';
+            btn.classList.remove('btn-primary');
+            btn.classList.add('bg-gray-800', 'text-gray-400', 'cursor-default');
+            btn.onclick = null; // Disable click
 
-            const messages = ["Analyzing Account...", "Checking Device...", "Securing Bonus..."];
-            let i = 0;
-            // Shortened interval to 600ms for rapid transition
-            const interval = setInterval(() => {
-                i++;
-                if (i < messages.length) {
-                    document.querySelector('#loading-state p').innerText = messages[i];
-                } else {
-                    clearInterval(interval);
-                    document.getElementById('loading-state').classList.add('hidden');
-                    document.getElementById('success-state').classList.remove('hidden');
-                }
-            }, 600);
+            // Highlight Step 1 Icon
+            btn.parentElement.querySelector('.step-circle').innerHTML = '<i class="fas fa-check"></i>';
+
+            // Unlock Next Step
+            const nextStep = document.getElementById(nextStepId);
+            nextStep.classList.remove('opacity-50', 'pointer-events-none');
+            nextStep.querySelector('.step-circle').classList.remove('bg-gray-700', 'text-white');
+            nextStep.querySelector('.step-circle').classList.add('bg-neon', 'text-black');
+            
+            // Auto scroll slightly
+            nextStep.scrollIntoView({behavior: 'smooth', block: 'center'});
         }
 
-        /* Source Tracking Script */
-        (function() {
-            function appendSource() {
-                var s = new URLSearchParams(window.location.search).get('source'); 
-                if (!s) return;
-                document.querySelectorAll('a').forEach(function(link) {
-                    var href = link.getAttribute('href');
-                    if (!href || href.startsWith('#')) return;
-                    var sep = href.includes('?') ? '&' : '?';
-                    if (!href.includes('source=')) link.setAttribute('href', href + sep + 'source=' + encodeURIComponent(s));
-                });
-            }
-            new MutationObserver(appendSource).observe(document.body, { childList: true, subtree: true });
-            appendSource(); 
-        })();
+        function unlockStep3() {
+            // Wait 2 seconds (simulating them going to app store) then unlock step 3
+            setTimeout(() => {
+                const step3 = document.getElementById('step3');
+                step3.classList.remove('opacity-50', 'pointer-events-none');
+                step3.querySelector('.step-circle').classList.remove('bg-gray-700', 'text-white');
+                step3.querySelector('.step-circle').classList.add('bg-neon', 'text-black');
+            }, 3000);
+        }
     </script>
 </body>
 </html>
-

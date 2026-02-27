@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <title>FreeCash | Get Paid to Scroll</title>
 <meta name="description" content="Turn screen time into real money">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='10' fill='%23000'/%3E%3Cpath d='M34.1 16.98a11.09 11.09 0 01-6.52-2.1v9.59a9.24 9.24 0 11-8.76 6.47 9.24 9.24 0 012.99-12.23v5.12a4.35 4.35 0 102.2 3.78V8.4h4.88a6.37 6.37 0 006.52 5.78v2.8h-1.31z' fill='%2325F4EE'/%3E%3Cpath d='M35.2 17.88a11.09 11.09 0 01-6.52-2.1v9.59a9.24 9.24 0 11-8.76 6.47 9.24 9.24 0 012.99-12.23v5.12a4.35 4.35 0 102.2 3.78V9.3h4.88a6.37 6.37 0 006.52 5.78v2.8h-1.31z' fill='%23FE2C55'/%3E%3Cpath d='M34.65 17.43a11.09 11.09 0 01-6.52-2.1v9.59a9.24 9.24 0 11-8.76 6.47 9.24 9.24 0 012.99-12.23v5.12a4.35 4.35 0 102.2 3.78V8.85h4.88a6.37 6.37 0 006.52 5.78v2.8h-1.31z' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='10' fill='%23000'/%3E%3Cpath d='M34.1 16.98a11.09 11.09 0 01-6.52-2.1v9.59a9.24 9.24 0 11-8.76 6.47 9.24 9.24 0 012.99-12.23v5.12a4.35 4.35 0 102.2 3.78V8.4h4.88a6.37 6.37 0 006.52 5.78v2.8h-1.31z' fill='%2300f26d'/%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:title" content="FreeCash">
 <meta property="og:description" content="Get Paid to Scroll">
@@ -19,10 +19,9 @@
   --card:#131316;--card2:#1a1a1e;
   --b1:rgba(255,255,255,.06);--b2:rgba(255,255,255,.1);
   --t1:#ffffff;--t2:#b3b3b8;--t3:#6e6e76;
-  --pink:#fe2c55;--cyan:#25f4ee;--purple:#b44aff;
-  --pink-g:linear-gradient(135deg,#fe2c55,#ff6b8a);
-  --cyan-g:linear-gradient(135deg,#25f4ee,#69f7f0);
-  --mix-g:linear-gradient(135deg,#fe2c55,#b44aff,#25f4ee);
+  --green:#00f26d;--green-dark:#00c458;
+  --green-g:linear-gradient(135deg,#00f26d,#00c458);
+  --mix-g:linear-gradient(135deg,#00f26d,#ffffff);
   --head:'DM Sans',system-ui,-apple-system,sans-serif;
   --body:'DM Sans',system-ui,-apple-system,sans-serif;
   --ease:cubic-bezier(.22,1,.36,1);
@@ -37,9 +36,9 @@ body{font-family:var(--body);background:var(--bg);color:var(--t1);min-height:100
 /* ── Background ── */
 .bg-fx{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
 .bg-blob{position:absolute;border-radius:50%;will-change:transform}
-.bg-blob-1{width:320px;height:320px;background:radial-gradient(circle,rgba(254,44,85,.15) 0%,transparent 70%);top:-100px;right:-60px;animation:blobFloat1 8s ease-in-out infinite}
-.bg-blob-2{width:280px;height:280px;background:radial-gradient(circle,rgba(37,244,238,.1) 0%,transparent 70%);bottom:18%;left:-80px;animation:blobFloat2 10s ease-in-out infinite}
-.bg-blob-3{width:220px;height:220px;background:radial-gradient(circle,rgba(180,74,255,.08) 0%,transparent 70%);top:38%;right:-40px;animation:blobFloat3 12s ease-in-out infinite}
+.bg-blob-1{width:320px;height:320px;background:radial-gradient(circle,rgba(0,242,109,.12) 0%,transparent 70%);top:-100px;right:-60px;animation:blobFloat1 8s ease-in-out infinite}
+.bg-blob-2{width:280px;height:280px;background:radial-gradient(circle,rgba(255,255,255,.05) 0%,transparent 70%);bottom:18%;left:-80px;animation:blobFloat2 10s ease-in-out infinite}
+.bg-blob-3{width:220px;height:220px;background:radial-gradient(circle,rgba(0,242,109,.08) 0%,transparent 70%);top:38%;right:-40px;animation:blobFloat3 12s ease-in-out infinite}
 @keyframes blobFloat1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-30px,40px) scale(1.1)}}
 @keyframes blobFloat2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(20px,-30px) scale(1.08)}}
 @keyframes blobFloat3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-20px,20px) scale(1.05)}}
@@ -61,16 +60,16 @@ body{font-family:var(--body);background:var(--bg);color:var(--t1);min-height:100
 
 /* ── Header ── */
 .hdr{display:flex;align-items:center;gap:12px;padding:16px 0 24px}
-.hdr-logo{width:44px;height:44px;border-radius:var(--radius-sm);overflow:hidden;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.hdr-logo{width:44px;height:44px;border-radius:var(--radius-sm);overflow:hidden;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.3);background:#000;display:flex;align-items:center;justify-content:center;border:1px solid var(--b1)}
 .hdr-logo img{width:100%;height:100%;object-fit:cover;display:block}
 .hdr-info{flex:1;min-width:0}
 .hdr-name{font-family:var(--head);font-size:1rem;font-weight:700;letter-spacing:-.02em}
 .hdr-tag{font-size:.75rem;color:var(--t3);display:flex;align-items:center;gap:4px;font-weight:500}
-.hdr-tag svg{width:13px;height:13px;fill:var(--cyan)}
+.hdr-tag svg{width:13px;height:13px;fill:var(--green)}
 
-.live-pill{display:flex;align-items:center;gap:5px;background:rgba(254,44,85,.06);border:1px solid rgba(254,44,85,.12);border-radius:100px;padding:6px 10px 6px 8px;flex-shrink:0;margin-left:auto}
-.live-dot{width:6px;height:6px;border-radius:50%;background:var(--pink);animation:liveDot 1.5s ease-in-out infinite;flex-shrink:0}
-.live-pill span{font-size:.6875rem;font-weight:600;color:var(--pink);letter-spacing:.01em;white-space:nowrap}
+.live-pill{display:flex;align-items:center;gap:5px;background:rgba(0,242,109,.06);border:1px solid rgba(0,242,109,.15);border-radius:100px;padding:6px 10px 6px 8px;flex-shrink:0;margin-left:auto}
+.live-dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:liveDot 1.5s ease-in-out infinite;flex-shrink:0}
+.live-pill span{font-size:.6875rem;font-weight:600;color:var(--green);letter-spacing:.01em;white-space:nowrap}
 
 /* ── Hero ── */
 .hero{text-align:center;margin-bottom:24px}
@@ -83,8 +82,8 @@ body{font-family:var(--body);background:var(--bg);color:var(--t1);min-height:100
 .earn-hl{display:flex;align-items:stretch;gap:1px;margin:0 auto 28px;background:var(--b1);border-radius:var(--radius-lg);overflow:hidden;max-width:320px}
 .earn-hl-block{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px 12px;background:var(--card)}
 .earn-hl-val{font-family:var(--head);font-size:1.75rem;font-weight:900;letter-spacing:-.04em;line-height:1}
-.earn-hl-block:nth-child(1) .earn-hl-val{background:var(--cyan-g);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.earn-hl-block:nth-child(2) .earn-hl-val{background:var(--pink-g);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.earn-hl-block:nth-child(1) .earn-hl-val{background:var(--green-g);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.earn-hl-block:nth-child(2) .earn-hl-val{color:var(--t1)}
 .earn-hl-label{font-family:var(--head);font-size:.6875rem;font-weight:600;color:var(--t3);margin-top:4px;text-align:center;line-height:1.3}
 
 /* ── Steps ── */
@@ -92,19 +91,9 @@ body{font-family:var(--body);background:var(--bg);color:var(--t1);min-height:100
 .steps{display:flex;flex-direction:column;gap:0;margin-bottom:28px;position:relative;padding:0 4px}
 .step{display:flex;align-items:center;gap:14px;position:relative;z-index:2;padding:10px 16px}
 .step-left{position:relative;display:flex;align-items:center;justify-content:center;flex-shrink:0;width:38px;height:38px}
-.step-num{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--head);font-size:.875rem;font-weight:800;position:relative;z-index:2}
-.step:nth-child(1) .step-num{background:var(--pink);color:#fff;box-shadow:0 0 16px rgba(254,44,85,.3)}
-.step:nth-child(2) .step-num{background:#ff6b8a;color:#fff;box-shadow:0 0 16px rgba(255,107,138,.25)}
-.step:nth-child(3) .step-num{background:var(--cyan);color:var(--bg);box-shadow:0 0 16px rgba(37,244,238,.3)}
-.step:nth-child(4) .step-num{background:var(--purple);color:#fff;box-shadow:0 0 16px rgba(180,74,255,.3)}
-.step:not(:last-child)::before{content:'';position:absolute;left:calc(16px + 19px);top:50%;width:2px;height:calc(50% + 10px);z-index:1;transform:translateX(-50%)}
-.step:not(:first-child)::after{content:'';position:absolute;left:calc(16px + 19px);bottom:50%;width:2px;height:calc(50% + 10px);z-index:1;transform:translateX(-50%)}
-.step:nth-child(1)::before{background:linear-gradient(to bottom,var(--pink),#ff6b8a)}
-.step:nth-child(2)::after{background:#ff6b8a}
-.step:nth-child(2)::before{background:linear-gradient(to bottom,#ff6b8a,var(--cyan))}
-.step:nth-child(3)::after{background:var(--cyan)}
-.step:nth-child(3)::before{background:linear-gradient(to bottom,var(--cyan),var(--purple))}
-.step:nth-child(4)::after{background:var(--purple)}
+.step-num{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--head);font-size:.875rem;font-weight:800;position:relative;z-index:2;background:var(--card2);border:1px solid var(--b2);color:var(--t1)}
+.step:nth-child(1) .step-num{background:var(--green);color:var(--bg);border:none;box-shadow:0 0 16px rgba(0,242,109,.3)}
+.step:not(:last-child)::before{content:'';position:absolute;left:calc(16px + 19px);top:50%;width:2px;height:calc(50% + 10px);z-index:1;transform:translateX(-50%);background:var(--b2)}
 .step-line{display:none}
 .step-content{flex:1;min-width:0}
 .step-title{font-family:var(--head);font-size:.9375rem;font-weight:700;letter-spacing:-.02em;color:var(--t1);line-height:1.3}
@@ -122,21 +111,21 @@ body{font-family:var(--body);background:var(--bg);color:var(--t1);min-height:100
 .rev-name{font-family:var(--head);font-size:.8125rem;font-weight:700;letter-spacing:-.01em}
 .rev-time{font-size:.6875rem;color:var(--t3);font-weight:400;margin-top:1px}
 .rev-stars{display:flex;gap:1px}
-.rev-stars svg{width:13px;height:13px;fill:#facc15}
+.rev-stars svg{width:13px;height:13px;fill:var(--green)}
 .rev-text{font-size:.8125rem;color:var(--t2);line-height:1.65;font-weight:400}
 .rev-text strong{color:var(--t1);font-weight:600}
 
 /* ── Trust Bar ── */
 .trust{display:flex;align-items:center;justify-content:center;gap:6px;padding:14px 0;margin-bottom:8px}
-.trust svg{width:14px;height:14px;fill:#facc15}
+.trust svg{width:14px;height:14px;fill:var(--green)}
 .trust span{font-size:.8125rem;color:var(--t3);font-weight:500}
 .trust b{color:var(--t1);font-weight:700}
 
 /* ── CTA Dock ── */
 .dock{position:fixed;bottom:0;left:0;right:0;z-index:100;padding:16px 20px calc(16px + env(safe-area-inset-bottom,0px));display:flex;justify-content:center;pointer-events:none;background:linear-gradient(to top,var(--bg) 60%,transparent)}
 .dock-inner{width:100%;max-width:420px;pointer-events:auto}
-.cta{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:17px 24px;border:none;border-radius:var(--radius-md);font-family:var(--head);font-size:1rem;font-weight:800;color:var(--bg);cursor:pointer;text-decoration:none;background:var(--cyan);position:relative;letter-spacing:-.02em;transition:transform .15s,box-shadow .2s;box-shadow:0 4px 20px rgba(37,244,238,.2),0 8px 32px rgba(0,0,0,.4);min-height:56px}
-.cta:hover{transform:translateY(-1px);box-shadow:0 6px 28px rgba(37,244,238,.3),0 8px 32px rgba(0,0,0,.4)}
+.cta{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:17px 24px;border:none;border-radius:var(--radius-md);font-family:var(--head);font-size:1rem;font-weight:800;color:var(--bg);cursor:pointer;text-decoration:none;background:var(--green);position:relative;letter-spacing:-.02em;transition:transform .15s,box-shadow .2s;box-shadow:0 4px 20px rgba(0,242,109,.2),0 8px 32px rgba(0,0,0,.4);min-height:56px}
+.cta:hover{transform:translateY(-1px);box-shadow:0 6px 28px rgba(0,242,109,.3),0 8px 32px rgba(0,0,0,.4)}
 .cta:active{transform:scale(.97)}
 .cta svg{width:16px;height:16px;flex-shrink:0;transition:transform .25s var(--ease)}
 .cta:hover svg{transform:translateX(3px)}
@@ -196,8 +185,8 @@ body{font-family:var(--body);background:var(--bg);color:var(--t1);min-height:100
       <span class="earn-hl-label">Scrolling Your Feed</span>
     </div>
     <div class="earn-hl-block">
-      <span class="earn-hl-val">$100</span>
-      <span class="earn-hl-label">Sign Up Bonus</span>
+      <span class="earn-hl-val">Up to $2k</span>
+      <span class="earn-hl-label">Weekly Potential</span>
     </div>
   </div>
 
@@ -256,7 +245,7 @@ body{font-family:var(--body);background:var(--bg);color:var(--t1);min-height:100
         <div class="rev-info"><div class="rev-name">jess_xo</div><div class="rev-time">2 hours ago</div></div>
         <div class="rev-stars"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg></div>
       </div>
-      <div class="rev-text">Ok wait this is actually real?? My friend kept telling me about it and I finally tried it. <strong>Got my first payout today</strong> I'm shook</div>
+      <div class="rev-text">Not gonna lie I thought this was cap but it actually paid out. Just <strong>bought drinks for the whole squad</strong> with my weekend scroll money 😭🍸 legit shook.</div>
     </div>
     <div class="rev vs d5">
       <div class="rev-top">
@@ -264,7 +253,7 @@ body{font-family:var(--body);background:var(--bg);color:var(--t1);min-height:100
         <div class="rev-info"><div class="rev-name">trevonthat1guy</div><div class="rev-time">5 hours ago</div></div>
         <div class="rev-stars"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg></div>
       </div>
-      <div class="rev-text">Been using this for like 2 weeks now. Not gonna lie <strong>the payouts are actually legit</strong>. Already told my whole group chat about it lol</div>
+      <div class="rev-text">Bro my screen time is usually embarrassing but now it’s literally <strong>paying my car insurance</strong>. Cashed out to PayPal in like 10 mins. W app.</div>
     </div>
     <div class="rev vs d6">
       <div class="rev-top">
@@ -272,7 +261,7 @@ body{font-family:var(--body);background:var(--bg);color:var(--t1);min-height:100
         <div class="rev-info"><div class="rev-name">sofia.mp4</div><div class="rev-time">Yesterday</div></div>
         <div class="rev-stars"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg></div>
       </div>
-      <div class="rev-text">The fact that I can just do this while watching TV lmao. <strong>Withdrew to PayPal and it actually came through</strong>. Why did no one tell me sooner</div>
+      <div class="rev-text">Doing this while binge-watching Netflix with a glass of wine is the ultimate life hack 🍷✨. The fact that I can just <strong>scroll and get paid is wild</strong>. Don’t sleep on this.</div>
     </div>
   </div>
 
@@ -300,7 +289,7 @@ body{font-family:var(--body);background:var(--bg);color:var(--t1);min-height:100
 'use strict';
 
 function init(){
-  // Live counter logic (keeps the page feeling active)
+  // Live counter logic
   var lc=document.getElementById('liveCount');
   if(lc){
     var base=2847;

@@ -11,6 +11,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;1,9..40,400&amp;display=swap" rel="stylesheet">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JW1QWB73B1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JW1QWB73B1');
+</script>
+
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 *{-webkit-tap-highlight-color:transparent}
@@ -43,8 +53,8 @@ body{font-family:var(--body);background:var(--bg);color:var(--t1);min-height:100
 @keyframes blobFloat2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(20px,-30px) scale(1.08)}}
 @keyframes blobFloat3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-20px,20px) scale(1.05)}}
 
-/* ── Page Container ── */
-.pg{width:100%;max-width:420px;padding:0 20px 160px;position:relative;z-index:1}
+/* ── Page Container (Increased bottom padding so Trustpilot stars aren't hidden by dock) ── */
+.pg{width:100%;max-width:420px;padding:0 20px 220px;position:relative;z-index:1}
 
 /* ── Animations ── */
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
@@ -122,7 +132,7 @@ body{font-family:var(--body);background:var(--bg);color:var(--t1);min-height:100
 .trust b{color:var(--t1);font-weight:700}
 
 /* ── CTA Dock ── */
-.dock{position:fixed;bottom:0;left:0;right:0;z-index:100;padding:16px 20px calc(16px + env(safe-area-inset-bottom,0px));display:flex;justify-content:center;pointer-events:none;background:linear-gradient(to top,var(--bg) 60%,transparent)}
+.dock{position:fixed;bottom:0;left:0;right:0;z-index:100;padding:16px 20px calc(16px + env(safe-area-inset-bottom,0px));display:flex;justify-content:center;pointer-events:none;background:linear-gradient(to top,var(--bg) 75%,transparent)}
 .dock-inner{width:100%;max-width:420px;pointer-events:auto}
 .cta{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:17px 24px;border:none;border-radius:var(--radius-md);font-family:var(--head);font-size:1rem;font-weight:800;color:var(--bg);cursor:pointer;text-decoration:none;background:var(--green);position:relative;letter-spacing:-.02em;transition:transform .15s,box-shadow .2s;box-shadow:0 4px 20px rgba(0,242,109,.2),0 8px 32px rgba(0,0,0,.4);min-height:56px}
 .cta:hover{transform:translateY(-1px);box-shadow:0 6px 28px rgba(0,242,109,.3),0 8px 32px rgba(0,0,0,.4)}
@@ -132,7 +142,7 @@ body{font-family:var(--body);background:var(--bg);color:var(--t1);min-height:100
 
 /* ── Mobile Responsive ── */
 @media(max-width:380px){
-  .pg{padding:0 16px 150px}
+  .pg{padding:0 16px 200px} /* Increased padding here too */
   .hero h1{font-size:clamp(26px,8vw,36px)}
   .step{padding:12px 14px}
   .step-num{width:34px;height:34px;font-size:.8125rem}
@@ -277,7 +287,7 @@ body{font-family:var(--body);background:var(--bg);color:var(--t1);min-height:100
 
 <div class="dock">
   <div class="dock-inner">
-    <a href="#" class="cta" id="mainCta">
+    <a href="https://glctrk.org/aff_c?offer_id=3531&aff_id=167172" class="cta" id="mainCta">
       <span id="ctaText">Start Earning Now</span>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
     </a>
@@ -300,11 +310,27 @@ function init(){
     },5000)
   }
 
-  // Simple CTA click handler
+  // CTA click handler with GA4 tracking
   var cta=document.getElementById('mainCta');
-  cta.addEventListener('click',function(){
+  cta.addEventListener('click',function(e){
+    e.preventDefault(); // Stop instant redirect to allow GA4 to fire
+    var targetUrl = this.getAttribute('href');
+    
     document.getElementById('ctaText').textContent='Redirecting\u2026';
     cta.style.opacity='.6';
+
+    // Send click event to GA4
+    if(typeof gtag === 'function') {
+      gtag('event', 'generate_lead', {
+        'event_category': 'affiliate_click',
+        'event_label': 'Start Earning Now'
+      });
+    }
+
+    // Redirect after a 400ms delay to ensure tracking goes through
+    setTimeout(function(){
+      window.location.href = targetUrl;
+    }, 400);
   });
 }
 document.addEventListener('DOMContentLoaded',init);

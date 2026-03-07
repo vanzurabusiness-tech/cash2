@@ -31,7 +31,6 @@
         html, body { margin: 0; height: 100% }
         body {
             color: var(--text);
-            /* FIX: Inter will now load properly */
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             overflow-x: hidden;
             min-height: 100vh;
@@ -55,9 +54,12 @@
         @keyframes float2 { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(-30px, -40px) scale(1.15); } }
         .container { max-width: 480px; width: 100%; margin: 0 auto; padding: 30px 20px 20px; text-align: center; position: relative; z-index: 1; }
         .logo-wrapper { display: flex; align-items: center; justify-content: center; gap: 16px; margin: 0 auto 15px; }
-        .logo-container { width: 60px; height: 60px; border-radius: 16px; display: flex; align-items: center; justify-content: center; background: rgba(255, 255, 255, .05); border: 1px solid rgba(255, 255, 255, .1); box-shadow: 0 10px 40px rgba(0, 0, 0, .4); transition: transform 0.3s ease; }
+        
+        /* FIX: Added overflow hidden and changed image object-fit to contain so it never cuts off */
+        .logo-container { width: 60px; height: 60px; border-radius: 16px; display: flex; align-items: center; justify-content: center; background: rgba(255, 255, 255, .05); border: 1px solid rgba(255, 255, 255, .1); box-shadow: 0 10px 40px rgba(0, 0, 0, .4); transition: transform 0.3s ease; overflow: hidden; flex-shrink: 0; }
         .logo-container:hover { transform: scale(1.05); }
-        .logo { width: 60px; height: 60px; object-fit: cover; border-radius: 16px; }
+        .logo { width: 100%; height: 100%; object-fit: contain; border-radius: 16px; }
+        
         .section { opacity: 1; transition: opacity 0.4s ease-out, transform 0.4s ease-out; }
         .section.fade-out { opacity: 0; transform: translateY(-20px); }
         .section.hidden { display: none; }
@@ -146,7 +148,7 @@
                 <div class="youre-in-text">Udało <span class="text-neon">Się!</span></div>
             </div>
             
-            <p class="subtitle" id="subtitle-text" style="margin-bottom: 20px; padding: 0;">Zamień czas przed ekranem na gotówkę. Dorób nawet 50-150 zł dziennie.</p>
+            <p class="subtitle" id="subtitle-text" style="margin-bottom: 20px; padding: 0;">Zamień czas przed ekranem na gotówkę. Zarabiaj nawet do 200 zł dziennie.</p>
             
             <a id="cta" class="cta" href="#" target="_self">
                 <svg class="cta-icon" viewBox="0 0 24 24" fill="currentColor">
@@ -157,7 +159,7 @@
 
             <div class="card">
                 <div class="section-title">TWÓJ PROCES ZARABIANIA</div>
-                <div class="li">
+                <div class="li" style="border-bottom: none;">
                     <span class="check">1</span>
                     <div><b id="step1-text">Załóż darmowe konto</b>
                         <div class="muted-text">Odbierz bonus na start za rejestrację</div>

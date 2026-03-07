@@ -55,10 +55,11 @@
         .container { max-width: 480px; width: 100%; margin: 0 auto; padding: 30px 20px 20px; text-align: center; position: relative; z-index: 1; }
         .logo-wrapper { display: flex; align-items: center; justify-content: center; gap: 16px; margin: 0 auto 15px; }
         
-        /* FIX: Added overflow hidden and changed image object-fit to contain so it never cuts off */
         .logo-container { width: 60px; height: 60px; border-radius: 16px; display: flex; align-items: center; justify-content: center; background: rgba(255, 255, 255, .05); border: 1px solid rgba(255, 255, 255, .1); box-shadow: 0 10px 40px rgba(0, 0, 0, .4); transition: transform 0.3s ease; overflow: hidden; flex-shrink: 0; }
         .logo-container:hover { transform: scale(1.05); }
-        .logo { width: 100%; height: 100%; object-fit: contain; border-radius: 16px; }
+        
+        /* FIX: Made the image 40x40 so it breathes inside the 60x60 box without getting chopped */
+        .logo { width: 40px; height: 40px; object-fit: contain; border-radius: 8px; }
         
         .section { opacity: 1; transition: opacity 0.4s ease-out, transform 0.4s ease-out; }
         .section.fade-out { opacity: 0; transform: translateY(-20px); }

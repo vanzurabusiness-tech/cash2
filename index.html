@@ -1,6 +1,6 @@
 <html lang="pl">
 <head>
-    <title>Odbierz Gotówkę</title>
+    <title>Zarabiaj na Testowaniu Gier</title>
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -79,7 +79,7 @@
         .section.fade-in { animation: fadeIn 0.5s ease-out forwards; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         
-        .main-title { font-size: 50px; font-weight: 900; line-height: 1.1; margin: 30px 0 20px; background: linear-gradient(90deg, var(--text), var(--brand)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-shadow: 0 2px 4px rgba(0, 0, 0, .3); }
+        .main-title { font-size: 42px; font-weight: 900; line-height: 1.1; margin: 30px 0 20px; background: linear-gradient(90deg, var(--text), var(--brand)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-shadow: 0 2px 4px rgba(0, 0, 0, .3); }
         .question-subtitle { font-size: 15px; color: var(--muted); margin-bottom: 40px; line-height: 1.5; }
         
         .age-buttons { display: flex; flex-direction: column; gap: 20px; max-width: 400px; margin: 0 auto; }
@@ -134,7 +134,7 @@
         @media (max-width: 600px) { 
             body { align-items: flex-start; min-height: 100dvh; } 
             .container { padding: 30px 16px 32px; width: 100%; } 
-            .main-title { font-size: 40px; } 
+            .main-title { font-size: 36px; } 
             .youre-in-text { font-size: 42px; } 
             .li { padding-left: 16px; padding-right: 16px; } 
             .age-btn-title { font-size: 18px; } 
@@ -150,8 +150,8 @@
             <div class="logo-wrapper">
                 <div class="logo-container"><img class="logo" src="https://i.imgur.com/d4rEH4U.png" alt="Logo"></div>
             </div>
-            <h1 class="main-title">Zacznij Zarabiać</h1>
-            <p class="question-subtitle">Dołącz do tysięcy osób, które dorabiają w wolnym czasie. Wypłacaj natychmiast na Blika.</p>
+            <h1 class="main-title">Graj i Zarabiaj z Łóżka 💸</h1>
+            <p class="question-subtitle">Koniec z darmowym marnowaniem czasu. Dołącz do tysięcy dziewczyn, które dorabiają do pensji grając w darmowe gry na telefonie.</p>
             <div class="age-buttons">
                 <div class="age-btn primary" onclick="selectAge('over18')">
                     <div class="age-btn-title">Mam powyżej 18 lat</div>
@@ -177,33 +177,37 @@
                 <div class="youre-in-text">Udało <span class="text-neon">Się!</span></div>
             </div>
             
-            <p class="subtitle" id="subtitle-text" style="margin-bottom: 20px; padding: 0;">Zamień czas przed ekranem na gotówkę. Zarabiaj nawet do 200 zł dziennie.</p>
+            <p class="subtitle" id="subtitle-text" style="margin-bottom: 20px; padding: 0;">Twój profil jest prawie gotowy. Wykonaj szybką weryfikację, aby odblokować natychmiastowe wypłaty.</p>
             
             <a id="cta" class="cta" href="#" target="_self" onclick="trackCTA()">
                 <svg class="cta-icon" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"></path>
                 </svg>
-                <span id="cta-text">Zacznij Zarabiać</span>
+                <span id="cta-text">Aktywuj Profil i Zarabiaj</span>
             </a>
+            
+            <div style="font-size: 11px; color: var(--muted); text-align: center; margin-top: -10px; margin-bottom: 20px;">
+                *W 100% darmowe. Zawsze. Płacą nam sponsorzy, nie Ty.
+            </div>
 
             <div class="card">
                 <div class="section-title">TWÓJ PROCES ZARABIANIA</div>
                 <div class="li" style="border-bottom: none;">
                     <span class="check">1</span>
-                    <div><b id="step1-text">Załóż darmowe konto</b>
-                        <div class="muted-text">Odbierz bonus na start za rejestrację</div>
+                    <div><b id="step1-text">Weryfikacja Konta 🛡️</b>
+                        <div class="muted-text">System musi sprawdzić, czy jesteś prawdziwą osobą, a nie botem.</div>
                     </div>
                 </div>
                 <div class="li highlight">
                     <span class="check">2</span>
-                    <div><b id="step2-text">Odblokuj Zarabianie<span class="important-badge">Ważne</span></b>
-                        <div class="muted-text" id="step2-desc">Wykonaj 2 proste zadania (np. zagraj w darmową grę), aby aktywować pełne stawki</div>
+                    <div><b id="step2-text">Dwa Darmowe Zadania 🎮<span class="important-badge">Ważne</span></b>
+                        <div class="muted-text" id="step2-desc">Pobierz i zagraj w 2 darmowe gry testowe ze sponsorem (to zajmuje tylko 10-15 minut!).</div>
                     </div>
                 </div>
                 <div class="li" style="border-bottom: none;">
                     <span class="check">3</span>
-                    <div><b>Wypłać pieniądze</b>
-                        <div class="muted-text">Odbierz przelew na Blika, PayPal lub krypto</div>
+                    <div><b>Odblokuj Wypłaty 💰</b>
+                        <div class="muted-text">Gotowe! Twój profil jest aktywny i możesz od razu zlecić pierwszą wypłatę.</div>
                     </div>
                 </div>
             </div>
@@ -216,7 +220,7 @@
                 <p class="activation-text">Nowi użytkownicy: Ukończ <span class="highlight-green">2 darmowe zadania</span> po założeniu konta, aby w pełni aktywować swój profil i odblokować zarabianie.</p>
             </div>
 
-            <div class="foot">Zaufało nam ponad 500,000 osób zarabiających każdego dnia</div>
+            <div class="foot">Zaufały nam tysiące dziewczyn zarabiających każdego dnia</div>
         </section>
     </div>
 
@@ -272,20 +276,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

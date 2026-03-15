@@ -1,251 +1,338 @@
-<html lang="pl"><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zarabiaj na Scrollowaniu!</title>
-    
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JW1QWB73B1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-JW1QWB73B1');
-    </script>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Freecash Zadania PL</title>
+<meta name="description" content="Zarabiaj na testowaniu aplikacji i grach">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <style>
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #080810; color: #f0f4f8; min-height: 100vh; overflow-x: hidden; }
-        .orb { position: fixed; border-radius: 50%; filter: blur(80px); opacity: .3; pointer-events: none; z-index: 0; }
-        .orb1 { width: 400px; height: 400px; top: -100px; left: -100px; background: radial-gradient(circle, rgba(0,255,128,.15), transparent); animation: float1 20s ease-in-out infinite; }
-        .orb2 { width: 300px; height: 300px; bottom: -50px; right: -50px; background: radial-gradient(circle, rgba(0,179,89,.12), transparent); animation: float2 15s ease-in-out infinite; }
-        .wrap { max-width: 480px; margin: 0 auto; padding: 64px 20px 40px; position: relative; z-index: 10; }
-        .logos { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 16px; animation: fadeUp .5s ease-out both; }
-        .logo-box { width: 70px; height: 70px; border-radius: 16px; display: flex; align-items: center; justify-content: center; background: rgba(0,255,128,.1); border: 1px solid rgba(0,255,128,.3); box-shadow: 0 10px 40px rgba(0,255,128,.3); overflow: hidden; transition: transform .2s; }
-        .logo-box:hover { transform: scale(1.05); }
-        .logo-box img { width: 70px; height: 70px; object-fit: cover; border-radius: 16px; }
-        .logo-x { font-size: 24px; font-weight: 700; color: #8090a0; }
-        .stars { display: flex; align-items: center; justify-content: center; gap: 4px; margin-bottom: 4px; animation: fadeUp .5s ease-out .05s both; }
-        .stars svg { width: 20px; height: 20px; color: #00ff80; fill: currentColor; }
-        .stars span { font-size: 14px; color: #8090a0; margin-left: 8px; }
-        .tagline { text-align: center; font-size: 11px; font-weight: 600; color: #8090a0; text-transform: uppercase; letter-spacing: .15em; margin-top: 4px; animation: fadeUp .5s ease-out .1s both; }
-        .progress { margin: 24px 0; animation: fadeUp .6s ease-out .1s both; }
-        .progress-top { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 12px; color: #8090a0; }
-        .progress-top strong { color: #f0f4f8; }
-        .progress-bar { height: 8px; background: #1a1a2e; border-radius: 999px; overflow: hidden; }
-        .progress-fill { height: 100%; border-radius: 999px; background: linear-gradient(135deg, #00ff80, #00b359); box-shadow: 0 0 12px rgba(0,255,128,.4); transition: width .5s; }
-        .hidden { display: none !important; }
-        .section { opacity: 1; transition: opacity .4s ease-out, transform .4s ease-out; }
-        .section.fade-out { opacity: 0; transform: translateY(-20px); }
-        .section.fade-in { animation: fadeUp .5s ease-out forwards; }
-        .q-title { font-size: 1.6rem; font-weight: 800; line-height: 1.2; margin-bottom: 8px; background: linear-gradient(to right, #f0f4f8, #00ff80); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .q-sub { font-size: 14px; color: #8090a0; margin-bottom: 24px; }
-        .opt { width: 100%; border: 2px solid rgba(0,255,128,.3); background: #0a0a0a; border-radius: 16px; padding: 20px; text-align: left; color: #f0f4f8; cursor: pointer; transition: all .2s; margin-bottom: 12px; font-family: inherit; font-size: inherit; }
-        .opt:hover { transform: scale(1.02); border-color: #00ff80; box-shadow: 0 4px 20px rgba(0,255,128,.15); }
-        .opt:active { transform: scale(.97); }
-        .opt-row { display: flex; align-items: center; justify-content: space-between; }
-        .opt-label { font-size: 18px; font-weight: 800; }
-        .opt-badge { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; color: #00ff80; border: 1px solid rgba(0,255,128,.3); padding: 2px 6px; border-radius: 4px; margin-left: 8px; }
-        .opt-desc { font-size: 14px; color: #8090a0; margin-top: 4px; display: block; }
-        .opt.dim { border-color: #1a1a2e; background: #0d0d1a; opacity: .6; }
-        .opt.dim:hover { opacity: .8; }
-        .opt.dim .opt-label { color: #8090a0; }
-        .opt.dim .opt-desc { color: #555; }
-        .chevron { width: 16px; height: 16px; fill: none; stroke: #00ff80; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-        .opt.dim .chevron { stroke: #555; }
-        .verify { text-align: center; padding: 48px 0; }
-        .spinner-wrap { width: 64px; height: 64px; margin: 0 auto 24px; position: relative; }
-        .spinner-bg { position: absolute; inset: 0; border-radius: 50%; border: 3px solid #1a1a2e; }
-        .spinner { position: absolute; inset: 0; border-radius: 50%; border: 3px solid transparent; border-top-color: #00ff80; animation: spin 1s linear infinite; }
-        .verify h2 { font-size: 20px; font-weight: 700; animation: pulse 2s ease-in-out infinite; }
-        .verify p { font-size: 14px; color: #8090a0; margin-top: 8px; }
-        .eligible { text-align: center; padding: 32px 0; }
-        .check-circle { width: 80px; height: 80px; border-radius: 50%; background: rgba(0,255,128,.15); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; box-shadow: 0 0 30px rgba(0,255,128,.3); animation: scaleBounce .5s cubic-bezier(.34,1.56,.64,1) both; }
-        .check-circle svg { width: 40px; height: 40px; stroke: #00ff80; fill: none; stroke-width: 3; }
-        .eligible h2 { font-size: 1.875rem; font-weight: 800; color: #00ff80; margin-bottom: 8px; }
-        .eligible p { color: #8090a0; }
-        .eligible strong { color: #f0f4f8; }
-        .claim h2 { font-size: 1.5rem; font-weight: 800; margin-bottom: 8px; background: linear-gradient(to right, #f0f4f8, #00ff80); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .claim > p { color: #8090a0; margin-bottom: 24px; }
-        .dl-btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 20px; border-radius: 16px; background: linear-gradient(135deg, #00ff80, #00b359); color: #080810; font-size: 15px; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; text-decoration: none; cursor: pointer; border: none; box-shadow: 0 10px 30px rgba(0,255,128,.25); transition: all .2s; animation: pulseGlow 3s ease-in-out infinite; white-space: nowrap; font-family: inherit; }
-        .dl-btn:hover { transform: translateY(-2px); box-shadow: 0 15px 40px rgba(0,255,128,.5); }
-        .dl-btn svg { width: 24px; height: 24px; fill: currentColor; }
-        .dl-btn .chev { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; }
-        .join { text-align: center; font-size: 11px; color: rgba(128,144,160,.7); margin-top: 16px; }
-        .how { background: #0d0d1a; border: 1px solid #1a1a2e; border-radius: 20px; padding: 24px; margin: 24px 0; box-shadow: 0 12px 40px rgba(0,0,0,.8), 0 0 30px rgba(0,255,128,.08); }
-        .how h3 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; text-align: center; color: #8090a0; margin-bottom: 20px; }
-        .step { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 20px; }
-        .step:last-child { margin-bottom: 0; }
-        .step-icon { width: 44px; height: 44px; border-radius: 50%; background: #1a1a2e; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 2px 8px rgba(0,0,0,.3); }
-        .step-icon svg { width: 20px; height: 20px; stroke: #00ff80; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-        .step strong { display: block; font-size: 14px; font-weight: 600; margin-bottom: 2px; }
-        .step span { font-size: 12px; color: #8090a0; }
-        .alert { border: 2px solid #dc4646; border-radius: 16px; padding: 20px; text-align: left; position: relative; background: linear-gradient(135deg, hsl(15,50%,8%), #0d0d1a); animation: glowBorder 2s ease-in-out infinite; }
-        .alert-tag { position: absolute; top: -1px; right: 20px; background: #dc4646; color: #fff; font-size: 10px; font-weight: 800; padding: 4px 12px; border-radius: 0 0 8px 8px; letter-spacing: .05em; }
-        .alert-head { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
-        .alert-head span:first-child { font-size: 20px; }
-        .alert-head span:last-child { font-size: 16px; font-weight: 700; }
-        .alert p { font-size: 14px; color: #8090a0; line-height: 1.6; }
-        .alert .hl { color: #00ff80; font-weight: 700; }
-        @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes float1 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(30px,30px); } }
-        @keyframes float2 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-20px,-20px); } }
-        @keyframes spin { to { transform: rotate(360deg); } }
-        @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .5; } }
-        @keyframes scaleBounce { from { transform: scale(0); } to { transform: scale(1); } }
-        @keyframes pulseGlow { 0%,100% { box-shadow: 0 10px 30px rgba(0,255,128,.25); } 50% { box-shadow: 0 10px 40px rgba(0,255,128,.45); } }
-        @keyframes glowBorder { 0%,100% { border-color: #dc4646; } 50% { border-color: #ff6b6b; } }
-    </style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JW1QWB73B1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JW1QWB73B1');
+</script>
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:#13141b;color:#fff;min-height:100dvh;overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit}
+img{display:block;max-width:100%}
+
+/* Scrollbar hide */
+.scroll-hide::-webkit-scrollbar{display:none}
+.scroll-hide{-ms-overflow-style:none;scrollbar-width:none}
+
+/* Pulse animation */
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+.pulse{animation:pulse 2s cubic-bezier(.4,0,.6,1) infinite}
+
+/* Responsive hero text */
+.hero-title{font-size:3rem;font-weight:800;line-height:1.1;color:#fff;margin-bottom:24px}
+@media(min-width:640px){.hero-title{font-size:3.75rem}}
+
+/* Accent glow on amount - FREECASH GREEN */
+.hero-amount{color:#00ff80;filter:drop-shadow(0 0 30px rgba(0,255,128,0.5))}
+
+/* Step card */
+.step-card{background:#1a1c26;border:1px solid rgba(255,255,255,0.05);border-radius:12px;padding:16px;display:flex;align-items:flex-start;gap:12px}
+.step-num{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:#00ff80;display:flex;align-items:center;justify-content:center;color:#000000;font-weight:700;font-size:14px}
+.step-text{flex:1;text-align:left}
+.step-title{color:#fff;font-weight:600;font-size:16px;margin-bottom:4px}
+.step-desc{color:#94a3b8;font-size:14px}
+.step-icon{flex-shrink:0;margin-top:4px;color:#00ff80}
+
+/* CTA */
+.cta-btn{display:flex;width:100%;align-items:center;justify-content:center;gap:12px;background:linear-gradient(135deg,#00ff80,#00b359);color:#000000;font-weight:800;font-size:1.25rem;padding:20px;border-radius:16px;border:none;cursor:pointer;box-shadow:0 0 40px rgba(0,255,128,0.4);transition:box-shadow .2s,transform .2s}
+.cta-btn:active{transform:scale(0.95)}
+
+/* Rating pill */
+.rating-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:999px;padding:12px 24px}
+.stars{display:flex;gap:2px}
+.rating-num{color:#fff;font-weight:700;font-size:16px}
+.rating-count{color:#94a3b8;font-size:14px}
+.divider-v{width:1px;height:20px;background:rgba(255,255,255,0.2);margin:0 4px}
+
+/* Stats row */
+.stats-row{display:flex;align-items:center;justify-content:center;gap:32px}
+.stat-col{display:flex;flex-direction:column;align-items:center}
+.stat-label{font-size:12px;color:#00ff80;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px;text-align:center;}
+.stat-value{font-size:24px;font-weight:700;color:#fff;text-align:center;}
+.stat-sub{font-size:12px;color:#64748b;text-align:center;}
+.stats-divider{width:1px;height:48px;background:rgba(255,255,255,0.1)}
+
+/* Task cards container */
+.tasks-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.tasks-title-wrap{display:flex;align-items:center;gap:8px}
+.tasks-title{font-size:20px;font-weight:700;color:#fff}
+.tasks-title-icon{color:#00ff80}
+.live-dot{width:8px;height:8px;background:#00ff80;border-radius:50%}
+.live-text{color:#00ff80;font-size:12px;font-weight:600}
+.live-wrap{display:flex;align-items:center;gap:8px}
+
+/* Horizontal scroll */
+.task-scroll{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:16px;margin:0 -16px;padding-left:16px;padding-right:16px}
+
+/* Task card */
+.task-card{flex-shrink:0;width:240px;background:#1a1c26;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.05);scroll-snap-align:start}
+.task-img-wrap{position:relative;aspect-ratio:9/16;background:#0f1016;overflow:hidden}
+.task-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.9}
+.task-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.4),transparent 40%,rgba(0,0,0,0.85))}
+.task-badge{position:absolute;top:12px;left:12px;background:rgba(0,0,0,0.6);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:6px 12px;border-radius:999px;border:1px solid rgba(255,255,255,0.1);font-size:10px;font-weight:800;color:#fff;text-transform:uppercase;letter-spacing:0.08em}
+.task-center-icon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.task-center-circle{background:rgba(255,255,255,0.2);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);padding:12px;border-radius:50%;border:1px solid rgba(255,255,255,0.2)}
+.task-center-circle svg{color:#fff;width:32px;height:32px}
+.task-info{padding:12px}
+.task-name{color:#fff;font-weight:700;font-size:16px;margin-bottom:8px}
+.task-bottom{display:flex;align-items:center;justify-content:space-between}
+.task-reward{color:#00ff80;font-weight:700;font-size:15px}
+.task-start{display:inline-block;background:#00ff80;color:#000000;padding:6px 16px;border-radius:8px;font-weight:800;font-size:13px;border:none;cursor:pointer;text-decoration:none}
+</style>
 </head>
 <body>
-    <div class="orb orb1"></div>
-    <div class="orb orb2"></div>
-    <div class="wrap">
-        <div class="logos">
-            <div class="logo-box"><img src="https://i.ibb.co/HD6gLR3j/logo.png" alt="Logo"></div>
-            <span class="logo-x">×</span>
-            <div class="logo-box"><img src="https://i.ibb.co/bR6YZZ0G/logo2.png" alt="Logo"></div>
+
+<div id="age-gate" style="position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:24px;color:#ecfdf5;background:radial-gradient(circle at 20% 20%,rgba(0,255,128,0.15),transparent 50%),radial-gradient(circle at 80% 10%,rgba(0,255,128,0.1),transparent 45%),#13141b">
+<div style="width:min(420px,100%);background:rgba(10,32,20,0.95);border:1px solid rgba(0,255,128,0.3);border-radius:20px;padding:28px;text-align:center;box-shadow:0 24px 50px rgba(0,0,0,0.5)">
+<div style="display:inline-flex;align-items:center;justify-content:center;padding:6px 14px;border-radius:999px;font-size:11px;text-transform:uppercase;letter-spacing:0.16em;color:#00ff80;background:rgba(0,255,128,0.1);border:1px solid rgba(0,255,128,0.2);margin-bottom:16px;font-weight:800">Weryfikacja Wieku</div>
+<h1 style="font-size:24px;margin:0 0 12px;font-weight:800">Masz ukończone 18 lat?</h1>
+<p style="margin:0 0 20px;color:rgba(236,253,243,0.75);font-size:14px;line-height:1.6">Musisz potwierdzić, że masz co najmniej 18 lat, aby odblokować wypłaty.</p>
+<div style="display:grid;gap:12px">
+<button type="button" id="age-accept" style="width:100%;border-radius:14px;padding:14px 16px;font-weight:800;font-size:15px;border:none;cursor:pointer;background:linear-gradient(135deg,#00ff80,#00b359);color:#000000">Tak, mam 18+ lat</button>
+<button type="button" id="age-decline" style="width:100%;border-radius:14px;padding:14px 16px;font-weight:700;font-size:14px;cursor:pointer;background:rgba(0,255,128,0.05);color:#00ff80;border:1px solid rgba(0,255,128,0.3)">Nie, mam poniżej 18 lat</button>
+</div></div></div>
+
+<div id="lander" style="display:none">
+  <div style="padding-top:32px;padding-bottom:32px;padding-left:16px;padding-right:16px">
+    <div style="max-width:512px;margin:0 auto;text-align:center">
+
+      <h1 class="hero-title">
+        Zarabiaj <span class="hero-amount">1800+ zł</span>
+        <br>
+        <span style="color:#cbd5e1; font-size: 2.2rem;">podczas scrollowania</span>
+      </h1>
+
+      <div style="margin-bottom:32px;display:flex;flex-direction:column;gap:12px">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <div class="step-text">
+            <div class="step-title">Pobierz darmową aplikację</div>
+            <div class="step-desc">Bezpieczna instalacja na iOS & Android</div>
+          </div>
+          <div class="step-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></div>
         </div>
-        <div class="stars">
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-            <span>4.8/5</span>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <div class="step-text">
+            <div class="step-title">Ukończ 3+ zadania</div>
+            <div class="step-desc">Im więcej grasz, tym więcej zarabiasz</div>
+          </div>
+          <div class="step-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div>
         </div>
-        <div class="tagline" id="tagline">Zarabiaj na Scrollowaniu</div>
-
-        <div class="progress">
-            <div class="progress-top"><span id="prog-label">Postęp</span><strong><span id="prog-text">0/1</span></strong></div>
-            <div class="progress-bar"><div class="progress-fill" id="prog-fill" style="width:0%"></div></div>
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <div class="step-text">
+            <div class="step-title">Odbieraj Wypłaty</div>
+            <div class="step-desc">Blik, Przelew, PayPal, Krypto i inne!</div>
+          </div>
+          <div class="step-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"></path></svg></div>
         </div>
+      </div>
 
-        <section class="section" id="stepAge">
-            <h2 class="q-title" id="t-qTitle">Odbierz gotówkę za scrollowanie telefonu!</h2>
-            <p class="q-sub" id="t-qSub">Potwierdź swój wiek, aby odblokować zarabianie.</p>
-            <button class="opt" id="btnOver18" onclick="answer()">
-                <div class="opt-row">
-                    <div>
-                        <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
-                            <span class="opt-label" id="t-over21">Mam 18 lat lub więcej</span>
-                            <span class="opt-badge" id="t-fullAccess">✓ Pełen Dostęp</span>
-                        </div>
-                        <span class="opt-desc" id="t-over21Desc">Wypłaty za scrollowanie — Blik, PayPal, Przelew</span>
-                    </div>
-                    <svg class="chevron" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"></path></svg>
-                </div>
-            </button>
-            <button class="opt dim" id="btnUnder18" onclick="answer()">
-                <div class="opt-row">
-                    <div>
-                        <span class="opt-label" id="t-under21">Mam poniżej 18 lat</span>
-                        <span class="opt-desc" id="t-under21Desc">Ograniczone wypłaty: Tylko Przelew</span>
-                    </div>
-                    <svg class="chevron" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"></path></svg>
-                </div>
-            </button>
-        </section>
+      <a href="https://raintrks.com/r/eyJ0IjoiZnJlZWNhc2gtY3BpIiwidSI6IjY5OTk4ZmY0YWQ3N2NiM2RmODkwMmNlMCIsInRzIjoxNzczNTA3MjUwMTQ2fQ?s2=fin" class="cta-btn" style="margin-bottom:24px" onclick="trackCTA()">
+        ZACZNIJ ZARABIAĆ TERAZ
+        <span style="display:flex"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+      </a>
 
-        <section class="section hidden" id="stepVerify">
-            <div class="verify">
-                <div class="spinner-wrap">
-                    <div class="spinner-bg"></div>
-                    <div class="spinner"></div>
-                </div>
-                <h2 id="t-checking">Sprawdzanie profilu...</h2>
-                <p id="t-moment">To potrwa tylko chwilę</p>
-            </div>
-        </section>
+      <div style="margin-bottom:32px;text-align:center">
+        <div class="rating-pill">
+          <div class="stars">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#00ff80" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#00ff80" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#00ff80" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#00ff80" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#00ff80" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+          </div>
+          <span class="rating-num">4.9</span>
+          <span class="rating-count">(6,000+)</span>
+          <div class="divider-v"></div>
+          <span style="color:#fff"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.79 22.05 6.8 20.68 5.96 19.47C4.25 17 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5M13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"></path></svg></span>
+          <span style="color:#fff"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"></path></svg></span>
+        </div>
+      </div>
 
-        <section class="section hidden" id="stepEligible">
-            <div class="eligible">
-                <div class="check-circle">
-                    <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg>
-                </div>
-                <h2 id="t-eligible">Konto Gotowe!</h2>
-                <p id="t-eligibleDesc">Jesteś o krok od <strong>odblokowania scrollowania</strong>.</p>
-            </div>
-        </section>
+      <div class="stats-row" style="margin-bottom:32px">
+        <div class="stat-col">
+          <div class="stat-label">ŁĄCZNIE WYPŁACONO</div>
+          <div class="stat-value" id="stat-total-paid">350 Milionów zł</div>
+          <div class="stat-sub">naszym użytkownikom</div>
+        </div>
+        <div class="stats-divider"></div>
+        <div class="stat-col">
+          <div class="stat-label">ZAUFAŁO NAM</div>
+          <div class="stat-value">17 Milionów</div>
+          <div class="stat-sub">Zweryfikowanych osób</div>
+        </div>
+      </div>
 
-        <section class="section hidden" id="stepClaim">
-            <div class="claim">
-                <h2 id="t-claimTitle">Funkcja Scrollowania Zablokowana 🔒</h2>
-                <p id="t-claimDesc">Aby aktywować naliczanie stawek za scrollowanie, musisz ukończyć szybką weryfikację.</p>
-                <a href="https://raintrks.com/r/eyJ0IjoiZnJlZWNhc2gtY3BpIiwidSI6IjY5OTk4ZmY0YWQ3N2NiM2RmODkwMmNlMCIsInRzIjoxNzczNTA3MjUwMTQ2fQ?s2=fin" class="dl-btn" id="cta-link" onclick="trackCTA()">
-                    <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"></path></svg>
-                    <span id="t-dlBtn">Odblokuj Zarabianie</span>
-                    <svg class="chev" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                </a>
-                <p class="join" id="t-join">Dołącz do 500,000+ osób zarabiających na telefonie</p>
-                <div class="how">
-                    <h3 id="t-howTitle">Jak odblokować konto?</h3>
-                    <div class="step">
-                        <div class="step-icon"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg></div>
-                        <div><strong id="t-step1Title">Pobierz Aplikację</strong><span id="t-step1Desc">Zajmuje mniej niż 60 sekund — na iOS i Androida</span></div>
-                    </div>
-                    <div class="step">
-                        <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
-                        <div><strong id="t-step2Title">Zagraj w 2 Gry (Aktywacja)</strong><span id="t-step2Desc">Ukończ 2 darmowe gry testowe, aby zweryfikować profil i odblokować zarabianie</span></div>
-                    </div>
-                    <div class="step">
-                        <div class="step-icon"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"></rect><line x1="2" y1="12" x2="22" y2="12"></line></svg></div>
-                        <div><strong id="t-step3Title">Odbieraj Wypłaty</strong><span id="t-step3Desc">Scrolluj i wypłacaj na Blika, PayPal lub Krypto</span></div>
-                    </div>
-                </div>
-                <div class="alert">
-                    <div class="alert-tag" id="t-alertTag">⚠️ WAŻNE</div>
-                    <div class="alert-head">
-                        <span>🔓</span>
-                        <span id="t-alertHead">Wymagana Aktywacja</span>
-                    </div>
-                    <p id="t-alertText">Musisz zagrać w <span class="hl">2 darmowe gry</span>, aby system włączył Ci płatne scrollowanie.</p>
-                </div>
-            </div>
-        </section>
     </div>
+  </div>
 
-    <script>
-        // Step flow
-        function showStep(showId) {
-            var sections = ["stepAge", "stepVerify", "stepEligible", "stepClaim"];
-            for (var i = 0; i < sections.length; i++) {
-                var s = document.getElementById(sections[i]);
-                if (sections[i] === showId) {
-                    s.classList.remove("hidden");
-                    s.classList.add("fade-in");
-                } else {
-                    s.classList.add("hidden");
-                    s.classList.remove("fade-in");
-                }
-            }
-        }
+  <div style="padding:0 16px;margin-top:16px">
+    <div style="max-width:512px;margin:0 auto">
+      <div class="tasks-header">
+        <div class="tasks-title-wrap">
+          <span class="tasks-title-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></span>
+          <h2 class="tasks-title">Popularne zadania</h2>
+        </div>
+        <div class="live-wrap">
+          <div class="live-dot pulse"></div>
+          <span class="live-text">Na żywo</span>
+        </div>
+      </div>
 
-        function answer(ageGroup) {
-            // GA4 Tracking
-            if (typeof gtag === 'function') {
-                gtag('event', 'age_selected', { 'age_group': ageGroup });
-            }
+      <div class="task-scroll scroll-hide">
+        <div class="task-card">
+          <div class="task-img-wrap">
+            <img class="task-img" src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExaHEzcDZ6MWZiOWRpdGF6c21vZ3c5NHRoOHZxcmtkcXRscWQ4NWZqeiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/dkUtjuBEdICST5zG7p/giphy.gif" alt="Subway Surfers Sprint" loading="lazy">
+            <div class="task-overlay"></div>
+            <div class="task-badge">GRY</div>
+            <div class="task-center-icon">
+              <div class="task-center-circle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div>
+            </div>
+          </div>
+          <div class="task-info">
+            <div class="task-name">Subway Surfers Sprint</div>
+            <div class="task-bottom">
+              <span class="task-reward" data-reward="task1">10.50 zł / zadanie</span>
+              <a href="https://raintrks.com/r/eyJ0IjoiZnJlZWNhc2gtY3BpIiwidSI6IjY5OTk4ZmY0YWQ3N2NiM2RmODkwMmNlMCIsInRzIjoxNzczNTA3MjUwMTQ2fQ?s2=fin" class="task-start" onclick="trackCTA()">Start</a>
+            </div>
+          </div>
+        </div>
 
-            var age = document.getElementById("stepAge");
-            age.classList.add("fade-out");
-            
-            // Update progress
-            document.getElementById("prog-text").textContent = "1/1";
-            document.getElementById("prog-fill").style.width = "100%";
-            
-            setTimeout(function() { showStep("stepVerify"); }, 400);
-            setTimeout(function() { showStep("stepEligible"); }, 1600);
-            setTimeout(function() { 
-                showStep("stepClaim"); 
-                window.scrollTo({ top: 0, behavior: "smooth" });
-            }, 2600);
-        }
+        <div class="task-card">
+          <div class="task-img-wrap">
+            <img class="task-img" src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNXJybTJoeW53djBxdzh5OTgzeHFtemcxbjBsb3h6M2NiZzY3YmRnayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/KHoI6OKmpJeIGTaswZ/giphy.gif" alt="Candy Crush Match" loading="lazy">
+            <div class="task-overlay"></div>
+            <div class="task-badge">GRY</div>
+            <div class="task-center-icon">
+              <div class="task-center-circle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div>
+            </div>
+          </div>
+          <div class="task-info">
+            <div class="task-name">Candy Crush Match</div>
+            <div class="task-bottom">
+              <span class="task-reward" data-reward="task2">12.20 zł / zadanie</span>
+              <a href="https://raintrks.com/r/eyJ0IjoiZnJlZWNhc2gtY3BpIiwidSI6IjY5OTk4ZmY0YWQ3N2NiM2RmODkwMmNlMCIsInRzIjoxNzczNTA3MjUwMTQ2fQ?s2=fin" class="task-start" onclick="trackCTA()">Start</a>
+            </div>
+          </div>
+        </div>
 
-        // GA4 CTA Tracking
-        function trackCTA() {
-            if (typeof gtag === 'function') {
-                gtag('event', 'cta_clicked');
-            }
-        }
-    </script>
+        <div class="task-card">
+          <div class="task-img-wrap">
+            <img class="task-img" src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExNW96amR2MG5hbnppMWU1dHBtOTdmbWtjMDZyNzd4YTl3a2ZoZTJuZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/jR4aojah4Js5KlDaTV/giphy.gif" alt="Temple Run Escape" loading="lazy">
+            <div class="task-overlay"></div>
+            <div class="task-badge">GRY</div>
+            <div class="task-center-icon">
+              <div class="task-center-circle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div>
+            </div>
+          </div>
+          <div class="task-info">
+            <div class="task-name">Temple Run Escape</div>
+            <div class="task-bottom">
+              <span class="task-reward" data-reward="task3">8.40 zł / zadanie</span>
+              <a href="https://raintrks.com/r/eyJ0IjoiZnJlZWNhc2gtY3BpIiwidSI6IjY5OTk4ZmY0YWQ3N2NiM2RmODkwMmNlMCIsInRzIjoxNzczNTA3MjUwMTQ2fQ?s2=fin" class="task-start" onclick="trackCTA()">Start</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="height:48px"></div>
+</div>
+
+<script>
+// Logic for Age Gate
+(function(){
+  var gate = document.getElementById('age-gate');
+  var lander = document.getElementById('lander');
+  
+  document.getElementById('age-accept').onclick = function(){
+    gate.style.display = 'none';
+    lander.style.display = '';
+    if (typeof gtag === 'function') gtag('event', 'age_verified', {'status': 'over_18'});
+  };
+  
+  document.getElementById('age-decline').onclick = function(){
+    gate.style.display = 'none';
+    lander.style.display = '';
+    if (typeof gtag === 'function') gtag('event', 'age_verified', {'status': 'under_18'});
+  };
+})();
+
+// GA4 Click Tracker
+function trackCTA() {
+    if (typeof gtag === 'function') {
+        gtag('event', 'cta_clicked');
+    }
+}
+
+// Dynamic Geo detection (Polski domyślnie, dostosowuje walutę i kwoty do reszty świata)
+(function(){
+  var currMap = { US:'$', GB:'£', CA:'C$', FR:'€', DE:'€', NL:'€', PL:'zł', AT:'€', BE:'€' };
+  var amountMap = {
+    PL:{ hero:'1800+', total:'350 Milionów zł', t1:'10.50', t2:'12.20', t3:'8.40' },
+    US:{ hero:'435+', total:'$88 Million', t1:'2.50', t2:'3.20', t3:'1.80' },
+    GB:{ hero:'420+', total:'£70 Million', t1:'2.00', t2:'2.55', t3:'1.45' },
+    DE:{ hero:'400+', total:'80M €', t1:'2.50', t2:'3.20', t3:'1.90' },
+    NL:{ hero:'400+', total:'€80 Miljoen', t1:'2.50', t2:'3.20', t3:'1.90' }
+  };
+  var defaultCC = 'PL';
+
+  function applyGeo(cc) {
+    var c = currMap[cc] || currMap[defaultCC] || 'zł';
+    var a = amountMap[cc] || amountMap[defaultCC] || amountMap.PL;
+    
+    // Ustawienie poprawnego formatowania dla PLN (waluta na końcu)
+    var isPLN = (c === 'zł');
+
+    // Update hero amount
+    var heroAmt = document.querySelector('.hero-amount');
+    if (heroAmt) heroAmt.textContent = isPLN ? (a.hero + ' ' + c) : (c + a.hero);
+
+    // Update total paid stat
+    var tp = document.getElementById('stat-total-paid');
+    if (tp) tp.textContent = a.total;
+
+    // Update task reward amounts
+    var r1 = document.querySelector('[data-reward="task1"]');
+    var r2 = document.querySelector('[data-reward="task2"]');
+    var r3 = document.querySelector('[data-reward="task3"]');
+    var unit = 'zadanie';
+    
+    if (r1) r1.textContent = isPLN ? (a.t1 + ' ' + c + ' / ' + unit) : (c + a.t1 + ' / ' + unit);
+    if (r2) r2.textContent = isPLN ? (a.t2 + ' ' + c + ' / ' + unit) : (c + a.t2 + ' / ' + unit);
+    if (r3) r3.textContent = isPLN ? (a.t3 + ' ' + c + ' / ' + unit) : (c + a.t3 + ' / ' + unit);
+  }
+
+  // Apply Polish default immediately
+  applyGeo(defaultCC);
+
+  // Optional: Auto-detect IP to switch to $, €, £ if they use VPN
+  try {
+    fetch('https://ipapi.co/json/')
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        if (d && d.country_code) applyGeo(d.country_code);
+      })
+      .catch(function(){});
+  } catch(e){}
+})();
+</script>
+
 </body>
 </html>

@@ -4,31 +4,15 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     
     <link rel="preload" as="image" href="assets/logo.png">
-    
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JW1QWB73B1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-JW1QWB73B1');
-    </script>
-    
-    <script type="text/javascript" async="" src="https://analytics.tiktok.com/i18n/pixel/static/identify_31760074.js"></script>
-    <script type="text/javascript" async="" src="https://analytics.tiktok.com/i18n/pixel/static/main.MTEwMjY2ZTExMQ.js" data-id="D4DO8HRC77UCI3HO4RHG"></script>
-    <script type="text/javascript" async="" src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=D4DO8HRC77UCI3HO4RHG&amp;lib=ttq"></script>
-    <script>
-    !function (w, d, t) {
-    w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
-    var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
-    ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
-    
-    ttq.load('D4DO8HRC77UCI3HO4RHG');
-    ttq.page();
-    }(window, document, 'ttq');
-    </script>
     <link rel="icon" type="image/x-icon" href="assets/logo.png">
     <link rel="apple-touch-icon" href="assets/logo.png">
+    
     <title>Freecash - Aktywacja Konta</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
     <style>
         /* ==================================== */
         /* ===== COLORS & VARIABLES (FREECASH) ===== */
@@ -121,10 +105,6 @@
             border:1px solid rgba(0,255,136,.3);
             box-shadow:0 10px 40px rgba(0,255,136,.4);
             transition: transform 0.3s ease;
-        }
-        
-        .logo-container:hover {
-            transform: scale(1.05);
         }
         
         .logo{
@@ -238,10 +218,6 @@
             box-shadow: 0 12px 40px rgba(0,255,136,.5);
         }
 
-        .age-btn:active {
-            transform: translateY(-1px);
-        }
-
         .youre-in-section {
             display: flex;
             align-items: center;
@@ -273,7 +249,6 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            text-shadow: 0 2px 4px rgba(0,0,0,.3);
         }
         .text-neon { color: var(--brand); }
 
@@ -301,12 +276,8 @@
             font-size:14px;
             font-weight:700;
             text-align:center;
-            margin-top:0;
-            margin-bottom:0;
             padding: 24px 0;
             color: var(--muted);
-            text-shadow: none;
-            font-family: 'Inter', sans-serif;
             letter-spacing: 1px;
             text-transform: uppercase;
         }
@@ -316,12 +287,8 @@
             padding:20px 24px;
             border-bottom:1px solid var(--border);
             align-items:flex-start;
-            text-align: left;
-            background: transparent;
         }
-        .li:first-of-type {
-             border-top: 1px solid var(--border);
-         }
+        .li:first-of-type { border-top: 1px solid var(--border); }
         .li:last-child{border-bottom:0}
 
         .check{
@@ -355,7 +322,6 @@
             font-weight:800;
             font-size:17px;
             text-transform:uppercase;
-            letter-spacing:.5px;
             border:0;
             border-radius:16px;
             padding:20px;
@@ -369,24 +335,8 @@
             transition: all 0.3s ease;
             animation: pulse 3s ease-in-out infinite;
         }
-        .cta-icon{
-            width:24px;
-            height:24px;
-            flex-shrink:0;
-        }
-        .cta::before{
-            content:'';
-            position:absolute;
-            top:0;left:-100%;
-            width:100%;height:100%;
-            background:linear-gradient(90deg, transparent, rgba(255,255,255,.2), transparent);
-            transition:left 0.5s;
-        }
-        .cta:hover{
-            transform:translateY(-2px);
-            box-shadow:0 15px 40px rgba(0,255,136,.5);
-        }
-        .cta:hover::before{left:100%;}
+        .cta-icon{ width:24px; height:24px; flex-shrink:0; }
+        .cta:hover{ transform:translateY(-2px); box-shadow:0 15px 40px rgba(0,255,136,.5); }
 
         .foot{color:var(--muted);font-size:12px;text-align:center;margin-top:16px;opacity:.7;}
 
@@ -417,14 +367,8 @@
         }
 
         @keyframes glow-border {
-            0%, 100% { 
-                box-shadow: 0 0 20px rgba(255,71,87,.3);
-                border-color: var(--accent-red);
-            }
-            50% { 
-                box-shadow: 0 0 35px rgba(255,71,87,.5);
-                border-color: #ff6b7a;
-            }
+            0%, 100% { box-shadow: 0 0 20px rgba(255,71,87,.3); border-color: var(--accent-red); }
+            50% { box-shadow: 0 0 35px rgba(255,71,87,.5); border-color: #ff6b7a; }
         }
 
         .activation-header {
@@ -434,30 +378,10 @@
             margin-bottom: 12px;
         }
 
-        .lock-icon {
-            font-size: 20px;
-            line-height: 1;
-            flex-shrink: 0;
-        }
-
-        .activation-title {
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--text);
-            flex: 1;
-        }
-
-        .activation-text {
-            font-size: 14px;
-            color: var(--muted);
-            line-height: 1.5;
-            margin: 0;
-        }
-
-        .highlight-green {
-            color: var(--brand);
-            font-weight: 700;
-        }
+        .lock-icon { font-size: 20px; line-height: 1; flex-shrink: 0; }
+        .activation-title { font-size: 16px; font-weight: 700; color: var(--text); flex: 1; }
+        .activation-text { font-size: 14px; color: var(--muted); line-height: 1.5; margin: 0; }
+        .highlight-green { color: var(--brand); font-weight: 700; }
 
         @keyframes pulse {
             0%, 100% { box-shadow:0 10px 30px var(--brand-glow); }
@@ -573,68 +497,46 @@
     </div>
 
 <script>
-// ======================================================================
-// 🔗 TWÓJ LINK AFILIACYJNY
-// ======================================================================
+// Affiliate Link
 const CPA_LINK = "https://taptrks.com/r/eyJ0IjoiZnJlZWNhc2gtY3BpIiwidSI6IjY5OTk4ZmY0YWQ3N2NiM2RmODkwMmNlMCIsInRzIjoxNzczNTgyMjUxMzMwfQ?s2=gone";
 
 document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('cta').href = CPA_LINK;
 });
 
-// ========================================
-// FREECASH - AGE SELECTION & TRANSITION
-// ========================================
-
+// Age Selection & Transition
 let selectedAge = '';
-
 function selectAge(age) {
     selectedAge = age;
-    
-    // GA4 Tracking
-    if (typeof gtag === 'function') {
-        gtag('event', 'age_selected', { 'age_group': age });
-    }
+    if (typeof gtag === 'function') { gtag('event', 'age_selected', { 'age_group': age }); }
     
     const firstStep = document.getElementById('firstStep');
     const secondStep = document.getElementById('secondStep');
     
     firstStep.classList.add('fade-out');
-    
     setTimeout(() => {
         firstStep.classList.add('hidden');
         secondStep.classList.remove('hidden');
-        
         void secondStep.offsetWidth;
-        
         secondStep.classList.add('fade-in');
     }, 400);
 }
 
-// ========================================
-// TIKTOK TRACKING & REDIRECT
-// ========================================
-
+// Redirect Logic
 function handleClick(event) {
     event.preventDefault();
-
-    // GA4 Tracking
-    if (typeof gtag === 'function') {
-        gtag('event', 'cta_clicked');
-    }
-
-    try {
-        ttq.track('AddToCart', { content_type: 'product', content_id: 'freecash-tiktok-rewards', value: 1.00, currency: 'USD' });
-        ttq.track('CompleteRegistration', { content_type: 'product', content_id: 'freecash-tiktok-rewards', value: 1.00, currency: 'USD' });
-        ttq.track('Purchase', { content_type: 'product', content_id: 'freecash-tiktok-rewards', value: 1.00, currency: 'USD' });
-    } catch (e) {
-        console.warn('⚠️ TT Pixel failed:', e);
-    }
-
-    // Redirects to your affiliate link set at the top
+    if (typeof gtag === 'function') { gtag('event', 'cta_clicked'); }
     window.location.href = CPA_LINK;
 }
-
 </script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JW1QWB73B1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JW1QWB73B1');
+</script>
+
 </body>
 </html>

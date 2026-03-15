@@ -353,7 +353,7 @@
         }
 
         .activation-notice::before{
-            content:'⚠️ WAŻNE';
+            content:'⚠️ PAMIĘTAJ';
             position:absolute;
             top:-1px;
             right:20px;
@@ -445,38 +445,40 @@
             </div>
 
             <p class="subtitle" style="margin-bottom: 32px; padding: 0;">
-                Twój profil został utworzony. Pobierz darmową aplikację sponsora i zagraj w gry testowe, aby odblokować zarabianie.
+                Twój profil został utworzony. Przeczytaj poniższe kroki, aby włączyć funkcję zarabiania.
             </p>
 
             <a id="cta" class="cta" href="#" onclick="handleClick(event)">
                 <svg class="cta-icon" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"></path>
                 </svg>
-                Odblokuj Zarabianie
+                Odblokuj Scrollowanie
             </a>
 
             <div class="card">
-                <div class="section-title">JAK ODBLOKOWAĆ KONTO?</div>
+                <div class="section-title">JAK ODBLOKOWAĆ SCROLLOWANIE?</div>
 
                 <div class="li">
                     <span class="check">1</span>
                     <div>
                         <b>Pobierz Darmową Aplikację</b>
-                        <div class="muted-text">Zajmuje 60 sekund. Dostępna na iOS i Android.</div>
+                        <div class="muted-text">Zajmuje 60 sekund. Dostępna w App Store i Google Play.</div>
                     </div>
                 </div>
-                <div class="li">
-                    <span class="check">2</span>
+                
+                <div class="li" style="background: rgba(255, 71, 87, 0.05);">
+                    <span class="check" style="background: var(--accent-red); color: white; box-shadow: 0 0 10px rgba(255,71,87,0.5);">2</span>
                     <div>
-                        <b>Zagraj w 2 Gry (Aktywacja)</b>
-                        <div class="muted-text">Ukończ 2 darmowe gry testowe, aby udowodnić, że jesteś prawdziwym użytkownikiem.</div>
+                        <b style="color: var(--accent-red);">WAŻNE: Zagraj w 2 Gry</b>
+                        <div class="muted-text">Musisz zagrać w 2 darmowe gry testowe, aby <span class="highlight-green">odblokować ofertę płatnego scrollowania</span>.</div>
                     </div>
                 </div>
+
                 <div class="li" style="border-bottom: none;">
                     <span class="check">3</span>
                     <div>
                         <b>Odbieraj Wypłaty</b>
-                        <div class="muted-text">Funkcja scrollowania zostanie odblokowana! Wypłacaj na Blik, PayPal lub Krypto.</div>
+                        <div class="muted-text">Gdy odblokujesz funkcję, środki wypłacisz na Blik, PayPal lub Krypto.</div>
                     </div>
                 </div>
             </div>
@@ -484,10 +486,10 @@
             <div class="activation-notice">
                 <div class="activation-header">
                     <span class="lock-icon">🔓</span>
-                    <span class="activation-title">Wymagana Pełna Aktywacja</span>
+                    <span class="activation-title">Blokada Zabezpieczająca</span>
                 </div>
                 <p class="activation-text">
-                    Samo pobranie apki to nie wszystko! Musisz ukończyć <span class="highlight-green">2 darmowe gry</span>, aby system na stałe włączył Ci płatne scrollowanie.
+                    Samo pobranie apki to nie wszystko. Bez ukończenia <span class="highlight-green">2 darmowych gier testowych</span> z listy, płatne scrollowanie nie zostanie włączone na Twoim koncie.
                 </p>
             </div>
 

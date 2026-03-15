@@ -31,12 +31,12 @@ img{display:block;max-width:100%}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
 .pulse{animation:pulse 2s cubic-bezier(.4,0,.6,1) infinite}
 
-/* Responsive hero text */
-.hero-title{font-size:3rem;font-weight:800;line-height:1.1;color:#fff;margin-bottom:24px}
-@media(min-width:640px){.hero-title{font-size:3.75rem}}
+/* Responsive hero text - FIXED FOR MOBILE */
+.hero-title{font-size:clamp(2rem, 8vw, 3.75rem);font-weight:800;line-height:1.1;color:#fff;margin-bottom:24px}
+.hero-subtitle{color:#cbd5e1;font-size:clamp(1.5rem, 6vw, 2.2rem);display:block;margin-top:8px}
 
 /* Accent glow on amount - FREECASH GREEN */
-.hero-amount{color:#00ff80;filter:drop-shadow(0 0 30px rgba(0,255,128,0.5))}
+.hero-amount{color:#00ff80;filter:drop-shadow(0 0 30px rgba(0,255,128,0.5));white-space:nowrap}
 
 /* Step card */
 .step-card{background:#1a1c26;border:1px solid rgba(255,255,255,0.05);border-radius:12px;padding:16px;display:flex;align-items:flex-start;gap:12px}
@@ -111,8 +111,7 @@ img{display:block;max-width:100%}
 
       <h1 class="hero-title">
         Zarabiaj <span class="hero-amount">1800+ zł</span>
-        <br>
-        <span style="color:#cbd5e1; font-size: 2.2rem;">podczas scrollowania</span>
+        <span class="hero-subtitle">podczas scrollowania</span>
       </h1>
 
       <div style="margin-bottom:32px;display:flex;flex-direction:column;gap:12px">
@@ -128,14 +127,14 @@ img{display:block;max-width:100%}
           <div class="step-num">2</div>
           <div class="step-text">
             <div class="step-title">Ukończ 3+ zadania</div>
-            <div class="step-desc">Im więcej grasz, tym więcej zarabiasz</div>
+            <div class="step-desc">Czym więcej grasz, tym więcej zarabiasz</div>
           </div>
           <div class="step-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div>
         </div>
         <div class="step-card">
           <div class="step-num">3</div>
           <div class="step-text">
-            <div class="step-title">Odbieraj Wypłaty</div>
+            <div class="step-title">Odbieraj wypłaty</div>
             <div class="step-desc">Blik, Przelew, PayPal, Krypto i inne!</div>
           </div>
           <div class="step-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"></path></svg></div>
@@ -281,7 +280,7 @@ function trackCTA() {
     }
 }
 
-// Dynamic Geo detection (Polski domyślnie, dostosowuje walutę i kwoty do reszty świata)
+// Dynamic Geo detection (Polski domyślnie)
 (function(){
   var currMap = { US:'$', GB:'£', CA:'C$', FR:'€', DE:'€', NL:'€', PL:'zł', AT:'€', BE:'€' };
   var amountMap = {
@@ -297,12 +296,12 @@ function trackCTA() {
     var c = currMap[cc] || currMap[defaultCC] || 'zł';
     var a = amountMap[cc] || amountMap[defaultCC] || amountMap.PL;
     
-    // Ustawienie poprawnego formatowania dla PLN (waluta na końcu)
+    // Ustawienie poprawnego formatowania dla PLN
     var isPLN = (c === 'zł');
 
-    // Update hero amount
+    // Update hero amount using a non-breaking space
     var heroAmt = document.querySelector('.hero-amount');
-    if (heroAmt) heroAmt.textContent = isPLN ? (a.hero + ' ' + c) : (c + a.hero);
+    if (heroAmt) heroAmt.textContent = isPLN ? (a.hero + '\u00A0' + c) : (c + a.hero);
 
     // Update total paid stat
     var tp = document.getElementById('stat-total-paid');
@@ -322,7 +321,7 @@ function trackCTA() {
   // Apply Polish default immediately
   applyGeo(defaultCC);
 
-  // Optional: Auto-detect IP to switch to $, €, £ if they use VPN
+  // Auto-detect IP
   try {
     fetch('https://ipapi.co/json/')
       .then(function(r){ return r.json(); })

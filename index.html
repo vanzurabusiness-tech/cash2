@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zarabiaj na Scrollowaniu!</title>
+    <title>Aktywacja Konta</title>
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JW1QWB73B1"></script>
     <script>
@@ -18,129 +18,84 @@
         .orb { position: fixed; border-radius: 50%; filter: blur(80px); opacity: .3; pointer-events: none; z-index: 0; }
         .orb1 { width: 400px; height: 400px; top: -100px; left: -100px; background: radial-gradient(circle, rgba(0,255,128,.15), transparent); animation: float1 20s ease-in-out infinite; }
         .orb2 { width: 300px; height: 300px; bottom: -50px; right: -50px; background: radial-gradient(circle, rgba(0,179,89,.12), transparent); animation: float2 15s ease-in-out infinite; }
-        .wrap { max-width: 480px; margin: 0 auto; padding: 64px 20px 40px; position: relative; z-index: 10; }
-        .logos { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 16px; animation: fadeUp .5s ease-out both; }
-        .logo-box { width: 70px; height: 70px; border-radius: 16px; display: flex; align-items: center; justify-content: center; background: rgba(0,255,128,.1); border: 1px solid rgba(0,255,128,.3); box-shadow: 0 10px 40px rgba(0,255,128,.3); overflow: hidden; transition: transform .2s; }
-        .logo-box:hover { transform: scale(1.05); }
-        .logo-box img { width: 70px; height: 70px; object-fit: cover; border-radius: 16px; }
-        .logo-x { font-size: 24px; font-weight: 700; color: #8090a0; }
-        .stars { display: flex; align-items: center; justify-content: center; gap: 4px; margin-bottom: 4px; animation: fadeUp .5s ease-out .05s both; }
-        .stars svg { width: 20px; height: 20px; color: #00ff80; fill: currentColor; }
-        .stars span { font-size: 14px; color: #8090a0; margin-left: 8px; }
-        .tagline { text-align: center; font-size: 11px; font-weight: 600; color: #8090a0; text-transform: uppercase; letter-spacing: .15em; margin-top: 4px; animation: fadeUp .5s ease-out .1s both; }
-        .progress { margin: 24px 0; animation: fadeUp .6s ease-out .1s both; }
+        .wrap { max-width: 480px; margin: 0 auto; padding: 40px 20px; position: relative; z-index: 10; }
+        
+        .progress { margin: 20px 0 30px; animation: fadeUp .6s ease-out .1s both; }
         .progress-top { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 12px; color: #8090a0; }
         .progress-top strong { color: #f0f4f8; }
         .progress-bar { height: 8px; background: #1a1a2e; border-radius: 999px; overflow: hidden; }
         .progress-fill { height: 100%; border-radius: 999px; background: linear-gradient(135deg, #00ff80, #00b359); box-shadow: 0 0 12px rgba(0,255,128,.4); transition: width .5s; }
+        
         .hidden { display: none !important; }
         .section { opacity: 1; transition: opacity .4s ease-out, transform .4s ease-out; }
         .section.fade-out { opacity: 0; transform: translateY(-20px); }
         .section.fade-in { animation: fadeUp .5s ease-out forwards; }
-        .q-title { font-size: 1.6rem; font-weight: 800; line-height: 1.2; margin-bottom: 8px; background: linear-gradient(to right, #f0f4f8, #00ff80); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-align: center; }
-        .q-sub { font-size: 14px; color: #8090a0; margin-bottom: 24px; text-align: center; }
-        .opt { width: 100%; border: 2px solid rgba(0,255,128,.3); background: #0a0a0a; border-radius: 16px; padding: 20px; text-align: left; color: #f0f4f8; cursor: pointer; transition: all .2s; margin-bottom: 12px; font-family: inherit; font-size: inherit; }
-        .opt:hover { transform: scale(1.02); border-color: #00ff80; box-shadow: 0 4px 20px rgba(0,255,128,.15); }
-        .opt:active { transform: scale(.97); }
+        
+        .q-title { font-size: 1.5rem; font-weight: 800; line-height: 1.2; margin-bottom: 12px; background: linear-gradient(to right, #f0f4f8, #00ff80); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-align: center; }
+        .q-sub { font-size: 14px; color: #8090a0; margin-bottom: 30px; text-align: center; }
+        
+        .opt { width: 100%; border: 2px solid rgba(0,255,128,.3); background: #0a0a0a; border-radius: 16px; padding: 20px; text-align: left; color: #f0f4f8; cursor: pointer; transition: all .2s; margin-bottom: 12px; font-family: inherit; }
+        .opt:hover { border-color: #00ff80; box-shadow: 0 4px 20px rgba(0,255,128,.15); }
         .opt-row { display: flex; align-items: center; justify-content: space-between; }
-        .opt-label { font-size: 18px; font-weight: 800; }
+        .opt-label { font-size: 17px; font-weight: 800; }
         .opt-badge { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; color: #00ff80; border: 1px solid rgba(0,255,128,.3); padding: 2px 6px; border-radius: 4px; margin-left: 8px; }
-        .opt-desc { font-size: 14px; color: #8090a0; margin-top: 4px; display: block; }
-        .opt.dim { border-color: #1a1a2e; background: #0d0d1a; opacity: .6; }
-        .opt.dim:hover { opacity: .8; }
-        .opt.dim .opt-label { color: #8090a0; }
-        .opt.dim .opt-desc { color: #555; }
+        .opt.dim { border-color: #1a1a2e; background: #0d0d1a; opacity: .7; }
         .chevron { width: 16px; height: 16px; fill: none; stroke: #00ff80; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
         .opt.dim .chevron { stroke: #555; }
+        
         .verify { text-align: center; padding: 48px 0; }
         .spinner-wrap { width: 64px; height: 64px; margin: 0 auto 24px; position: relative; }
         .spinner-bg { position: absolute; inset: 0; border-radius: 50%; border: 3px solid #1a1a2e; }
         .spinner { position: absolute; inset: 0; border-radius: 50%; border: 3px solid transparent; border-top-color: #00ff80; animation: spin 1s linear infinite; }
         .verify h2 { font-size: 20px; font-weight: 700; animation: pulse 2s ease-in-out infinite; }
-        .verify p { font-size: 14px; color: #8090a0; margin-top: 8px; }
-        .eligible { text-align: center; padding: 32px 0; }
-        .check-circle { width: 80px; height: 80px; border-radius: 50%; background: rgba(0,255,128,.15); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; box-shadow: 0 0 30px rgba(0,255,128,.3); animation: scaleBounce .5s cubic-bezier(.34,1.56,.64,1) both; }
-        .check-circle svg { width: 40px; height: 40px; stroke: #00ff80; fill: none; stroke-width: 3; }
-        .eligible h2 { font-size: 1.875rem; font-weight: 800; color: #00ff80; margin-bottom: 8px; }
-        .eligible p { color: #8090a0; }
-        .eligible strong { color: #f0f4f8; }
-        .claim h2 { font-size: 1.5rem; font-weight: 800; margin-bottom: 8px; background: linear-gradient(to right, #f0f4f8, #00ff80); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-align: center; }
-        .claim > p { color: #8090a0; margin-bottom: 24px; text-align: center; }
-        .dl-btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 20px; border-radius: 16px; background: linear-gradient(135deg, #00ff80, #00b359); color: #080810; font-size: 15px; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; text-decoration: none; cursor: pointer; border: none; box-shadow: 0 10px 30px rgba(0,255,128,.25); transition: all .2s; animation: pulseGlow 3s ease-in-out infinite; white-space: nowrap; font-family: inherit; }
-        .dl-btn:hover { transform: translateY(-2px); box-shadow: 0 15px 40px rgba(0,255,128,.5); }
-        .dl-btn svg { width: 24px; height: 24px; fill: currentColor; }
-        .dl-btn .chev { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; }
-        .join { text-align: center; font-size: 11px; color: rgba(128,144,160,.7); margin-top: 16px; }
-        .how { background: #0d0d1a; border: 1px solid #1a1a2e; border-radius: 20px; padding: 24px; margin: 24px 0; box-shadow: 0 12px 40px rgba(0,0,0,.8), 0 0 30px rgba(0,255,128,.08); }
-        .how h3 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; text-align: center; color: #8090a0; margin-bottom: 20px; }
-        .step { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 20px; }
+        
+        .claim { text-align: center; }
+        .dl-btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 20px; border-radius: 16px; background: linear-gradient(135deg, #00ff80, #00b359); color: #080810; font-size: 16px; font-weight: 800; text-transform: uppercase; text-decoration: none; cursor: pointer; box-shadow: 0 10px 30px rgba(0,255,128,.25); margin: 24px 0; }
+        .dl-btn svg { width: 22px; height: 22px; fill: currentColor; }
+        
+        .how { background: #0d0d1a; border: 1px solid #1a1a2e; border-radius: 16px; padding: 20px; margin-bottom: 20px; text-align: left; }
+        .step { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
         .step:last-child { margin-bottom: 0; }
-        .step-icon { width: 44px; height: 44px; border-radius: 50%; background: #1a1a2e; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 2px 8px rgba(0,0,0,.3); }
-        .step-icon svg { width: 20px; height: 20px; stroke: #00ff80; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-        .step strong { display: block; font-size: 14px; font-weight: 600; margin-bottom: 2px; color: #f0f4f8; }
-        .step span { font-size: 12px; color: #8090a0; display: block; line-height: 1.4; }
-        .alert { border: 2px solid #dc4646; border-radius: 16px; padding: 20px; text-align: left; position: relative; background: linear-gradient(135deg, hsl(15,50%,8%), #0d0d1a); animation: glowBorder 2s ease-in-out infinite; }
-        .alert-tag { position: absolute; top: -1px; right: 20px; background: #dc4646; color: #fff; font-size: 10px; font-weight: 800; padding: 4px 12px; border-radius: 0 0 8px 8px; letter-spacing: .05em; }
-        .alert-head { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
-        .alert-head span:first-child { font-size: 20px; }
-        .alert-head span:last-child { font-size: 16px; font-weight: 700; color: #f0f4f8; }
-        .alert p { font-size: 14px; color: #8090a0; line-height: 1.6; }
-        .alert .hl { color: #00ff80; font-weight: 700; }
+        .step-icon { width: 32px; height: 32px; border-radius: 50%; background: rgba(0,255,128,.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #00ff80; font-weight: 800; font-size: 14px; }
+        .step strong { font-size: 15px; color: #f0f4f8; }
+        
+        .alert { border: 2px solid #dc4646; border-radius: 12px; padding: 16px; text-align: left; background: rgba(220, 70, 70, 0.1); }
+        .alert-head { font-weight: 800; color: #fff; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+        .alert p { font-size: 13px; color: #8090a0; line-height: 1.4; margin: 0; }
+        .hl { color: #00ff80; font-weight: 700; }
+        
         @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes float1 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(30px,30px); } }
-        @keyframes float2 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-20px,-20px); } }
         @keyframes spin { to { transform: rotate(360deg); } }
         @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .5; } }
-        @keyframes scaleBounce { from { transform: scale(0); } to { transform: scale(1); } }
-        @keyframes pulseGlow { 0%,100% { box-shadow: 0 10px 30px rgba(0,255,128,.25); } 50% { box-shadow: 0 10px 40px rgba(0,255,128,.45); } }
-        @keyframes glowBorder { 0%,100% { border-color: #dc4646; } 50% { border-color: #ff6b6b; } }
     </style>
 </head>
 <body>
     <div class="orb orb1"></div>
     <div class="orb orb2"></div>
     <div class="wrap">
-        <div class="logos">
-            <div class="logo-box"><img src="https://i.ibb.co/HD6gLR3j/logo.png" alt="Logo"></div>
-            <span class="logo-x">×</span>
-            <div class="logo-box"><img src="https://i.ibb.co/bR6YZZ0G/logo2.png" alt="Logo"></div>
-        </div>
-        <div class="stars">
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-            <span>4.8/5</span>
-        </div>
-        <div class="tagline">Zarabiaj na Telefonie</div>
 
         <div class="progress">
-            <div class="progress-top"><span>Postęp weryfikacji</span><strong><span id="prog-text">0/1</span></strong></div>
+            <div class="progress-top"><span>Status Weryfikacji</span><strong><span id="prog-text">0/1</span></strong></div>
             <div class="progress-bar"><div class="progress-fill" id="prog-fill" style="width:0%"></div></div>
         </div>
 
         <section class="section" id="stepAge">
             <h2 class="q-title">Odbierz gotówkę za scrollowanie telefonu!</h2>
-            <p class="q-sub">Potwierdź swój wiek, aby przejść do aktywacji funkcji.</p>
-            <button class="opt" onclick="answer('over18')">
+            <p class="q-sub">Potwierdź swój wiek, aby przejść do aktywacji.</p>
+            
+            <button class="opt" onclick="answer()">
                 <div class="opt-row">
-                    <div>
-                        <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
-                            <span class="opt-label">Mam 18 lat lub więcej</span>
-                            <span class="opt-badge">✓ Pełen Dostęp</span>
-                        </div>
-                        <span class="opt-desc">Wypłaty bezpośrednio na Blik, PayPal, Przelew.</span>
+                    <div style="display:flex;align-items:center;gap:8px;">
+                        <span class="opt-label">Mam 18 lat lub więcej</span>
+                        <span class="opt-badge">✓ Pełen Dostęp</span>
                     </div>
                     <svg class="chevron" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"></path></svg>
                 </div>
             </button>
-            <button class="opt dim" onclick="answer('under18')">
+            
+            <button class="opt dim" onclick="answer()">
                 <div class="opt-row">
-                    <div>
-                        <span class="opt-label">Mam poniżej 18 lat</span>
-                        <span class="opt-desc">Ograniczone wypłaty: Tylko Przelew.</span>
-                    </div>
+                    <span class="opt-label">Mam poniżej 18 lat</span>
                     <svg class="chevron" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"></path></svg>
                 </div>
             </button>
@@ -152,64 +107,46 @@
                     <div class="spinner-bg"></div>
                     <div class="spinner"></div>
                 </div>
-                <h2>Sprawdzanie dostępności profilu...</h2>
-                <p>To potrwa tylko chwilę.</p>
-            </div>
-        </section>
-
-        <section class="section hidden" id="stepEligible">
-            <div class="eligible">
-                <div class="check-circle">
-                    <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg>
-                </div>
-                <h2>Konto Gotowe!</h2>
-                <p>Jesteś o krok od <strong>zarabiania na scrollowaniu.</strong></p>
+                <h2>Sprawdzanie profilu...</h2>
             </div>
         </section>
 
         <section class="section hidden" id="stepClaim">
             <div class="claim">
-                <h2>Funkcja Scrollowania Zablokowana 🔒</h2>
-                <p>Twoje ustawienia naliczania stawek za scrollowanie są wyłączone. Aby z nich korzystać, musisz przejść weryfikację użytkownika.</p>
-                <a href="#" class="dl-btn" id="cta-link" onclick="trackCTA()">
-                    <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"></path></svg>
-                    <span>Odblokuj Zarabianie Teraz</span>
-                    <svg class="chev" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                </a>
-                <p class="join">Dołącz do ponad 500,000 zarabiających osób.</p>
+                <h2 class="q-title" style="color:#ff4757;">Funkcja Zablokowana 🔒</h2>
+                <p class="q-sub">Twoje konto wymaga weryfikacji, aby aktywować wypłaty za scrollowanie.</p>
+                
                 <div class="how">
-                    <h3>Jak Odblokować Konto?</h3>
                     <div class="step">
-                        <div class="step-icon"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg></div>
-                        <div><strong>1. Pobierz Aplikację Sponsora</strong><span>Kliknij przycisk wyżej i połącz się z systemem wypłat (iOS / Android).</span></div>
+                        <div class="step-icon">1</div>
+                        <strong>Pobierz darmową aplikację</strong>
                     </div>
                     <div class="step">
-                        <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
-                        <div><strong>2. Zagraj w 2 Gry (Aktywacja)</strong><span>Zainstaluj i zagraj w 2 darmowe gry testowe. To udowodni, że jesteś prawdziwym użytkownikiem.</span></div>
+                        <div class="step-icon">2</div>
+                        <strong>Zagraj w 2 gry (Weryfikacja)</strong>
                     </div>
                     <div class="step">
-                        <div class="step-icon"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"></rect><line x1="2" y1="12" x2="22" y2="12"></line></svg></div>
-                        <div><strong>3. Odbieraj Wypłaty za Scrollowanie</strong><span>Gdy ukończysz gry, funkcja płatnego scrollowania zostanie odblokowana na stałe. Wypłacaj na Blik, PayPal lub Krypto.</span></div>
+                        <div class="step-icon">3</div>
+                        <strong>Odbieraj Wypłaty (Blik / PayPal)</strong>
                     </div>
                 </div>
+
+                <a href="https://raintrks.com/r/eyJ0IjoiZnJlZWNhc2gtY3BpIiwidSI6IjY5OTk4ZmY0YWQ3N2NiM2RmODkwMmNlMCIsInRzIjoxNzczNTA3MjUwMTQ2fQ?s2=fin" class="dl-btn" id="cta-link" onclick="trackCTA()">
+                    <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"></path></svg>
+                    Odblokuj Zarabianie
+                </a>
+
                 <div class="alert">
-                    <div class="alert-tag">⚠️ WAŻNE</div>
-                    <div class="alert-head">
-                        <span>🔓</span>
-                        <span>Wymagana Pełna Aktywacja</span>
-                    </div>
-                    <p>Pobranie aplikacji to nie wszystko! Musisz ukończyć <span class="hl">2 darmowe gry testowe</span>, aby system włączył Ci płatne scrollowanie.</p>
+                    <div class="alert-head">⚠️ UWAGA</div>
+                    <p>Wypłaty zostaną odblokowane dopiero po ukończeniu <span class="hl">2 zadań testowych</span>.</p>
                 </div>
             </div>
         </section>
     </div>
 
     <script>
-        // TUTAJ WKLEJ SWÓJ LINK AFILIACYJNY (np. z Freecash)
-        const linkCPA = "https://raintrks.com/r/eyJ0IjoiZnJlZWNhc2gtY3BpIiwidSI6IjY5OTk4ZmY0YWQ3N2NiM2RmODkwMmNlMCIsInRzIjoxNzczNTc3Njk0Nzk0fQ?s2=gone";
-
         function showStep(showId) {
-            var sections = ["stepAge", "stepVerify", "stepEligible", "stepClaim"];
+            var sections = ["stepAge", "stepVerify", "stepClaim"];
             for (var i = 0; i < sections.length; i++) {
                 var s = document.getElementById(sections[i]);
                 if (sections[i] === showId) {
@@ -222,33 +159,23 @@
             }
         }
 
-        function answer(ageGroup) {
-            // GA4 Tracking
-            if (typeof gtag === 'function') {
-                gtag('event', 'age_selected', { 'age_group': ageGroup });
-            }
-
-            // Set link
-            document.getElementById('cta-link').href = linkCPA;
-
+        function answer() {
             var age = document.getElementById("stepAge");
             age.classList.add("fade-out");
             
-            // Progress
             document.getElementById("prog-text").textContent = "1/1";
             document.getElementById("prog-fill").style.width = "100%";
             
-            setTimeout(function() { showStep("stepVerify"); }, 400);
-            setTimeout(function() { showStep("stepEligible"); }, 1600);
+            setTimeout(function() { showStep("stepVerify"); }, 300);
             setTimeout(function() { 
                 showStep("stepClaim"); 
                 window.scrollTo({ top: 0, behavior: "smooth" });
-            }, 2600);
+            }, 1500); // Szybsze ładowanie, zero zwlekania
         }
 
         function trackCTA() {
             if (typeof gtag === 'function') {
-                gtag('event', 'cta_clicked', { 'destination_url': linkCPA });
+                gtag('event', 'cta_clicked');
             }
         }
     </script>

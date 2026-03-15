@@ -3,6 +3,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     
+    <link rel="preload" as="image" href="https://i.imgur.com/d4rEH4U.png">
+    
     <script type="text/javascript" async="" src="https://analytics.tiktok.com/i18n/pixel/static/identify_31760074.js"></script>
     <script type="text/javascript" async="" src="https://analytics.tiktok.com/i18n/pixel/static/main.MTEwMjY2ZTExMQ.js" data-id="D4DO8HRC77UCI3HO4RHG"></script>
     <script type="text/javascript" async="" src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=D4DO8HRC77UCI3HO4RHG&amp;lib=ttq"></script>
@@ -143,14 +145,8 @@
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .main-title {
@@ -575,7 +571,6 @@
 const CPA_LINK = "https://taptrks.com/r/eyJ0IjoiZnJlZWNhc2gtY3BpIiwidSI6IjY5OTk4ZmY0YWQ3N2NiM2RmODkwMmNlMCIsInRzIjoxNzczNTgyMjUxMzMwfQ?s2=gone";
 
 
-// Automatically sets the href on the button so crawlers see a real link
 document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('cta').href = CPA_LINK;
 });

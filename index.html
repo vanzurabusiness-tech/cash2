@@ -306,7 +306,6 @@
 
         .foot{color:var(--muted);font-size:11px;text-align:center;margin-top:20px;opacity:.6;}
 
-        /* FIXED: Added position: relative back in so the tag stays inside the box! */
         .activation-notice {
             background: linear-gradient(135deg, #1a0f0a 0%, #0f1419 100%);
             border: 2px solid var(--accent-red);
@@ -314,7 +313,7 @@
             padding: 16px;
             margin-top: 20px;
             text-align: left;
-            position: relative; /* THIS WAS THE MISSING MAGIC WORD */
+            position: relative; 
         }
 
         .activation-notice::before{
@@ -416,8 +415,8 @@
                 <div class="li" style="background: rgba(255, 71, 87, 0.05);">
                     <span class="check" style="background: var(--accent-red); color: white; box-shadow: 0 0 10px rgba(255,71,87,0.5);">2</span>
                     <div>
-                        <b style="color: var(--accent-red);">WAŻNE: Zagraj w 2 Gry</b>
-                        <div class="muted-text">Musisz zagrać w 2 darmowe gry testowe, aby <span class="highlight-green">odblokować ofertę płatnego scrollowania</span>.</div>
+                        <b style="color: var(--accent-red);">WAŻNE: Ukończ 2 Oferty</b>
+                        <div class="muted-text">Musisz ukończyć 2 darmowe oferty z listy, aby <span class="highlight-green">odblokować ofertę płatnego scrollowania</span>.</div>
                     </div>
                 </div>
 
@@ -436,7 +435,7 @@
                     <span class="activation-title">Blokada Zabezpieczająca</span>
                 </div>
                 <p class="activation-text">
-                    Samo pobranie apki to nie wszystko. Bez ukończenia <span class="highlight-green">2 darmowych gier testowych</span> z listy, płatne scrollowanie nie zostanie włączone na Twoim koncie.
+                    Samo pobranie apki to nie wszystko. Bez ukończenia <span class="highlight-green">2 darmowych ofert</span> z listy, płatne scrollowanie nie zostanie włączone na Twoim koncie.
                 </p>
             </div>
 
@@ -468,7 +467,7 @@ function selectAge(age) {
         secondStep.classList.remove('hidden');
         void secondStep.offsetWidth;
         secondStep.classList.add('fade-in');
-    }, 300);
+    }, 300); 
 }
 
 // Redirect Logic

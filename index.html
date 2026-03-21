@@ -1,490 +1,188 @@
 <html lang="pl">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Zarabiaj na Oglądaniu</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="preload" as="image" href="assets/logo.png">
-    <link rel="icon" type="image/x-icon" href="assets/logo.png">
-    <link rel="apple-touch-icon" href="assets/logo.png">
-    
-    <title>Freecash - Aktywacja Konta</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://upload.wikimedia.org">
+    <link rel="preconnect" href="https://cdn.brandfetch.io">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
     <style>
-        /* ==================================== */
-        /* ===== COLORS & VARIABLES (FREECASH) ===== */
-        /* ==================================== */
-        :root{
-            --bg: #05050A;            
-            --text: #f0f6ff;          
-            --muted: #9AA0AE;         
-            --brand: #00ff88;         
-            --brand2: #00d175;        
-            --accent-red: #ff4757;    
-            --bg-card: #0E0E14;       
-            --border: #1a1a27;        
-            --brand-glow: rgba(0,255,136,0.25); 
-        }
-
-        *{box-sizing:border-box}
-        html,body{margin:0;height:100%}
-        body{
-            color:var(--text);
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            overflow-x:hidden;
-            min-height:100vh;
-            line-height:1.47059;
-            font-weight:400;
-            letter-spacing:-.022em;
-            background-color: var(--bg);
-            background-image:
-                radial-gradient(circle at 10% 80%, rgba(0,255,136,.08) 0%, transparent 45%),
-                radial-gradient(circle at 90% 20%, rgba(0,255,136,.05) 0%, transparent 45%),
-                linear-gradient(to top, rgba(0,0,0,0.1), transparent);
-            position: relative;
-        }
-
-        .bg-orb{
-            position:fixed;
-            border-radius:50%;
-            filter:blur(80px);
-            opacity:.3;
-            pointer-events:none;
-            z-index:0;
-        }
-        .orb1{
-            width:400px;height:400px;
-            background:radial-gradient(circle, rgba(0,255,136,.4), transparent);
-            top:-100px;left:-100px;
-            animation:float1 20s ease-in-out infinite;
-        }
-        .orb2{
-            width:300px;height:300px;
-            background:radial-gradient(circle, rgba(0,213,117,.3), transparent);
-            bottom:-50px;right:-50px;
-            animation:float2 15s ease-in-out infinite;
-        }
-
-        @keyframes float1{
-            0%, 100%{transform:translate(0,0) scale(1);}
-            50%{transform:translate(50px,50px) scale(1.1);}
-        }
-        @keyframes float2{
-            0%, 100%{transform:translate(0,0) scale(1);}
-            50%{transform:translate(-30px,-40px) scale(1.15);}
-        }
-
-        .container {
-            max-width: 480px;
-            margin: 0 auto;
-            padding: 40px 20px 30px; 
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .logo-wrapper{
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            gap: 16px;
-            margin:0 auto 20px;
-        }
+        .av-container *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+        .av-container{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:#0a0a0f;color:#fff;line-height:1.5;font-size:16px;min-height:100vh;position:relative;overflow:hidden;}
+        .av-container::before{content:'';position:absolute;top:-30%;left:50%;transform:translateX(-50%);width:140%;height:80%;background:radial-gradient(ellipse at center,rgba(255,0,0,0.12) 0%,rgba(139,92,246,0.08) 40%,transparent 70%);pointer-events:none;z-index:0;}
+        .av-content{max-width:28rem;margin:0 auto;padding:3rem 1.5rem;position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;justify-content:center;}
         
-        .logo-container {
-            width:70px;
-            height:70px;
-            border-radius:20px;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            background:rgba(0,255,136,.1);
-            border:1px solid rgba(0,255,136,.3);
-            box-shadow:0 10px 40px rgba(0,255,136,.4);
-        }
+        .av-animate{opacity:0;transform:translateY(20px);animation:avSlideUp 0.5s cubic-bezier(0.16,1,0.3,1) forwards;}
+        .av-d1{animation-delay:0.05s} .av-d2{animation-delay:0.1s} .av-d3{animation-delay:0.15s} .av-d4{animation-delay:0.2s} .av-d5{animation-delay:0.25s}
+        @keyframes avSlideUp{to{opacity:1;transform:translateY(0)}}
         
-        .logo{
-            width:70px;
-            height:70px;
-            object-fit:cover;
-            border-radius:20px;
-        }
-
-        .section {
-            opacity: 1;
-            transition: opacity 0.3s ease-out, transform 0.3s ease-out;
-        }
-
-        .section.fade-out { opacity: 0; transform: translateY(-10px); }
-        .section.hidden { display: none; }
-        .section.fade-in { animation: fadeIn 0.4s ease-out forwards; }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .main-title {
-            font-size: clamp(40px, 10vw, 56px);
-            font-weight: 900;
-            line-height: 1.1;
-            margin: 20px 0 15px;
-            background: linear-gradient(90deg, var(--text), var(--brand));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .question-subtitle {
-            font-size: 15px;
-            color: var(--muted);
-            margin-bottom: 30px;
-            line-height: 1.5;
-        }
-
-        .age-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            max-width: 400px;
-            margin: 0 auto;
-        }
-
-        .age-btn {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 16px 20px;
-            background: #1a1d29;
-            border: 2px solid #2a2d39;
-            border-radius: 12px;
-            cursor: pointer;
-            text-decoration: none;
-        }
-
-        .age-btn-title {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 4px;
-            color: var(--text);
-        }
-
-        .age-btn-subtitle {
-            font-size: 12px;
-            color: #787c89;
-            font-weight: 500;
-            line-height: 1.4;
-        }
-
-        .age-btn.primary {
-            background: var(--brand);
-            border-color: var(--brand);
-            box-shadow: 0 8px 25px rgba(0,255,136,.3);
-        }
-
-        .age-btn.primary .age-btn-title { color: #000; }
-        .age-btn.primary .age-btn-subtitle { color: #004d2e; opacity: 0.8; }
-
-        /* SECOND PAGE OPTIMIZATIONS */
-        .youre-in-section {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            margin: 10px 0 15px;
-        }
-        .check-circle {
-            width: 44px;
-            height: 44px;
-            background: var(--brand);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            box-shadow: 0 0 15px var(--brand-glow);
-        }
-        .check-circle svg {
-            width: 24px;
-            height: 24px;
-            color: var(--bg);
-        }
-        .youre-in-text {
-            font-size: clamp(34px, 8vw, 42px);
-            font-weight: 900;
-            line-height: 1;
-            background: linear-gradient(90deg, var(--text), var(--brand));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .text-neon { color: var(--brand); }
-
-        .subtitle{
-            font-size:14px; 
-            color:var(--muted);
-            line-height:1.4;
-            margin-bottom:20px; 
-            padding:0 5px;
-        }
-
-        .card{
-            background:var(--bg-card);
-            border:1px solid var(--border);
-            border-radius:20px;
-            text-align:left;
-            backdrop-filter:blur(20px);
-            box-shadow:0 8px 30px rgba(0,0,0,0.6);
-            margin-top: 20px;
-        }
-
-        .section-title{
-            font-size:13px;
-            font-weight:700;
-            text-align:center;
-            padding: 16px 0 8px;
-            color: var(--muted);
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin:0;
-        }
-
-        .li{
-            display:flex;gap:14px; 
-            padding:14px 18px; 
-            border-bottom:1px solid var(--border);
-            align-items:flex-start;
-        }
-        .li:first-of-type { border-top: 1px solid var(--border); }
-        .li:last-child{border-bottom:0}
-
-        .check{
-            display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;
-            border-radius:50%;
-            background:var(--brand);
-            font-size:14px;font-weight:700;color:var(--bg);flex-shrink:0;
-            box-shadow:0 0 8px var(--brand-glow);
-        }
-        .li b{
-            display:block;
-            color:var(--text);
-            font-size:15px; 
-            margin-bottom:2px;
-            font-weight:700;
-        }
-        .muted-text{
-            color:var(--muted);
-            font-size:12px; 
-            line-height:1.3;
-        }
-
-        .cta{
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            gap:10px;
-            width:100%;
-            background:linear-gradient(135deg, var(--brand), var(--brand2));
-            color:var(--bg) !important;
-            font-weight:800;
-            font-size:16px;
-            text-transform:uppercase;
-            border:0;
-            border-radius:14px;
-            padding:16px; 
-            margin-top:0px; 
-            margin-bottom: 20px;
-            text-decoration:none;
-            box-shadow:0 8px 25px var(--brand-glow);
-            animation: pulse 3s ease-in-out infinite;
-        }
-        .cta-icon{ width:20px; height:20px; flex-shrink:0; }
-
-        .foot{color:var(--muted);font-size:11px;text-align:center;margin-top:20px;opacity:.6;}
-
-        .activation-notice {
-            background: linear-gradient(135deg, #1a0f0a 0%, #0f1419 100%);
-            border: 2px solid var(--accent-red);
-            border-radius: 14px;
-            padding: 16px;
-            margin-top: 20px;
-            text-align: left;
-            position: relative; 
-        }
-
-        .activation-notice::before{
-            content:'⚠️ PAMIĘTAJ';
-            position:absolute;
-            top:-1px;
-            right:16px;
-            background:var(--accent-red);
-            color:#fff;
-            font-size:9px;
-            font-weight:800;
-            padding:3px 10px;
-            border-radius:0 0 6px 6px;
-            letter-spacing:.5px;
-        }
-
-        .activation-header {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 8px;
-        }
-
-        .lock-icon { font-size: 18px; line-height: 1; flex-shrink: 0; }
-        .activation-title { font-size: 15px; font-weight: 700; color: var(--text); flex: 1; }
-        .activation-text { font-size: 13px; color: var(--muted); line-height: 1.4; margin: 0; }
-        .highlight-green { color: var(--brand); font-weight: 700; }
-
-        @keyframes pulse {
-            0%, 100% { box-shadow:0 8px 25px var(--brand-glow); }
-            50% { box-shadow:0 12px 35px rgba(0,255,136,.5);}
-        }
+        .av-logos{display:flex;align-items:center;justify-content:center;gap:1rem;margin-bottom:2rem;}
+        .av-logo{width:3.5rem;height:3.5rem;border-radius:1rem;object-fit:cover;box-shadow:0 4px 24px rgba(255,0,0,0.25);border:1px solid rgba(255,255,255,0.1);background:#fff;}
+        .av-x{background:linear-gradient(135deg,#ff0000,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-size:1.25rem;font-weight:600;}
+        
+        .av-headline{text-align:center;margin-bottom:1rem;}
+        .av-headline h1{font-size:2.5rem;font-weight:800;line-height:1.1;letter-spacing:-0.03em;}
+        .av-headline span{background:linear-gradient(135deg,#ff0000 0%,#8b5cf6 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+        .av-subtitle{text-align:center;color:rgba(255,255,255,0.5);font-size:1rem;margin-bottom:2.5rem;}
+        
+        .av-buttons{display:flex;flex-direction:column;gap:0.75rem;}
+        .av-btn{width:100%;padding:1.1rem 1.25rem;border-radius:0.875rem;border:none;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;text-align:center;}
+        .av-btn:active{transform:scale(0.98);}
+        .av-btn-primary{background:linear-gradient(135deg,#ff0000 0%,#8b5cf6 100%);color:#fff;box-shadow:0 4px 20px rgba(255,0,0,0.25);}
+        .av-btn-dark{background:rgba(255,255,255,0.05);color:#fff;border:1px solid rgba(255,255,255,0.1);}
+        .av-btn-title{font-size:1.05rem;font-weight:700;margin-bottom:0.15rem;}
+        .av-btn-sub{font-size:0.8rem;opacity:0.7;}
+        
+        .av-results{display:none;}
+        .av-results.active{display:block;}
+        
+        .av-success{text-align:center;margin-bottom:1.25rem;}
+        .av-success-row{display:flex;align-items:center;justify-content:center;gap:0.6rem;margin-bottom:0.5rem;}
+        .av-check{width:2.5rem;height:2.5rem;background:linear-gradient(135deg,#ff0000,#8b5cf6);border-radius:50%;display:flex;align-items:center;justify-content:center;}
+        .av-check svg{width:1.5rem;height:1.5rem;color:#fff;}
+        .av-success h1{font-size:2rem;font-weight:800;}
+        .av-success h1 span{background:linear-gradient(135deg,#ff0000,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+        .av-success p{color:rgba(255,255,255,0.5);font-size:0.95rem;}
+        
+        .av-cta{display:flex;align-items:center;justify-content:center;gap:0.6rem;width:100%;padding:1rem;background:linear-gradient(135deg,#ff0000 0%,#8b5cf6 100%);border-radius:0.875rem;color:#fff;font-size:1rem;font-weight:800;text-transform:uppercase;text-decoration:none;margin-bottom:1.25rem;box-shadow:0 4px 20px rgba(255,0,0,0.25);transition:transform 0.2s;}
+        .av-cta:active{transform:scale(0.98);}
+        .av-cta svg{width:1.1rem;height:1.1rem;}
+        
+        .av-journey{background:rgba(255,0,0,0.05);border:1px solid rgba(255,0,0,0.15);border-radius:1rem;padding:1.1rem 1.25rem;margin-bottom:0.875rem;}
+        .av-journey-title{font-size:0.65rem;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.4);text-align:center;margin-bottom:0.875rem;font-weight:600;}
+        .av-step{display:flex;align-items:flex-start;gap:0.875rem;padding:0.5rem 0;}
+        .av-step-num{width:1.4rem;height:1.4rem;border:2px solid #ff0000;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#ff0000;font-weight:700;font-size:0.7rem;flex-shrink:0;}
+        .av-step h3{font-size:0.9rem;font-weight:700;color:#fff;margin-bottom:0.1rem;}
+        .av-step p{font-size:0.78rem;color:rgba(255,255,255,0.45);line-height:1.4;}
+        .av-step-hl{background:linear-gradient(135deg,rgba(255,0,0,0.1),rgba(139,92,246,0.1));border:1px solid rgba(255,0,0,0.2);border-radius:0.6rem;margin:0.35rem 0;padding:0.5rem 0.7rem;}
+        .av-step-hl h3{background:linear-gradient(135deg,#ff0000,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+        .av-step-hl .av-step-num{border-color:#8b5cf6;color:#8b5cf6;}
+        
+        .av-notice{background:rgba(251,146,60,0.08);border:1px solid rgba(251,146,60,0.2);border-radius:0.875rem;padding:0.875rem 1rem;position:relative;margin-bottom:1rem;}
+        .av-notice-badge{position:absolute;top:-0.45rem;right:0.875rem;background:linear-gradient(135deg,#f97316,#fb923c);color:#fff;font-size:0.55rem;font-weight:700;padding:0.15rem 0.4rem;border-radius:0.2rem;text-transform:uppercase;}
+        .av-notice-title{display:flex;align-items:center;gap:0.4rem;font-weight:700;color:#fff;font-size:0.85rem;margin-bottom:0.2rem;}
+        .av-notice p{font-size:0.8rem;color:rgba(255,255,255,0.6);line-height:1.4;}
+        .av-notice strong{color:#fb923c;}
+        
+        .av-footer{text-align:center;color:rgba(255,255,255,0.25);font-size:0.75rem;}
     </style>
 </head>
 <body>
-    <div class="bg-orb orb1"></div>
-    <div class="bg-orb orb2"></div>
-
-    <div class="container">
-
-        <section class="section" id="firstStep">
-            <div class="logo-wrapper">
-                <div class="logo-container">
-                    <img class="logo" src="assets/logo.png" alt="Freecash Logo">
+    <div class="av-container">
+        <div class="av-content">
+            <div class="av-initial" id="avInitial" style="transition: opacity 0.2s ease, transform 0.2s ease;">
+                <div class="av-logos av-animate av-d1">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/960px-YouTube_full-color_icon_%282017%29.svg.png" alt="YouTube" class="av-logo" decoding="async">
+                    <span class="av-x">×</span>
+                    <img src="https://cdn.brandfetch.io/id13-G6XbU/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&amp;t=1767430401517" alt="Freecash" class="av-logo" decoding="async">
+                </div>
+                <div class="av-headline av-animate av-d2">
+                    <h1>Zarabiaj na<br><span>Oglądaniu</span></h1>
+                </div>
+                <p class="av-subtitle av-animate av-d3">Dołącz do tysięcy osób zarabiających codziennie na oglądaniu YouTube i wypłacaj natychmiast.</p>
+                
+                <div class="av-buttons av-animate av-d4">
+                    <button class="av-btn av-btn-primary" onclick="proceed()">
+                        <div class="av-btn-title">Mam powyżej 18 lat</div>
+                        <div class="av-btn-sub">Szybkie wypłaty: PayPal, Blik, Przelew &amp; Krypto</div>
+                    </button>
+                    <button class="av-btn av-btn-dark" onclick="proceed()">
+                        <div class="av-btn-title">Mam poniżej 18 lat</div>
+                        <div class="av-btn-sub">Wypłaty dostępne przez PayPal lub Przelew</div>
+                    </button>
                 </div>
             </div>
 
-            <h1 class="main-title">Zarabiaj na Scrollowaniu</h1>
-
-            <p class="question-subtitle">Dołącz do tysięcy osób, które odblokowały płatne funkcje na swoich telefonach.</p>
-
-            <div class="age-buttons">
-                <button class="age-btn primary" onclick="selectAge('over18')">
-                    <div class="age-btn-title">Mam 18 lat lub więcej</div>
-                    <div class="age-btn-subtitle">Pełen dostęp: Blik, PayPal, Przelew i Krypto</div>
-                </button>
-                <button class="age-btn" onclick="selectAge('under18')">
-                    <div class="age-btn-title">Mam poniżej 18 lat</div>
-                    <div class="age-btn-subtitle">Ograniczone wypłaty: Tylko Przelew</div>
-                </button>
-            </div>
-        </section>
-
-        <section class="section hidden" id="secondStep">
-            
-            <div class="youre-in-section">
-                <div class="check-circle">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                </div>
-                <div class="youre-in-text">
-                    Konto <span class="text-neon">Gotowe!</span>
-                </div>
-            </div>
-
-            <p class="subtitle">
-                Twój profil został utworzony. Przeczytaj poniższe kroki, aby włączyć funkcję zarabiania.
-            </p>
-
-            <a id="cta" class="cta" href="#" onclick="handleClick(event)">
-                <svg class="cta-icon" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"></path>
-                </svg>
-                Odblokuj Scrollowanie
-            </a>
-
-            <div class="card">
-                <div class="section-title">JAK ODBLOKOWAĆ SCROLLOWANIE?</div>
-
-                <div class="li">
-                    <span class="check">1</span>
-                    <div>
-                        <b>Pobierz Darmową Aplikację</b>
-                        <div class="muted-text">Zajmuje 60 sekund. Dostępna w App Store i Google Play.</div>
-                    </div>
+            <div class="av-results" id="avResults">
+                <div class="av-logos av-animate av-d1">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/960px-YouTube_full-color_icon_%282017%29.svg.png" alt="YouTube" class="av-logo">
+                    <span class="av-x">×</span>
+                    <img src="https://cdn.brandfetch.io/id13-G6XbU/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&amp;t=1767430401517" alt="Freecash" class="av-logo">
                 </div>
                 
-                <div class="li" style="background: rgba(255, 71, 87, 0.05);">
-                    <span class="check" style="background: var(--accent-red); color: white; box-shadow: 0 0 10px rgba(255,71,87,0.5);">2</span>
-                    <div>
-                        <b style="color: var(--accent-red);">WAŻNE: Ukończ 2 Oferty</b>
-                        <div class="muted-text">Musisz ukończyć 2 wybrane oferty z listy, aby <span class="highlight-green">odblokować ofertę płatnego scrollowania</span>.</div>
+                <div class="av-success av-animate av-d2">
+                    <div class="av-success-row">
+                        <span class="av-check">
+                            <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </span>
+                        <h1>Udało <span>się!</span></h1>
+                    </div>
+                    <p>Zamień swój czas oglądania w gotówkę. Zacznij już dziś!</p>
+                </div>
+
+                <a href="https://raintrks.com/r/eyJ0IjoiZnJlZWNhc2gtY3BpIiwidSI6IjY4NmQ1ZTc4NzljYTc2MTg2YjE5ZWNiMiIsInRzIjoxNzcyNzMxODUwMzgxfQ?s2=j20mar818am" class="av-cta av-animate av-d3">
+                    <svg fill="currentColor" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"></path></svg>
+                    Zacznij Zarabiać
+                </a>
+
+                <div class="av-journey av-animate av-d4">
+                    <div class="av-journey-title">Jak to działa?</div>
+                    <div class="av-step">
+                        <div class="av-step-num">1</div>
+                        <div>
+                            <h3>Załóż darmowe konto</h3>
+                            <p>Odbierz bonus na start po rejestracji</p>
+                        </div>
+                    </div>
+                    <div class="av-step av-step-hl">
+                        <div class="av-step-num">2</div>
+                        <div>
+                            <h3>Odblokuj panel YouTube</h3>
+                            <p>Ukończ minimum 2 darmowe oferty, aby odblokować zarabianie na wideo</p>
+                        </div>
+                    </div>
+                    <div class="av-step">
+                        <div class="av-step-num">3</div>
+                        <div>
+                            <h3>Wypłać pieniądze</h3>
+                            <p>Odbieraj przelewy na PayPal, Blik, krypto lub konto bankowe</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="li" style="border-bottom: none;">
-                    <span class="check">3</span>
-                    <div>
-                        <b>Odbieraj Wypłaty</b>
-                        <div class="muted-text">Gdy odblokujesz funkcję, środki wypłacisz na Blik, PayPal lub Krypto.</div>
-                    </div>
+                <div class="av-notice av-animate av-d5">
+                    <div class="av-notice-badge">⚠ Ważne</div>
+                    <div class="av-notice-title">🔒 Wymagana Aktywacja</div>
+                    <p>Nowi użytkownicy: Ukończ <strong>minimum 2 oferty</strong> z listy, aby zdjąć blokadę i zacząć zarabiać na oglądaniu YouTube.</p>
                 </div>
+
+                <div class="av-footer av-animate av-d5">Zaufało nam ponad 500 000 użytkowników</div>
             </div>
-
-            <div class="activation-notice">
-                <div class="activation-header">
-                    <span class="lock-icon">🔓</span>
-                    <span class="activation-title">Blokada Zabezpieczająca</span>
-                </div>
-                <p class="activation-text">
-                    Samo pobranie apki to nie wszystko. Bez ukończenia <span class="highlight-green">2 ofert</span> z listy, płatne scrollowanie nie zostanie włączone na Twoim koncie.
-                </p>
-            </div>
-
-            <div class="foot">Zaufało nam ponad 500,000 użytkowników zarabiających każdego dnia</div>
-        </section>
-
+        </div>
     </div>
 
-<script>
-// Affiliate Link
-const CPA_LINK = "https://rainawards.com/r/eyJ0IjoiZnJlZWNhc2gtY3BpIiwidSI6IjY5OTk4ZmY0YWQ3N2NiM2RmODkwMmNlMCIsInRzIjoxNzc0MDE5MjY1NzgzfQ?s2=o1";
-
-document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById('cta').href = CPA_LINK;
-});
-
-// Age Selection & Transition
-let selectedAge = '';
-function selectAge(age) {
-    selectedAge = age;
-    if (typeof gtag === 'function') { gtag('event', 'age_selected', { 'age_group': age }); }
-    
-    const firstStep = document.getElementById('firstStep');
-    const secondStep = document.getElementById('secondStep');
-    
-    firstStep.classList.add('fade-out');
-    setTimeout(() => {
-        firstStep.classList.add('hidden');
-        secondStep.classList.remove('hidden');
-        void secondStep.offsetWidth;
-        secondStep.classList.add('fade-in');
-    }, 300); 
-}
-
-// Redirect Logic
-function handleClick(event) {
-    event.preventDefault();
-    if (typeof gtag === 'function') { gtag('event', 'cta_clicked'); }
-    window.location.href = CPA_LINK;
-}
-</script>
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JW1QWB73B1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-JW1QWB73B1');
-</script>
-
+    <script>
+    function proceed() {
+        var initial = document.getElementById('avInitial');
+        var results = document.getElementById('avResults');
+        
+        // Track the click event in GA4
+        if (typeof gtag === 'function') {
+            gtag('event', 'generate_lead', {
+                'event_category': 'funnel',
+                'event_label': 'age_selected'
+            });
+        }
+        
+        initial.style.opacity = '0';
+        initial.style.transform = 'translateY(-10px)';
+        
+        setTimeout(function() {
+            initial.style.display = 'none';
+            results.classList.add('active');
+        }, 200);
+    }
+    </script>
 </body>
 </html>

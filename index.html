@@ -59,8 +59,8 @@
         #fc-content.active { display: flex; animation: slideUp 0.6s ease-out forwards; }
         .quiz-container, .container { max-width: 480px; width: 100%; text-align: center; }
 
-        /* Main Freecash Logo - centered and clean */
-        .av-logo-container { width: 70px; height: 70px; border-radius: 20px; display: flex; align-items: center; justify-content: center; background: rgba(0,255,136,.1); border: 1px solid rgba(0,255,136,.3); box-shadow: 0 10px 40px rgba(0,255,136,.4); overflow: hidden; margin-bottom: 32px; animation: slideUp 0.5s ease-out both; }
+        /* Main Freecash Logo - CENTERED FIX */
+        .av-logo-container { margin: 0 auto 32px auto; width: 70px; height: 70px; border-radius: 20px; display: flex; align-items: center; justify-content: center; background: rgba(0,255,136,.1); border: 1px solid rgba(0,255,136,.3); box-shadow: 0 10px 40px rgba(0,255,136,.4); overflow: hidden; animation: slideUp 0.5s ease-out both; }
         .av-logo { width: 100%; height: 100%; object-fit: cover; }
 
         /* Typography */
@@ -142,8 +142,8 @@
         @keyframes toastIn { from{opacity:0;transform:translateY(-20px) scale(0.96)} to{opacity:1;transform:translateY(0) scale(1)} }
         @keyframes toastOut { from{opacity:1;transform:translateY(0) scale(1)} to{opacity:0;transform:translateY(-10px) scale(0.96)} }
         .notif-toast.leaving { animation: toastOut 0.3s forwards; }
-        .notif-icon { width: 32px; height: 32px; border-radius: 8px; background: rgba(0,255,136,.12); border: 1px solid rgba(0,255,136,.2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-        .notif-icon img { width: 20px; height: 20px; border-radius: 5px; }
+        .notif-icon { width: 32px; height: 32px; border-radius: 8px; background: rgba(0,255,136,.12); border: 1px solid rgba(0,255,136,.2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; overflow: hidden; }
+        .notif-icon img { width: 100%; height: 100%; object-fit: cover; }
         .notif-body { flex: 1; min-width: 0; }
         .notif-title { font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
         .notif-desc { font-size: 11px; color: var(--muted); }
@@ -178,7 +178,7 @@
                 </div>
                 
                 <h1 class="question">Zarabiaj na <span class="question-gradient">Scrollowaniu</span></h1>
-                <p class="question-subtitle">Dołącz do tysięcy osób zarabiających codziennie na oglądaniu i scrollowaniu w telefonie.</p>
+                <p class="question-subtitle">Dołącz do tysięcy dziewczyn zarabiających codziennie na oglądaniu i scrollowaniu w telefonie.</p>
                 
                 <div class="signup-bonus-card">
                     <span class="signup-bonus-icon">🎁</span>
@@ -238,7 +238,7 @@
                     </svg>
                     Załóż darmowe konto
                 </a>
-                <p class="cta-sub">Typowi użytkownicy zarabiają ok. 50-80 zł pierwszego dnia.</p>
+                <p class="cta-sub">Dziewczyny zazwyczaj zarabiają ok. 50-80 zł pierwszego dnia.</p>
 
                 <div class="card">
                     <div class="section-title">JAK ZACZĄĆ ZARABIAĆ?</div>
@@ -253,7 +253,7 @@
                         <span class="check">2</span>
                         <div>
                             <b>Odblokuj panel do scrollowania</b>
-                            <div class="muted-text">Zrób minimum 2 darmowe zadania (np. ankiety lub gry), aby udowodnić, że nie jesteś botem.</div>
+                            <div class="muted-text">Wykonaj minimum 2 darmowe zadania z listy (np. ankiety lub gry), aby udowodnić, że nie jesteś botem.</div>
                         </div>
                     </div>
                     <div class="li">
@@ -271,26 +271,26 @@
                         <span class="activation-title">Wymagana Aktywacja</span>
                     </div>
                     <p class="activation-text">
-                        Nowi użytkownicy: Ukończ <span class="highlight-green">minimum 2 oferty</span> z listy startowej, aby zdjąć blokadę zabezpieczającą i zacząć zarabiać.
+                        Nowe konta: Ukończ <span class="highlight-green">minimum 2 darmowe zadania</span> z listy startowej, aby zdjąć blokadę zabezpieczającą i zacząć zarabiać.
                     </p>
                 </div>
 
                 <div class="trust-bar">
                     <div class="trust-item">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                        <span>Verified</span>
+                        <span>Zweryfikowane</span>
                     </div>
                     <div class="trust-item">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                        <span>500K+ users</span>
+                        <span>Ponad 500 tys. użytkowników</span>
                     </div>
                     <div class="trust-item">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                        <span>4.8 rated</span>
+                        <span>Ocena 4.8/5</span>
                     </div>
                 </div>
 
-                <div class="foot">Trusted by over 500,000 users earning money daily</div>
+                <div class="foot">Zaufało nam ponad 500 000 osób zarabiających każdego dnia</div>
             </div>
         </div>
 
@@ -303,13 +303,14 @@
     </div>
 
     <script>
-        // SINGLE CTA LINK VARIABLE - Replace this link and BOTH buttons update automatically
-        let finalAffiliateLink = "[YOUR_FREECASH_AFFILIATE_LINK_HERE]";
+        // ==========================================
+        // PLACE YOUR AFFILIATE LINK HERE
+        // ==========================================
+        let finalAffiliateLink = "WSTAW_SWOJ_LINK_TUTAJ";
+        // ==========================================
 
-        // Variable to ensure notifications only pop on the second screen
         let notificationsEnabled = false;
 
-        // Populate links everywhere
         function populateOfferLinks() {
             const trxButtons = document.querySelectorAll('.trxbutton');
             trxButtons.forEach(button => {
@@ -318,7 +319,6 @@
         }
         window.onload = populateOfferLinks;
 
-        // GA4 Tracking for age selection
         function proceed(e) {
             e.preventDefault();
             if (typeof gtag === 'function') {
@@ -334,9 +334,7 @@
         }
 
         function startFunnelScripts() {
-            populateOfferLinks(); // Rerun link population to be safe
-
-            // Now that we're on the results screen, notifications can start popping
+            populateOfferLinks(); 
             notificationsEnabled = true;
 
             // Countdown Timer
@@ -358,7 +356,7 @@
                 cashEl.textContent = cash.toLocaleString('pl-PL');
             }, 3000);
 
-            // Sticky CTA Bottom Button Logic
+            // Sticky CTA Logic
             const mainCta = document.getElementById('mainCta');
             const stickyCta = document.getElementById('stickyCta');
             window.addEventListener('scroll', () => {
@@ -371,7 +369,7 @@
             }, { passive: true });
         }
 
-        // Live Fake People Counter (Always runs)
+        // Live Fake People Counter
         let baseCount = 12847;
         const liveCountEl = document.getElementById('liveCount');
         setInterval(() => {
@@ -380,7 +378,7 @@
             liveCountEl.textContent = `${baseCount.toLocaleString('pl-PL')} osób zarabia w tym momencie`;
         }, 4000);
 
-        // Native Polish Notifications (Requires screen change to start)
+        // Native Polish Notifications
         const notifData = [
             {n:'Julia M.',t:'Przetestowała nową apkę',a:'+54,50 zł'},
             {n:'Zuzia K.',t:'Wypełniła szybką ankietę',a:'+18,20 zł'},
@@ -392,7 +390,7 @@
         let nIdx = 0;
 
         function popNotification() {
-            if (!notificationsEnabled) return; // Prevent popping on the first screen
+            if (!notificationsEnabled) return; 
             const zone = document.getElementById('notifZone');
             const item = notifData[nIdx % notifData.length];
             const time = times[nIdx % times.length];
@@ -400,7 +398,6 @@
 
             const toast = document.createElement('div');
             toast.className = 'notif-toast';
-            // Notice: The logo in the notification is strictly the single Freecash logo
             toast.innerHTML = `
                 <div class="notif-icon"><img src="https://cdn.brandfetch.io/id13-G6XbU/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1767430401517" alt="FC Symbol"></div>
                 <div class="notif-body">
@@ -424,7 +421,6 @@
             }, 3500);
         }
 
-        // Start checking to pop notifications immediately, proceed() will enable them
         setInterval(popNotification, 4000 + Math.random() * 2000);
     </script>
 </body>

@@ -1,12 +1,10 @@
 <html lang="pl">
 <head>
-    <title>Zarabiaj na Oglądaniu</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+    <meta name="theme-color" content="#05050A">
+    <title>Zarabiaj na Scrollowaniu</title>
     
-    <link rel="preconnect" href="https://upload.wikimedia.org">
-    <link rel="preconnect" href="https://cdn.brandfetch.io">
-
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JW1QWB73B1"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -16,203 +14,414 @@
     </script>
 
     <style>
-        /* Safely color the body without breaking Shopify's layout */
-        body { margin: 0 !important; padding: 0 !important; background-color: #0a0a0f !important; }
-        
-        .av-container * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        
-        /* The Overlay Hack: Sits perfectly on top, hides borders, no black screen */
-        .av-container {
-            position: absolute; top: 0; left: 0; right: 0;
-            width: 100%; min-height: 100vh;
-            background: #0a0a0f; color: #fff;
-            z-index: 9999999;
+        /* Base Variables & Reset */
+        :root {
+            --bg: #05050A;
+            --text: #f0f6ff;
+            --muted: #9AA0AE;
+            --brand: #00ff88;
+            --brand2: #00d175;
+            --accent-red: #ff4757;
+            --bg-card: #0E0E14;
+            --border: #1a1a27;
+            --brand-glow: rgba(0,255,136,0.25);
+        }
+
+        /* Shopify Override Hack - Prevents Black Screen */
+        html, body { margin: 0 !important; padding: 0 !important; width: 100%; min-height: 100vh; background-color: var(--bg) !important; overflow-x: hidden; }
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+        .av-master-container {
+            position: absolute; top: 0; left: 0; right: 0; min-height: 100vh; width: 100%;
+            background-color: var(--bg); color: var(--text);
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            overflow-x: hidden;
+            z-index: 999999; /* Hides Shopify header/footer */
+            background-image: 
+                radial-gradient(circle at 10% 80%, rgba(0,255,136,.08) 0%, transparent 45%),
+                radial-gradient(circle at 90% 20%, rgba(0,255,136,.05) 0%, transparent 45%),
+                linear-gradient(to top, rgba(0,0,0,0.1), transparent);
+            background-attachment: fixed;
         }
-        
-        .av-container::before {
-            content: ''; position: absolute; top: -30%; left: 50%; transform: translateX(-50%);
-            width: 140%; height: 80%; background: radial-gradient(ellipse at center, rgba(255,0,0,0.12) 0%, rgba(139,92,246,0.08) 40%, transparent 70%);
-            pointer-events: none; z-index: 0;
-        }
-        
-        /* Compressed layout for mobile viewing */
-        .av-content {
-            max-width: 28rem; margin: 0 auto; padding: 1.5rem 1.5rem;
-            position: relative; z-index: 1; min-height: 100vh;
-            display: flex; flex-direction: column; justify-content: center;
-        }
-        
-        .av-animate { opacity: 0; transform: translateY(20px); animation: avSlideUp 0.5s cubic-bezier(0.16,1,0.3,1) forwards; }
-        .av-d1 { animation-delay: 0.05s; } .av-d2 { animation-delay: 0.1s; } .av-d3 { animation-delay: 0.15s; } .av-d4 { animation-delay: 0.2s; } .av-d5 { animation-delay: 0.25s; }
-        @keyframes avSlideUp { to { opacity: 1; transform: translateY(0); } }
-        
+
+        /* Background Orbs */
+        .bg-orb { position: fixed; border-radius: 50%; filter: blur(80px); opacity: .3; pointer-events: none; z-index: 0; }
+        .orb1 { width: 400px; height: 400px; background: radial-gradient(circle, rgba(0,255,136,.4), transparent); top: -100px; left: -100px; animation: float1 20s ease-in-out infinite; }
+        .orb2 { width: 300px; height: 300px; background: radial-gradient(circle, rgba(0,213,117,.3), transparent); bottom: -50px; right: -50px; animation: float2 15s ease-in-out infinite; }
+        @keyframes float1 { 0%, 100%{transform:translate(0,0) scale(1);} 50%{transform:translate(50px,50px) scale(1.1);} }
+        @keyframes float2 { 0%, 100%{transform:translate(0,0) scale(1);} 50%{transform:translate(-30px,-40px) scale(1.15);} }
+
+        /* Shared Animations */
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Containers */
+        #age-quiz, #fc-content { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; padding: 40px 20px; position: relative; z-index: 1; }
+        #fc-content { display: none; opacity: 0; padding-top: 60px; justify-content: flex-start; }
+        #fc-content.active { display: flex; animation: slideUp 0.6s ease-out forwards; }
+        .quiz-container, .container { max-width: 480px; width: 100%; text-align: center; }
+
         /* Logos */
-        .av-logos { display: flex; align-items: center; justify-content: center; gap: 0.75rem; margin-bottom: 1rem; }
-        .av-logo { width: 2.75rem; height: 2.75rem; border-radius: 0.75rem; object-fit: cover; box-shadow: 0 4px 24px rgba(255,0,0,0.25); border: 1px solid rgba(255,255,255,0.1); background: #fff; }
-        .av-x { background: linear-gradient(135deg,#ff0000,#8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 1.1rem; font-weight: 600; }
+        .quiz-logo-wrapper, .logo-wrapper { display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 32px; animation: slideUp 0.5s ease-out both; }
+        .logo-wrapper { margin-bottom: 20px; }
+        .quiz-logo-container { width: 70px; height: 70px; border-radius: 20px; display: flex; align-items: center; justify-content: center; background: rgba(0,255,136,.1); border: 1px solid rgba(0,255,136,.3); box-shadow: 0 10px 40px rgba(0,255,136,.4); overflow: hidden; }
+        .quiz-logo { width: 70px; height: 70px; object-fit: cover; border-radius: 20px; background: #fff;}
+        .partnership-x { font-size: 28px; font-weight: 900; background: linear-gradient(135deg, #fff 0%, var(--brand) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: pulse-x 2s ease-in-out infinite; }
+        @keyframes pulse-x { 0%, 100% { transform: scale(1); filter: drop-shadow(0 0 8px rgba(0,255,136,.4)); } 50% { transform: scale(1.1); filter: drop-shadow(0 0 16px rgba(0,255,136,.6)); } }
+
+        /* Typography */
+        .question { font-size: clamp(32px, 10vw, 48px); font-weight: 900; line-height: 1.1; margin-bottom: 16px; animation: slideUp 0.6s ease-out 0.2s both; }
+        .question-gradient { background: linear-gradient(90deg, var(--text), var(--brand)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .question-subtitle { font-size: 15px; color: var(--muted); margin-bottom: 32px; animation: slideUp 0.6s ease-out 0.3s both; }
         
-        /* Headlines */
-        .av-headline { text-align: center; margin-bottom: 0.75rem; }
-        .av-headline h1 { font-size: 2.25rem; font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; }
-        .av-headline span { background: linear-gradient(135deg,#ff0000 0%,#8b5cf6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .av-subtitle { text-align: center; color: rgba(255,255,255,0.5); font-size: 0.95rem; margin-bottom: 1.5rem; }
-        
-        /* Buttons */
-        .av-buttons { display: flex; flex-direction: column; gap: 0.6rem; }
-        .av-btn { width: 100%; padding: 0.9rem 1.25rem; border-radius: 0.875rem; border: none; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; text-align: center; }
-        .av-btn:active { transform: scale(0.98); }
-        .av-btn-primary { background: linear-gradient(135deg,#ff0000 0%,#8b5cf6 100%); color: #fff; box-shadow: 0 4px 20px rgba(255,0,0,0.25); }
-        .av-btn-dark { background: rgba(255,255,255,0.05); color: #fff; border: 1px solid rgba(255,255,255,0.1); }
-        .av-btn-title { font-size: 1rem; font-weight: 700; margin-bottom: 0.15rem; }
-        .av-btn-sub { font-size: 0.75rem; opacity: 0.7; }
-        
-        /* Results Section */
-        .av-results { display: none; }
-        .av-results.active { display: block; }
-        
-        .av-success { text-align: center; margin-bottom: 0.75rem; }
-        .av-success-row { display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.25rem; }
-        .av-check { width: 2rem; height: 2rem; background: linear-gradient(135deg,#ff0000,#8b5cf6); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-        .av-check svg { width: 1.25rem; height: 1.25rem; color: #fff; }
-        .av-success h1 { font-size: 1.75rem; font-weight: 800; }
-        .av-success h1 span { background: linear-gradient(135deg,#ff0000,#8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .av-success p { color: rgba(255,255,255,0.5); font-size: 0.9rem; }
-        
-        /* CTA Button */
-        .av-cta { display: flex; align-items: center; justify-content: center; gap: 0.5rem; width: 100%; padding: 0.85rem; background: linear-gradient(135deg,#ff0000 0%,#8b5cf6 100%); border-radius: 0.875rem; color: #fff; font-size: 1rem; font-weight: 800; text-transform: uppercase; text-decoration: none; margin-bottom: 0.75rem; box-shadow: 0 4px 20px rgba(255,0,0,0.25); transition: transform 0.2s; }
-        .av-cta:active { transform: scale(0.98); }
-        
-        /* Journey Setup */
-        .av-journey { background: rgba(255,0,0,0.05); border: 1px solid rgba(255,0,0,0.15); border-radius: 0.875rem; padding: 0.85rem 1rem; margin-bottom: 0.75rem; }
-        .av-journey-title { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(255,255,255,0.4); text-align: center; margin-bottom: 0.5rem; font-weight: 600; }
-        .av-step { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.35rem 0; }
-        .av-step-num { width: 1.3rem; height: 1.3rem; border: 2px solid #ff0000; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #ff0000; font-weight: 700; font-size: 0.65rem; flex-shrink: 0; }
-        .av-step h3 { font-size: 0.85rem; font-weight: 700; color: #fff; margin-bottom: 0.1rem; }
-        .av-step p { font-size: 0.75rem; color: rgba(255,255,255,0.45); line-height: 1.3; }
-        .av-step-hl { background: linear-gradient(135deg, rgba(255,0,0,0.1), rgba(139,92,246,0.1)); border: 1px solid rgba(255,0,0,0.2); border-radius: 0.6rem; margin: 0.25rem 0; padding: 0.4rem 0.6rem; }
-        .av-step-hl h3 { background: linear-gradient(135deg,#ff0000,#8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .av-step-hl .av-step-num { border-color: #8b5cf6; color: #8b5cf6; }
-        
-        /* Notice box */
-        .av-notice { background: rgba(251,146,60,0.08); border: 1px solid rgba(251,146,60,0.2); border-radius: 0.875rem; padding: 0.75rem 0.85rem; position: relative; margin-bottom: 0.75rem; }
-        .av-notice-badge { position: absolute; top: -0.45rem; right: 0.875rem; background: linear-gradient(135deg,#f97316,#fb923c); color: #fff; font-size: 0.5rem; font-weight: 700; padding: 0.15rem 0.4rem; border-radius: 0.2rem; text-transform: uppercase; }
-        .av-notice-title { display: flex; align-items: center; gap: 0.4rem; font-weight: 700; color: #fff; font-size: 0.8rem; margin-bottom: 0.15rem; }
-        .av-notice p { font-size: 0.75rem; color: rgba(255,255,255,0.6); line-height: 1.3; }
-        .av-notice strong { color: #fb923c; }
-        
-        .av-footer { text-align: center; color: rgba(255,255,255,0.25); font-size: 0.7rem; }
+        /* Bonus Card */
+        .signup-bonus-card { display: flex; align-items: center; gap: 14px; background: linear-gradient(135deg, #0a1a0f 0%, #0f1a14 100%); border: 2px solid var(--brand); border-radius: 16px; padding: 14px 20px; margin: 0 auto 28px auto; max-width: 360px; box-shadow: 0 8px 30px rgba(0,255,136,0.3), 0 0 20px rgba(0,255,136,0.2); animation: slideUp 0.5s ease-out 0.25s both; }
+        .signup-bonus-icon { font-size: 32px; line-height: 1; flex-shrink: 0; }
+        .signup-bonus-content { text-align: left; }
+        .signup-bonus-title { font-size: 18px; font-weight: 900; color: var(--brand); margin: 0 0 2px 0; text-shadow: 0 0 12px rgba(0,255,136,0.5); }
+        .signup-bonus-sub { font-size: 11px; color: var(--muted); font-weight: 500; letter-spacing: 0.5px; }
+
+        /* Options */
+        .options { display: flex; flex-direction: column; gap: 14px; max-width: 400px; margin: 0 auto; }
+        .option { display: block; text-decoration: none; background: var(--bg-card); border: 2px solid var(--border); border-radius: 16px; padding: 18px 24px; cursor: pointer; transition: all 0.2s ease; animation: slideUp 0.5s ease-out both; position: relative; overflow: hidden; }
+        .option:nth-child(1) { animation-delay: 0.3s; background: var(--brand); border-color: var(--brand); box-shadow: 0 8px 30px rgba(0,255,136,0.4); }
+        .option:nth-child(1) .option-label { color: #000; }
+        .option:nth-child(1) .option-payout { color: rgba(0, 0, 0, 0.7); }
+        .option:nth-child(2) { animation-delay: 0.4s; background: linear-gradient(135deg, #1a1a24, #252530); border-color: rgba(0,255,136,0.3); }
+        .option-label { font-size: 18px; font-weight: 700; color: var(--text); text-align: center; margin-bottom: 6px; }
+        .option-payout { font-size: 12px; color: rgba(255, 255, 255, 0.8); text-align: center; font-weight: 500; }
+        .option:active { transform: scale(0.98); }
+
+        /* Counters */
+        .live-counter { display: inline-flex; align-items: center; gap: 8px; background: rgba(0,255,136,.08); border: 1px solid rgba(0,255,136,.25); border-radius: 12px; padding: 10px 18px; margin-top: 24px; animation: slideUp 0.5s ease-out 0.5s both; }
+        .live-dot { width: 8px; height: 8px; background: var(--brand); border-radius: 50%; animation: blink 1.5s infinite; box-shadow: 0 0 8px rgba(0,255,136,.5); }
+        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+        .live-counter span { font-size: 13px; color: var(--brand); font-weight: 600; }
+
+        .countdown-bar { display: flex; align-items: center; justify-content: center; gap: 8px; background: rgba(255,71,87,.08); border: 1px solid rgba(255,71,87,.25); border-radius: 12px; padding: 10px 18px; margin-bottom: 20px; }
+        .countdown-bar svg { width: 16px; height: 16px; color: var(--accent-red); }
+        .countdown-bar span { font-size: 13px; color: #ff6b8a; font-weight: 600; }
+        .countdown-bar .timer { color: var(--accent-red); font-weight: 700; }
+
+        /* Results Screen */
+        .youre-in-section { display: flex; align-items: center; justify-content: center; gap: 16px; margin: 20px 0; }
+        .check-circle { width: 54px; height: 54px; background: #00ff88; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 0 20px rgba(0,255,136,0.25); }
+        .check-circle svg { width: 28px; height: 28px; color: var(--bg); }
+        .youre-in-text { font-size: 42px; font-weight: 900; background: linear-gradient(90deg, var(--text), #00ff88); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .dollar-counter { margin-bottom: 12px; }
+        .dollar-counter span { font-size: 14px; font-weight: 600; color: var(--brand); text-shadow: 0 0 10px rgba(0,255,136,.3); }
+
+        /* Call to Action */
+        .cta { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; background: linear-gradient(135deg, #00ff88, #00d175); color: #05050A !important; font-weight: 800; font-size: 16px; text-transform: uppercase; border-radius: 16px; padding: 18px; margin: 24px 0 10px 0; text-decoration: none; box-shadow: 0 10px 30px rgba(0,255,136,0.25); animation: pulse-fc 3s infinite; }
+        .cta svg { width: 20px; height: 20px; }
+        @keyframes pulse-fc { 0%, 100% { box-shadow:0 10px 30px rgba(0,255,136,0.25); } 50% { box-shadow:0 15px 40px rgba(0,255,136,.6);} }
+        .cta-sub { font-size: 12px; color: var(--muted); margin-bottom: 32px; }
+
+        /* Journey Card */
+        .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px; text-align: left; padding: 0; margin-bottom: 24px; box-shadow: 0 12px 40px rgba(0,0,0,0.8), 0 0 30px rgba(0,255,136,0.15); }
+        .section-title { font-size: 12px; font-weight: 700; text-align: center; padding: 18px 0; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; border-bottom: 1px solid var(--border); margin:0;}
+        .li { display: flex; gap: 14px; padding: 16px 20px; border-bottom: 1px solid var(--border); }
+        .li:last-child { border-bottom: none; }
+        .check { display: flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 50%; background: #00ff88; font-size: 12px; font-weight: 700; color: #05050A; flex-shrink: 0; }
+        .li b { display: block; color: var(--text); font-size: 15px; margin-bottom: 4px; font-weight: 700; }
+        .muted-text { color: var(--muted); font-size: 12px; line-height: 1.4; }
+
+        /* Warning Notice */
+        .activation-notice { background: linear-gradient(135deg, #1a0f0a 0%, #0f1419 100%); border: 2px solid var(--accent-red); border-radius: 16px; padding: 18px; text-align: left; position: relative; animation: glow-border 2s infinite; margin-bottom: 24px; }
+        .activation-notice::before { content: '⚠️ WAŻNE'; position: absolute; top: -1px; right: 16px; background: var(--accent-red); color: #fff; font-size: 9px; font-weight: 800; padding: 4px 10px; border-radius: 0 0 8px 8px; letter-spacing: .5px; }
+        @keyframes glow-border { 0%, 100% { box-shadow: 0 0 15px rgba(255,71,87,.2); border-color: var(--accent-red); } 50% { box-shadow: 0 0 25px rgba(255,71,87,.4); border-color: #ff6b7a; } }
+        .activation-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+        .activation-title { font-size: 15px; font-weight: 700; color: var(--text); }
+        .activation-text { font-size: 13px; color: var(--muted); line-height: 1.5; margin: 0; }
+        .highlight-green { color: #00ff88; font-weight: 700; }
+
+        /* Footer & Trust */
+        .trust-bar { display: flex; align-items: center; justify-content: center; gap: 16px; padding: 10px 0; }
+        .trust-item { display: flex; align-items: center; gap: 4px; }
+        .trust-item svg { width: 14px; height: 14px; color: var(--brand); }
+        .trust-item span { font-size: 11px; color: var(--muted); font-weight: 500; }
+        .foot { color: var(--muted); font-size: 11px; text-align: center; margin-top: 10px; opacity: .7; padding-bottom: 80px; }
+
+        /* Notifications */
+        .notif-zone { position: fixed; top: 16px; left: 50%; transform: translateX(-50%); z-index: 100; width: calc(100% - 32px); max-width: 400px; pointer-events: none; height: 70px; }
+        .notif-toast { position: absolute; top: 0; left: 0; right: 0; background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 12px 14px; display: flex; align-items: center; gap: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.6), 0 0 20px rgba(0,255,136,.15); animation: toastIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) both; opacity: 0; }
+        @keyframes toastIn { from{opacity:0;transform:translateY(-20px) scale(0.96)} to{opacity:1;transform:translateY(0) scale(1)} }
+        @keyframes toastOut { from{opacity:1;transform:translateY(0) scale(1)} to{opacity:0;transform:translateY(-10px) scale(0.96)} }
+        .notif-toast.leaving { animation: toastOut 0.3s forwards; }
+        .notif-icon { width: 32px; height: 32px; border-radius: 8px; background: rgba(0,255,136,.12); border: 1px solid rgba(0,255,136,.2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .notif-icon img { width: 20px; height: 20px; border-radius: 5px; }
+        .notif-body { flex: 1; min-width: 0; }
+        .notif-title { font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+        .notif-desc { font-size: 11px; color: var(--muted); }
+        .notif-time { font-size: 10px; color: var(--muted); opacity: 0.6; }
+
+        /* Sticky CTA */
+        .sticky-cta { position: fixed; bottom: 0; left: 0; right: 0; z-index: 90; background: linear-gradient(to top, var(--bg) 60%, transparent); padding: 16px 20px; display: flex; justify-content: center; opacity: 0; transform: translateY(20px); transition: all 0.3s ease; pointer-events: none;}
+        .sticky-cta.visible { opacity: 1; transform: translateY(0); pointer-events: auto;}
+        .sticky-cta .cta-sm { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; max-width: 440px; background: linear-gradient(135deg, #00ff88, #00d175); color: #05050A !important; font-weight: 800; font-size: 15px; text-transform: uppercase; border-radius: 16px; padding: 16px; text-decoration: none; box-shadow: 0 -4px 30px rgba(0,255,136,0.25); }
+        .sticky-cta .cta-sm svg { width: 18px; height: 18px; }
+
+        @media (max-width: 480px) {
+            .question { font-size: 32px; }
+            .youre-in-text { font-size: 36px; }
+            .check-circle { width: 46px; height: 46px; }
+            .check-circle svg { width: 24px; height: 24px; }
+            #age-quiz, #fc-content { padding: 30px 16px; }
+        }
     </style>
 </head>
 <body>
-    <div class="av-container">
-        <div class="av-content">
-            <div class="av-initial" id="avInitial" style="transition: opacity 0.2s ease, transform 0.2s ease;">
-                <div class="av-logos av-animate av-d1">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/960px-YouTube_full-color_icon_%282017%29.svg.png" alt="YouTube" class="av-logo" decoding="async">
-                    <span class="av-x">×</span>
-                    <img src="https://cdn.brandfetch.io/id13-G6XbU/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&amp;t=1767430401517" alt="Freecash" class="av-logo" decoding="async">
+    <div class="av-master-container">
+        <div class="bg-orb orb1"></div>
+        <div class="bg-orb orb2"></div>
+
+        <div class="notif-zone" id="notifZone"></div>
+
+        <div id="age-quiz">
+            <div class="quiz-container">
+                <div class="quiz-logo-wrapper">
+                    <div class="quiz-logo-container">
+                        <img class="quiz-logo" src="https://cdn.brandfetch.io/idxAg10C0L/theme/dark/symbol.svg" alt="TikTok">
+                    </div>
+                    <span class="partnership-x">×</span>
+                    <div class="quiz-logo-container">
+                        <img class="quiz-logo" src="https://cdn.brandfetch.io/id13-G6XbU/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1767430401517" alt="Freecash">
+                    </div>
                 </div>
-                <div class="av-headline av-animate av-d2">
-                    <h1>Zarabiaj na<br><span>Oglądaniu</span></h1>
-                </div>
-                <p class="av-subtitle av-animate av-d3">Dołącz do tysięcy osób zarabiających codziennie na oglądaniu YouTube i wypłacaj natychmiast.</p>
                 
-                <div class="av-buttons av-animate av-d4">
-                    <button class="av-btn av-btn-primary" onclick="proceed()">
-                        <div class="av-btn-title">Mam powyżej 18 lat</div>
-                        <div class="av-btn-sub">Szybkie wypłaty: PayPal, Blik, Przelew &amp; Krypto</div>
-                    </button>
-                    <button class="av-btn av-btn-dark" onclick="proceed()">
-                        <div class="av-btn-title">Mam poniżej 18 lat</div>
-                        <div class="av-btn-sub">Wypłaty dostępne przez PayPal lub Przelew</div>
-                    </button>
+                <h1 class="question">Zarabiaj na <span class="question-gradient">Scrollowaniu</span></h1>
+                <p class="question-subtitle">Dołącz do tysięcy dziewczyn zarabiających codziennie na oglądaniu i scrollowaniu w telefonie.</p>
+                
+                <div class="signup-bonus-card">
+                    <span class="signup-bonus-icon">🎁</span>
+                    <div class="signup-bonus-content">
+                        <div class="signup-bonus-title">Bonus powitalny</div>
+                        <div class="signup-bonus-sub">DARMOWY BONUS PRZY REJESTRACJI</div>
+                    </div>
+                </div>
+                
+                <div class="options">
+                    <a class="option" href="#" onclick="proceed(event)">
+                        <div class="option-label">Mam powyżej 18 lat</div>
+                        <div class="option-payout">Szybkie wypłaty: PayPal, Blik, Przelew & Krypto</div>
+                    </a>
+                    <a class="option" href="#" onclick="proceed(event)">
+                        <div class="option-label">Mam poniżej 18 lat</div>
+                        <div class="option-payout">Ograniczone wypłaty: Tylko Przelew Bankowy</div>
+                    </a>
+                </div>
+
+                <div class="live-counter">
+                    <div class="live-dot"></div>
+                    <span id="liveCount">12 847 osób zarabia w tym momencie</span>
                 </div>
             </div>
+        </div>
 
-            <div class="av-results" id="avResults">
-                <div class="av-logos av-animate av-d1">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/960px-YouTube_full-color_icon_%282017%29.svg.png" alt="YouTube" class="av-logo">
-                    <span class="av-x">×</span>
-                    <img src="https://cdn.brandfetch.io/id13-G6XbU/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&amp;t=1767430401517" alt="Freecash" class="av-logo">
-                </div>
-                
-                <div class="av-success av-animate av-d2">
-                    <div class="av-success-row">
-                        <span class="av-check">
-                            <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                        </span>
-                        <h1>Udało <span>się!</span></h1>
+        <div id="fc-content">
+            <div class="container">
+                <div class="logo-wrapper">
+                    <div class="quiz-logo-container">
+                        <img class="quiz-logo" src="https://cdn.brandfetch.io/idxAg10C0L/theme/dark/symbol.svg" alt="TikTok">
                     </div>
-                    <p>Zamień swój czas oglądania w gotówkę. Zacznij już dziś!</p>
+                    <span class="partnership-x">×</span>
+                    <div class="quiz-logo-container">
+                        <img class="quiz-logo" src="https://cdn.brandfetch.io/id13-G6XbU/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1767430401517" alt="Freecash">
+                    </div>
                 </div>
 
-                <a href="https://rainawards.com/r/eyJ0IjoiZnJlZWNhc2gtY3BpIiwidSI6IjY5OTk4ZmY0YWQ3N2NiM2RmODkwMmNlMCIsInRzIjoxNzc0MDkyMzg3NjM2fQ?s2=yt1" class="av-cta av-animate av-d3">
-                    <svg fill="currentColor" viewBox="0 0 24 24" style="width: 20px !important; height: 20px !important; min-width: 20px; flex-shrink: 0;" width="20" height="20">
+                <div class="countdown-bar">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>Twój bonus wygasa za: <span class="timer" id="countdown">14:59</span></span>
+                </div>
+
+                <div class="youre-in-section">
+                    <div class="check-circle">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <div class="youre-in-text">Udało się!</div>
+                </div>
+
+                <div class="dollar-counter">
+                    <span>💰 Wypłacono już ponad <span id="dollarCount">12 000 000</span> zł</span>
+                </div>
+
+                <p class="question-subtitle" style="margin-bottom: 24px; padding: 0 10px;">
+                    Twoje konto kwalifikuje się do wyższych stawek. Załóż konto, aby odebrać swój <span class="highlight-green">bonus na start</span>.
+                </p>
+
+                <a class="cta" id="mainCta" href="https://raintrks.com/r/eyJ0IjoiZnJlZWNhc2gtY3BpIiwidSI6IjY4NmQ1ZTc4NzljYTc2MTg2YjE5ZWNiMiIsInRzIjoxNzcyNzMxODUwMzgxfQ?s2=j20mar818am">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"></path>
                     </svg>
-                    Zacznij Zarabiać
+                    Załóż darmowe konto
                 </a>
+                <p class="cta-sub">Zwykłe użytkowniczki zarabiają ok. 50-80 zł pierwszego dnia.</p>
 
-                <div class="av-journey av-animate av-d4">
-                    <div class="av-journey-title">Jak to działa?</div>
-                    <div class="av-step">
-                        <div class="av-step-num">1</div>
+                <div class="card">
+                    <div class="section-title">JAK ZACZĄĆ ZARABIAĆ?</div>
+                    <div class="li">
+                        <span class="check">1</span>
                         <div>
-                            <h3>Załóż darmowe konto</h3>
-                            <p>Odbierz bonus na start po rejestracji</p>
+                            <b>Załóż darmowe konto</b>
+                            <div class="muted-text">Rejestracja zajmuje dosłownie 60 sekund.</div>
                         </div>
                     </div>
-                    <div class="av-step av-step-hl">
-                        <div class="av-step-num">2</div>
+                    <div class="li">
+                        <span class="check">2</span>
                         <div>
-                            <h3>Odblokuj panel YouTube</h3>
-                            <p>Ukończ minimum 2 darmowe oferty, aby odblokować zarabianie na wideo</p>
+                            <b>Odblokuj panel do scrollowania</b>
+                            <div class="muted-text">Zrób minimum 2 darmowe zadania (np. ankiety lub gry), aby udowodnić, że nie jesteś botem.</div>
                         </div>
                     </div>
-                    <div class="av-step">
-                        <div class="av-step-num">3</div>
+                    <div class="li">
+                        <span class="check">3</span>
                         <div>
-                            <h3>Wypłać pieniądze</h3>
-                            <p>Odbieraj przelewy na PayPal, Blik, krypto lub konto bankowe</p>
+                            <b>Wypłacaj pieniądze</b>
+                            <div class="muted-text">Przelewaj zarobki natychmiastowo na Blik lub PayPal.</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="av-notice av-animate av-d5">
-                    <div class="av-notice-badge">⚠ Ważne</div>
-                    <div class="av-notice-title">🔒 Wymagana Aktywacja</div>
-                    <p>Nowi użytkownicy: Ukończ <strong>minimum 2 oferty</strong> z listy, aby zdjąć blokadę i zacząć zarabiać na oglądaniu YouTube.</p>
+                <div class="activation-notice">
+                    <div class="activation-header">
+                        <span class="lock-icon">🔒</span>
+                        <span class="activation-title">Wymagana Aktywacja</span>
+                    </div>
+                    <p class="activation-text">
+                        Nowi użytkownicy: Ukończ <span class="highlight-green">minimum 2 oferty</span> z listy startowej, aby zdjąć blokadę zabezpieczającą i zacząć zarabiać.
+                    </p>
                 </div>
 
-                <div class="av-footer av-animate av-d5">Zaufało nam ponad 500 000 użytkowników</div>
+                <div class="trust-bar">
+                    <div class="trust-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        <span>Zweryfikowane</span>
+                    </div>
+                    <div class="trust-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        <span>500K+ użytkowników</span>
+                    </div>
+                    <div class="trust-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <span>Ocena 4.8/5</span>
+                    </div>
+                </div>
+
+                <div class="foot">Zaufało nam ponad 500,000 użytkowników zarabiających każdego dnia</div>
             </div>
+        </div>
+
+        <div class="sticky-cta" id="stickyCta">
+            <a class="cta-sm" href="https://raintrks.com/r/eyJ0IjoiZnJlZWNhc2gtY3BpIiwidSI6IjY4NmQ1ZTc4NzljYTc2MTg2YjE5ZWNiMiIsInRzIjoxNzcyNzMxODUwMzgxfQ?s2=j20mar818am">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                Załóż darmowe konto
+            </a>
         </div>
     </div>
 
     <script>
-    function proceed() {
-        var initial = document.getElementById('avInitial');
-        var results = document.getElementById('avResults');
-        
-        if (typeof gtag === 'function') {
-            gtag('event', 'generate_lead', {
-                'event_category': 'funnel',
-                'event_label': 'age_selected'
-            });
+        // GA4 Tracking for age selection
+        function proceed(e) {
+            e.preventDefault();
+            if (typeof gtag === 'function') {
+                gtag('event', 'generate_lead', {
+                    'event_category': 'funnel',
+                    'event_label': 'age_selected_scroll_angle'
+                });
+            }
+            document.getElementById('age-quiz').style.display = 'none';
+            document.getElementById('fc-content').classList.add('active');
+            window.scrollTo(0, 0);
+            startTimers();
         }
-        
-        initial.style.opacity = '0';
-        initial.style.transform = 'translateY(-10px)';
-        
-        setTimeout(function() {
-            initial.style.display = 'none';
-            results.classList.add('active');
-        }, 200);
-    }
+
+        function startTimers() {
+            // Countdown
+            let time = 14 * 60 + 59;
+            const timerEl = document.getElementById('countdown');
+            setInterval(() => {
+                if (time <= 0) return;
+                time--;
+                const m = Math.floor(time / 60);
+                const s = time % 60;
+                timerEl.textContent = `${m}:${s < 10 ? '0' : ''}${s}`;
+            }, 1000);
+
+            // Money Counter
+            let cash = 12000000;
+            const cashEl = document.getElementById('dollarCount');
+            setInterval(() => {
+                cash += Math.floor(Math.random() * 50) + 10;
+                cashEl.textContent = cash.toLocaleString('pl-PL');
+            }, 3000);
+
+            // Sticky CTA Logic
+            const mainCta = document.getElementById('mainCta');
+            const stickyCta = document.getElementById('stickyCta');
+            window.addEventListener('scroll', () => {
+                const rect = mainCta.getBoundingClientRect();
+                if (rect.bottom < 0) {
+                    stickyCta.classList.add('visible');
+                } else {
+                    stickyCta.classList.remove('visible');
+                }
+            }, { passive: true });
+        }
+
+        // Live Fake People Counter
+        let baseCount = 12847;
+        const liveCountEl = document.getElementById('liveCount');
+        setInterval(() => {
+            baseCount += Math.floor(Math.random() * 5) - 1;
+            if (baseCount < 12500) baseCount = 12500;
+            liveCountEl.textContent = `${baseCount.toLocaleString('pl-PL')} osób zarabia w tym momencie`;
+        }, 4000);
+
+        // Native Polish Notifications
+        const notifData = [
+            {n:'Julia M.',t:'Przetestowała nową apkę',a:'+54,50 zł'},
+            {n:'Zuzia K.',t:'Wypełniła szybką ankietę',a:'+18,20 zł'},
+            {n:'Oliwia P.',t:'Zagrała w grę',a:'+72,00 zł'},
+            {n:'Klaudia T.',t:'Obejrzała serię wideo',a:'+22,50 zł'},
+            {n:'Maja W.',t:'Pobrała aplikację',a:'+14,30 zł'}
+        ];
+        const times = ['przed chwilą', '2s temu', '5s temu', 'przed chwilą', '1s temu'];
+        let nIdx = 0;
+
+        function popNotification() {
+            const zone = document.getElementById('notifZone');
+            const item = notifData[nIdx % notifData.length];
+            const time = times[nIdx % times.length];
+            nIdx++;
+
+            const toast = document.createElement('div');
+            toast.className = 'notif-toast';
+            toast.innerHTML = `
+                <div class="notif-icon"><img src="https://cdn.brandfetch.io/id13-G6XbU/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1767430401517" alt="FC"></div>
+                <div class="notif-body">
+                    <div class="notif-title">${item.n} zarobiła <span style="color:#00ff88">${item.a}</span></div>
+                    <div class="notif-desc">${item.t}</div>
+                </div>
+                <div class="notif-time">${time}</div>
+            `;
+            
+            const old = zone.querySelector('.notif-toast');
+            if (old) {
+                old.classList.add('leaving');
+                setTimeout(() => { old.remove(); zone.appendChild(toast); }, 300);
+            } else {
+                zone.appendChild(toast);
+            }
+
+            setTimeout(() => {
+                toast.classList.add('leaving');
+                setTimeout(() => toast.remove(), 300);
+            }, 3500);
+        }
+
+        setTimeout(() => {
+            popNotification();
+            setInterval(popNotification, 4000 + Math.random() * 2000);
+        }, 1500);
     </script>
 </body>
 </html>

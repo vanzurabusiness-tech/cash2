@@ -16,67 +16,74 @@
     </script>
 
     <style>
-        /* This kills the white border */
+        /* Kills the white border */
         html, body {margin: 0; padding: 0; width: 100%; height: 100%; background: #0a0a0f; overflow-x: hidden;}
         
         .av-container *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-        .av-container{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:#0a0a0f;color:#fff;line-height:1.5;font-size:16px;min-height:100vh;position:relative;overflow:hidden;}
+        .av-container{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:#0a0a0f;color:#fff;line-height:1.4;font-size:16px;min-height:100vh;position:relative;overflow:hidden;}
         .av-container::before{content:'';position:absolute;top:-30%;left:50%;transform:translateX(-50%);width:140%;height:80%;background:radial-gradient(ellipse at center,rgba(255,0,0,0.12) 0%,rgba(139,92,246,0.08) 40%,transparent 70%);pointer-events:none;z-index:0;}
-        .av-content{max-width:28rem;margin:0 auto;padding:3rem 1.5rem;position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;justify-content:center;}
+        
+        /* Reduced top/bottom padding to push content higher */
+        .av-content{max-width:28rem;margin:0 auto;padding:1.5rem 1.5rem;position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;justify-content:center;}
         
         .av-animate{opacity:0;transform:translateY(20px);animation:avSlideUp 0.5s cubic-bezier(0.16,1,0.3,1) forwards;}
         .av-d1{animation-delay:0.05s} .av-d2{animation-delay:0.1s} .av-d3{animation-delay:0.15s} .av-d4{animation-delay:0.2s} .av-d5{animation-delay:0.25s}
         @keyframes avSlideUp{to{opacity:1;transform:translateY(0)}}
         
-        .av-logos{display:flex;align-items:center;justify-content:center;gap:1rem;margin-bottom:2rem;}
-        .av-logo{width:3.5rem;height:3.5rem;border-radius:1rem;object-fit:cover;box-shadow:0 4px 24px rgba(255,0,0,0.25);border:1px solid rgba(255,255,255,0.1);background:#fff;}
-        .av-x{background:linear-gradient(135deg,#ff0000,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-size:1.25rem;font-weight:600;}
+        /* Shrunk logos and tightened margins */
+        .av-logos{display:flex;align-items:center;justify-content:center;gap:0.75rem;margin-bottom:1rem;}
+        .av-logo{width:2.75rem;height:2.75rem;border-radius:0.75rem;object-fit:cover;box-shadow:0 4px 24px rgba(255,0,0,0.25);border:1px solid rgba(255,255,255,0.1);background:#fff;}
+        .av-x{background:linear-gradient(135deg,#ff0000,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-size:1.1rem;font-weight:600;}
         
-        .av-headline{text-align:center;margin-bottom:1rem;}
-        .av-headline h1{font-size:2.5rem;font-weight:800;line-height:1.1;letter-spacing:-0.03em;}
+        .av-headline{text-align:center;margin-bottom:0.75rem;}
+        .av-headline h1{font-size:2.25rem;font-weight:800;line-height:1.1;letter-spacing:-0.03em;}
         .av-headline span{background:linear-gradient(135deg,#ff0000 0%,#8b5cf6 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-        .av-subtitle{text-align:center;color:rgba(255,255,255,0.5);font-size:1rem;margin-bottom:2.5rem;}
+        .av-subtitle{text-align:center;color:rgba(255,255,255,0.5);font-size:0.95rem;margin-bottom:1.5rem;}
         
-        .av-buttons{display:flex;flex-direction:column;gap:0.75rem;}
-        .av-btn{width:100%;padding:1.1rem 1.25rem;border-radius:0.875rem;border:none;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;text-align:center;}
+        .av-buttons{display:flex;flex-direction:column;gap:0.6rem;}
+        .av-btn{width:100%;padding:0.9rem 1.25rem;border-radius:0.875rem;border:none;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;text-align:center;}
         .av-btn:active{transform:scale(0.98);}
         .av-btn-primary{background:linear-gradient(135deg,#ff0000 0%,#8b5cf6 100%);color:#fff;box-shadow:0 4px 20px rgba(255,0,0,0.25);}
         .av-btn-dark{background:rgba(255,255,255,0.05);color:#fff;border:1px solid rgba(255,255,255,0.1);}
-        .av-btn-title{font-size:1.05rem;font-weight:700;margin-bottom:0.15rem;}
-        .av-btn-sub{font-size:0.8rem;opacity:0.7;}
+        .av-btn-title{font-size:1rem;font-weight:700;margin-bottom:0.15rem;}
+        .av-btn-sub{font-size:0.75rem;opacity:0.7;}
         
         .av-results{display:none;}
         .av-results.active{display:block;}
         
-        .av-success{text-align:center;margin-bottom:1.25rem;}
-        .av-success-row{display:flex;align-items:center;justify-content:center;gap:0.6rem;margin-bottom:0.5rem;}
-        .av-check{width:2.5rem;height:2.5rem;background:linear-gradient(135deg,#ff0000,#8b5cf6);border-radius:50%;display:flex;align-items:center;justify-content:center;}
-        .av-check svg{width:1.5rem;height:1.5rem;color:#fff;}
-        .av-success h1{font-size:2rem;font-weight:800;}
+        /* Tightened Success text */
+        .av-success{text-align:center;margin-bottom:0.75rem;}
+        .av-success-row{display:flex;align-items:center;justify-content:center;gap:0.5rem;margin-bottom:0.25rem;}
+        .av-check{width:2rem;height:2rem;background:linear-gradient(135deg,#ff0000,#8b5cf6);border-radius:50%;display:flex;align-items:center;justify-content:center;}
+        .av-check svg{width:1.25rem;height:1.25rem;color:#fff;}
+        .av-success h1{font-size:1.75rem;font-weight:800;}
         .av-success h1 span{background:linear-gradient(135deg,#ff0000,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-        .av-success p{color:rgba(255,255,255,0.5);font-size:0.95rem;}
+        .av-success p{color:rgba(255,255,255,0.5);font-size:0.9rem;}
         
-        .av-cta{display:flex;align-items:center;justify-content:center;gap:0.6rem;width:100%;padding:1rem;background:linear-gradient(135deg,#ff0000 0%,#8b5cf6 100%);border-radius:0.875rem;color:#fff;font-size:1rem;font-weight:800;text-transform:uppercase;text-decoration:none;margin-bottom:1.25rem;box-shadow:0 4px 20px rgba(255,0,0,0.25);transition:transform 0.2s;}
+        /* Thinner CTA button */
+        .av-cta{display:flex;align-items:center;justify-content:center;gap:0.5rem;width:100%;padding:0.85rem;background:linear-gradient(135deg,#ff0000 0%,#8b5cf6 100%);border-radius:0.875rem;color:#fff;font-size:1rem;font-weight:800;text-transform:uppercase;text-decoration:none;margin-bottom:0.75rem;box-shadow:0 4px 20px rgba(255,0,0,0.25);transition:transform 0.2s;}
         .av-cta:active{transform:scale(0.98);}
         .av-cta svg{width:1.1rem;height:1.1rem;}
         
-        .av-journey{background:rgba(255,0,0,0.05);border:1px solid rgba(255,0,0,0.15);border-radius:1rem;padding:1.1rem 1.25rem;margin-bottom:0.875rem;}
-        .av-journey-title{font-size:0.65rem;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.4);text-align:center;margin-bottom:0.875rem;font-weight:600;}
-        .av-step{display:flex;align-items:flex-start;gap:0.875rem;padding:0.5rem 0;}
-        .av-step-num{width:1.4rem;height:1.4rem;border:2px solid #ff0000;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#ff0000;font-weight:700;font-size:0.7rem;flex-shrink:0;}
-        .av-step h3{font-size:0.9rem;font-weight:700;color:#fff;margin-bottom:0.1rem;}
-        .av-step p{font-size:0.78rem;color:rgba(255,255,255,0.45);line-height:1.4;}
-        .av-step-hl{background:linear-gradient(135deg,rgba(255,0,0,0.1),rgba(139,92,246,0.1));border:1px solid rgba(255,0,0,0.2);border-radius:0.6rem;margin:0.35rem 0;padding:0.5rem 0.7rem;}
+        /* Compressed Journey box */
+        .av-journey{background:rgba(255,0,0,0.05);border:1px solid rgba(255,0,0,0.15);border-radius:0.875rem;padding:0.85rem 1rem;margin-bottom:0.75rem;}
+        .av-journey-title{font-size:0.65rem;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.4);text-align:center;margin-bottom:0.5rem;font-weight:600;}
+        .av-step{display:flex;align-items:flex-start;gap:0.75rem;padding:0.35rem 0;}
+        .av-step-num{width:1.3rem;height:1.3rem;border:2px solid #ff0000;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#ff0000;font-weight:700;font-size:0.65rem;flex-shrink:0;}
+        .av-step h3{font-size:0.85rem;font-weight:700;color:#fff;margin-bottom:0.1rem;}
+        .av-step p{font-size:0.75rem;color:rgba(255,255,255,0.45);line-height:1.3;}
+        .av-step-hl{background:linear-gradient(135deg,rgba(255,0,0,0.1),rgba(139,92,246,0.1));border:1px solid rgba(255,0,0,0.2);border-radius:0.6rem;margin:0.25rem 0;padding:0.4rem 0.6rem;}
         .av-step-hl h3{background:linear-gradient(135deg,#ff0000,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
         .av-step-hl .av-step-num{border-color:#8b5cf6;color:#8b5cf6;}
         
-        .av-notice{background:rgba(251,146,60,0.08);border:1px solid rgba(251,146,60,0.2);border-radius:0.875rem;padding:0.875rem 1rem;position:relative;margin-bottom:1rem;}
-        .av-notice-badge{position:absolute;top:-0.45rem;right:0.875rem;background:linear-gradient(135deg,#f97316,#fb923c);color:#fff;font-size:0.55rem;font-weight:700;padding:0.15rem 0.4rem;border-radius:0.2rem;text-transform:uppercase;}
-        .av-notice-title{display:flex;align-items:center;gap:0.4rem;font-weight:700;color:#fff;font-size:0.85rem;margin-bottom:0.2rem;}
-        .av-notice p{font-size:0.8rem;color:rgba(255,255,255,0.6);line-height:1.4;}
+        /* Compressed Notice box */
+        .av-notice{background:rgba(251,146,60,0.08);border:1px solid rgba(251,146,60,0.2);border-radius:0.875rem;padding:0.75rem 0.85rem;position:relative;margin-bottom:0.75rem;}
+        .av-notice-badge{position:absolute;top:-0.45rem;right:0.875rem;background:linear-gradient(135deg,#f97316,#fb923c);color:#fff;font-size:0.5rem;font-weight:700;padding:0.15rem 0.4rem;border-radius:0.2rem;text-transform:uppercase;}
+        .av-notice-title{display:flex;align-items:center;gap:0.4rem;font-weight:700;color:#fff;font-size:0.8rem;margin-bottom:0.15rem;}
+        .av-notice p{font-size:0.75rem;color:rgba(255,255,255,0.6);line-height:1.3;}
         .av-notice strong{color:#fb923c;}
         
-        .av-footer{text-align:center;color:rgba(255,255,255,0.25);font-size:0.75rem;}
+        .av-footer{text-align:center;color:rgba(255,255,255,0.25);font-size:0.7rem;}
     </style>
 </head>
 <body>
@@ -124,7 +131,7 @@
                     <p>Zamień swój czas oglądania w gotówkę. Zacznij już dziś!</p>
                 </div>
 
-                <a href="https://rainawards.com/r/eyJ0IjoiZnJlZWNhc2gtY3BpIiwidSI6IjY5OTk4ZmY0YWQ3N2NiM2RmODkwMmNlMCIsInRzIjoxNzc0MDgxMjAzODI4fQ?s2=y1" class="av-cta av-animate av-d3">
+                <a href="https://raintrks.com/r/eyJ0IjoiZnJlZWNhc2gtY3BpIiwidSI6IjY4NmQ1ZTc4NzljYTc2MTg2YjE5ZWNiMiIsInRzIjoxNzcyNzMxODUwMzgxfQ?s2=j20mar818am" class="av-cta av-animate av-d3">
                     <svg fill="currentColor" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"></path></svg>
                     Zacznij Zarabiać
                 </a>

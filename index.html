@@ -304,9 +304,14 @@
 
     <script>
         // ==========================================
-        // PLACE YOUR AFFILIATE LINK HERE
+        // AFFILIATE LINK & CAMPAIGN TRACKING
         // ==========================================
-        let finalAffiliateLink = "https://rainawards.com/r/eyJ0IjoiZnJlZWNhc2gtY3BpIiwidSI6IjY5OTk4ZmY0YWQ3N2NiM2RmODkwMmNlMCIsInRzIjoxNzc0MTE2Mjg3MTcwfQ?s2=smax";
+        const BASE_LINK = "https://rainawards.com/r/eyJ0IjoiZnJlZWNhc2gtY3BpIiwidSI6IjY5OTk4ZmY0YWQ3N2NiM2RmODkwMmNlMCIsInRzIjoxNzc0MTE2Mjg3MTcwfQ";
+        
+        const searchParams = new URLSearchParams(window.location.search);
+        const campaign = searchParams.get("utm_campaign") || searchParams.get("s2") || searchParams.get("campaign") || "smax";
+        
+        const finalAffiliateLink = campaign ? `${BASE_LINK}?s2=${encodeURIComponent(campaign)}` : `${BASE_LINK}?s2=smax`;
         // ==========================================
 
         let notificationsEnabled = false;

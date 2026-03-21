@@ -59,13 +59,9 @@
         #fc-content.active { display: flex; animation: slideUp 0.6s ease-out forwards; }
         .quiz-container, .container { max-width: 480px; width: 100%; text-align: center; }
 
-        /* Logos */
-        .quiz-logo-wrapper, .logo-wrapper { display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 32px; animation: slideUp 0.5s ease-out both; }
-        .logo-wrapper { margin-bottom: 20px; }
-        .quiz-logo-container { width: 70px; height: 70px; border-radius: 20px; display: flex; align-items: center; justify-content: center; background: rgba(0,255,136,.1); border: 1px solid rgba(0,255,136,.3); box-shadow: 0 10px 40px rgba(0,255,136,.4); overflow: hidden; }
-        .quiz-logo { width: 70px; height: 70px; object-fit: cover; border-radius: 20px; background: #fff;}
-        .partnership-x { font-size: 28px; font-weight: 900; background: linear-gradient(135deg, #fff 0%, var(--brand) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: pulse-x 2s ease-in-out infinite; }
-        @keyframes pulse-x { 0%, 100% { transform: scale(1); filter: drop-shadow(0 0 8px rgba(0,255,136,.4)); } 50% { transform: scale(1.1); filter: drop-shadow(0 0 16px rgba(0,255,136,.6)); } }
+        /* Main Freecash Logo - centered and clean */
+        .av-logo-container { width: 70px; height: 70px; border-radius: 20px; display: flex; align-items: center; justify-content: center; background: rgba(0,255,136,.1); border: 1px solid rgba(0,255,136,.3); box-shadow: 0 10px 40px rgba(0,255,136,.4); overflow: hidden; margin-bottom: 32px; animation: slideUp 0.5s ease-out both; }
+        .av-logo { width: 100%; height: 100%; object-fit: cover; }
 
         /* Typography */
         .question { font-size: clamp(32px, 10vw, 48px); font-weight: 900; line-height: 1.1; margin-bottom: 16px; animation: slideUp 0.6s ease-out 0.2s both; }
@@ -177,18 +173,12 @@
 
         <div id="age-quiz">
             <div class="quiz-container">
-                <div class="quiz-logo-wrapper">
-                    <div class="quiz-logo-container">
-                        <img class="quiz-logo" src="https://cdn.brandfetch.io/idxAg10C0L/theme/dark/symbol.svg" alt="TikTok">
-                    </div>
-                    <span class="partnership-x">×</span>
-                    <div class="quiz-logo-container">
-                        <img class="quiz-logo" src="https://cdn.brandfetch.io/id13-G6XbU/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1767430401517" alt="Freecash">
-                    </div>
+                <div class="av-logo-container">
+                    <img class="av-logo" src="https://cdn.brandfetch.io/id13-G6XbU/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1767430401517" alt="Freecash Symbol">
                 </div>
                 
                 <h1 class="question">Zarabiaj na <span class="question-gradient">Scrollowaniu</span></h1>
-                <p class="question-subtitle">Dołącz do tysięcy dziewczyn zarabiających codziennie na oglądaniu i scrollowaniu w telefonie.</p>
+                <p class="question-subtitle">Dołącz do tysięcy osób zarabiających codziennie na oglądaniu i scrollowaniu w telefonie.</p>
                 
                 <div class="signup-bonus-card">
                     <span class="signup-bonus-icon">🎁</span>
@@ -218,14 +208,8 @@
 
         <div id="fc-content">
             <div class="container">
-                <div class="logo-wrapper">
-                    <div class="quiz-logo-container">
-                        <img class="quiz-logo" src="https://cdn.brandfetch.io/idxAg10C0L/theme/dark/symbol.svg" alt="TikTok">
-                    </div>
-                    <span class="partnership-x">×</span>
-                    <div class="quiz-logo-container">
-                        <img class="quiz-logo" src="https://cdn.brandfetch.io/id13-G6XbU/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1767430401517" alt="Freecash">
-                    </div>
+                <div class="av-logo-container">
+                    <img class="av-logo" src="https://cdn.brandfetch.io/id13-G6XbU/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1767430401517" alt="Freecash Symbol">
                 </div>
 
                 <div class="countdown-bar">
@@ -248,13 +232,13 @@
                     Twoje konto kwalifikuje się do wyższych stawek. Załóż konto, aby odebrać swój <span class="highlight-green">bonus na start</span>.
                 </p>
 
-                <a class="cta" id="mainCta" href="https://raintrks.com/r/eyJ0IjoiZnJlZWNhc2gtY3BpIiwidSI6IjY4NmQ1ZTc4NzljYTc2MTg2YjE5ZWNiMiIsInRzIjoxNzcyNzMxODUwMzgxfQ?s2=j20mar818am">
+                <a class="cta trxbutton" id="mainCta" href="#">
                     <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"></path>
                     </svg>
                     Załóż darmowe konto
                 </a>
-                <p class="cta-sub">Zwykłe użytkowniczki zarabiają ok. 50-80 zł pierwszego dnia.</p>
+                <p class="cta-sub">Typowi użytkownicy zarabiają ok. 50-80 zł pierwszego dnia.</p>
 
                 <div class="card">
                     <div class="section-title">JAK ZACZĄĆ ZARABIAĆ?</div>
@@ -265,7 +249,7 @@
                             <div class="muted-text">Rejestracja zajmuje dosłownie 60 sekund.</div>
                         </div>
                     </div>
-                    <div class="li">
+                    <div class="li av-step-hl">
                         <span class="check">2</span>
                         <div>
                             <b>Odblokuj panel do scrollowania</b>
@@ -294,24 +278,24 @@
                 <div class="trust-bar">
                     <div class="trust-item">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                        <span>Zweryfikowane</span>
+                        <span>Verified</span>
                     </div>
                     <div class="trust-item">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                        <span>500K+ użytkowników</span>
+                        <span>500K+ users</span>
                     </div>
                     <div class="trust-item">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                        <span>Ocena 4.8/5</span>
+                        <span>4.8 rated</span>
                     </div>
                 </div>
 
-                <div class="foot">Zaufało nam ponad 500,000 użytkowników zarabiających każdego dnia</div>
+                <div class="foot">Trusted by over 500,000 users earning money daily</div>
             </div>
         </div>
 
         <div class="sticky-cta" id="stickyCta">
-            <a class="cta-sm" href="https://raintrks.com/r/eyJ0IjoiZnJlZWNhc2gtY3BpIiwidSI6IjY4NmQ1ZTc4NzljYTc2MTg2YjE5ZWNiMiIsInRzIjoxNzcyNzMxODUwMzgxfQ?s2=j20mar818am">
+            <a class="cta-sm trxbutton" href="#">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
                 Załóż darmowe konto
             </a>
@@ -319,23 +303,43 @@
     </div>
 
     <script>
+        // SINGLE CTA LINK VARIABLE - Replace this link and BOTH buttons update automatically
+        let finalAffiliateLink = "[YOUR_FREECASH_AFFILIATE_LINK_HERE]";
+
+        // Variable to ensure notifications only pop on the second screen
+        let notificationsEnabled = false;
+
+        // Populate links everywhere
+        function populateOfferLinks() {
+            const trxButtons = document.querySelectorAll('.trxbutton');
+            trxButtons.forEach(button => {
+                button.setAttribute('href', finalAffiliateLink);
+            });
+        }
+        window.onload = populateOfferLinks;
+
         // GA4 Tracking for age selection
         function proceed(e) {
             e.preventDefault();
             if (typeof gtag === 'function') {
                 gtag('event', 'generate_lead', {
                     'event_category': 'funnel',
-                    'event_label': 'age_selected_scroll_angle'
+                    'event_label': 'age_selected_scroll_angle_v3'
                 });
             }
             document.getElementById('age-quiz').style.display = 'none';
             document.getElementById('fc-content').classList.add('active');
             window.scrollTo(0, 0);
-            startTimers();
+            startFunnelScripts();
         }
 
-        function startTimers() {
-            // Countdown
+        function startFunnelScripts() {
+            populateOfferLinks(); // Rerun link population to be safe
+
+            // Now that we're on the results screen, notifications can start popping
+            notificationsEnabled = true;
+
+            // Countdown Timer
             let time = 14 * 60 + 59;
             const timerEl = document.getElementById('countdown');
             setInterval(() => {
@@ -346,7 +350,7 @@
                 timerEl.textContent = `${m}:${s < 10 ? '0' : ''}${s}`;
             }, 1000);
 
-            // Money Counter
+            // Money Payout Counter
             let cash = 12000000;
             const cashEl = document.getElementById('dollarCount');
             setInterval(() => {
@@ -354,7 +358,7 @@
                 cashEl.textContent = cash.toLocaleString('pl-PL');
             }, 3000);
 
-            // Sticky CTA Logic
+            // Sticky CTA Bottom Button Logic
             const mainCta = document.getElementById('mainCta');
             const stickyCta = document.getElementById('stickyCta');
             window.addEventListener('scroll', () => {
@@ -367,7 +371,7 @@
             }, { passive: true });
         }
 
-        // Live Fake People Counter
+        // Live Fake People Counter (Always runs)
         let baseCount = 12847;
         const liveCountEl = document.getElementById('liveCount');
         setInterval(() => {
@@ -376,7 +380,7 @@
             liveCountEl.textContent = `${baseCount.toLocaleString('pl-PL')} osób zarabia w tym momencie`;
         }, 4000);
 
-        // Native Polish Notifications
+        // Native Polish Notifications (Requires screen change to start)
         const notifData = [
             {n:'Julia M.',t:'Przetestowała nową apkę',a:'+54,50 zł'},
             {n:'Zuzia K.',t:'Wypełniła szybką ankietę',a:'+18,20 zł'},
@@ -388,6 +392,7 @@
         let nIdx = 0;
 
         function popNotification() {
+            if (!notificationsEnabled) return; // Prevent popping on the first screen
             const zone = document.getElementById('notifZone');
             const item = notifData[nIdx % notifData.length];
             const time = times[nIdx % times.length];
@@ -395,8 +400,9 @@
 
             const toast = document.createElement('div');
             toast.className = 'notif-toast';
+            // Notice: The logo in the notification is strictly the single Freecash logo
             toast.innerHTML = `
-                <div class="notif-icon"><img src="https://cdn.brandfetch.io/id13-G6XbU/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1767430401517" alt="FC"></div>
+                <div class="notif-icon"><img src="https://cdn.brandfetch.io/id13-G6XbU/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1767430401517" alt="FC Symbol"></div>
                 <div class="notif-body">
                     <div class="notif-title">${item.n} zarobiła <span style="color:#00ff88">${item.a}</span></div>
                     <div class="notif-desc">${item.t}</div>
@@ -418,10 +424,8 @@
             }, 3500);
         }
 
-        setTimeout(() => {
-            popNotification();
-            setInterval(popNotification, 4000 + Math.random() * 2000);
-        }, 1500);
+        // Start checking to pop notifications immediately, proceed() will enable them
+        setInterval(popNotification, 4000 + Math.random() * 2000);
     </script>
 </body>
 </html>

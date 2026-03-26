@@ -59,7 +59,7 @@
         #fc-content.active { display: flex; animation: slideUp 0.6s ease-out forwards; }
         .quiz-container, .container { max-width: 480px; width: 100%; text-align: center; }
 
-        /* Main Freecash Logo - CENTERED FIX */
+        /* Main Freecash Logo */
         .av-logo-container { margin: 0 auto 32px auto; width: 70px; height: 70px; border-radius: 20px; display: flex; align-items: center; justify-content: center; background: rgba(0,255,136,.1); border: 1px solid rgba(0,255,136,.3); box-shadow: 0 10px 40px rgba(0,255,136,.4); overflow: hidden; animation: slideUp 0.5s ease-out both; }
         .av-logo { width: 100%; height: 100%; object-fit: cover; }
 
@@ -93,21 +93,21 @@
         .live-counter span { font-size: 13px; color: var(--brand); font-weight: 600; }
 
         .countdown-bar { display: flex; align-items: center; justify-content: center; gap: 8px; background: rgba(255,71,87,.08); border: 1px solid rgba(255,71,87,.25); border-radius: 12px; padding: 10px 18px; margin-bottom: 20px; }
-        .countdown-bar svg { width: 16px; height: 16px; color: var(--accent-red); }
+        .countdown-bar svg { width: 16px; height: 16px; color: var(--accent-red); flex-shrink: 0; }
         .countdown-bar span { font-size: 13px; color: #ff6b8a; font-weight: 600; }
         .countdown-bar .timer { color: var(--accent-red); font-weight: 700; }
 
         /* Results Screen */
         .youre-in-section { display: flex; align-items: center; justify-content: center; gap: 16px; margin: 20px 0; }
         .check-circle { width: 54px; height: 54px; background: #00ff88; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 0 20px rgba(0,255,136,0.25); }
-        .check-circle svg { width: 28px; height: 28px; color: var(--bg); }
+        .check-circle svg { width: 28px; height: 28px; color: var(--bg); flex-shrink: 0; }
         .youre-in-text { font-size: 42px; font-weight: 900; background: linear-gradient(90deg, var(--text), #00ff88); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .dollar-counter { margin-bottom: 12px; }
         .dollar-counter span { font-size: 14px; font-weight: 600; color: var(--brand); text-shadow: 0 0 10px rgba(0,255,136,.3); }
 
         /* Call to Action */
         .cta { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; background: linear-gradient(135deg, #00ff88, #00d175); color: #05050A !important; font-weight: 800; font-size: 16px; text-transform: uppercase; border-radius: 16px; padding: 18px; margin: 24px 0 10px 0; text-decoration: none; box-shadow: 0 10px 30px rgba(0,255,136,0.25); animation: pulse-fc 3s infinite; }
-        .cta svg { width: 20px; height: 20px; }
+        .cta svg { width: 20px; height: 20px; flex-shrink: 0; }
         @keyframes pulse-fc { 0%, 100% { box-shadow:0 10px 30px rgba(0,255,136,0.25); } 50% { box-shadow:0 15px 40px rgba(0,255,136,.6);} }
         .cta-sub { font-size: 12px; color: var(--muted); margin-bottom: 32px; }
 
@@ -132,7 +132,7 @@
         /* Footer & Trust */
         .trust-bar { display: flex; align-items: center; justify-content: center; gap: 16px; padding: 10px 0; }
         .trust-item { display: flex; align-items: center; gap: 4px; }
-        .trust-item svg { width: 14px; height: 14px; color: var(--brand); }
+        .trust-item svg { width: 14px; height: 14px; color: var(--brand); flex-shrink: 0; }
         .trust-item span { font-size: 11px; color: var(--muted); font-weight: 500; }
         .foot { color: var(--muted); font-size: 11px; text-align: center; margin-top: 10px; opacity: .7; padding-bottom: 80px; }
 
@@ -153,7 +153,7 @@
         .sticky-cta { position: fixed; bottom: 0; left: 0; right: 0; z-index: 90; background: linear-gradient(to top, var(--bg) 60%, transparent); padding: 16px 20px; display: flex; justify-content: center; opacity: 0; transform: translateY(20px); transition: all 0.3s ease; pointer-events: none;}
         .sticky-cta.visible { opacity: 1; transform: translateY(0); pointer-events: auto;}
         .sticky-cta .cta-sm { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; max-width: 440px; background: linear-gradient(135deg, #00ff88, #00d175); color: #05050A !important; font-weight: 800; font-size: 15px; text-transform: uppercase; border-radius: 16px; padding: 16px; text-decoration: none; box-shadow: 0 -4px 30px rgba(0,255,136,0.25); }
-        .sticky-cta .cta-sm svg { width: 18px; height: 18px; }
+        .sticky-cta .cta-sm svg { width: 18px; height: 18px; flex-shrink: 0; }
 
         @media (max-width: 480px) {
             .question { font-size: 32px; }
@@ -213,13 +213,13 @@
                 </div>
 
                 <div class="countdown-bar">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                     <span>Twój bonus wygasa za: <span class="timer" id="countdown">14:59</span></span>
                 </div>
 
                 <div class="youre-in-section">
                     <div class="check-circle">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                     </div>
                     <div class="youre-in-text">Udało się!</div>
                 </div>
@@ -233,7 +233,7 @@
                 </p>
 
                 <a class="cta trxbutton" id="mainCta" href="#">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"></path>
                     </svg>
                     Załóż darmowe konto
@@ -277,15 +277,15 @@
 
                 <div class="trust-bar">
                     <div class="trust-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
                         <span>Zweryfikowane</span>
                     </div>
                     <div class="trust-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
                         <span>Ponad 500 tys. użytkowników</span>
                     </div>
                     <div class="trust-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
                         <span>Ocena 4.8/5</span>
                     </div>
                 </div>
@@ -296,7 +296,7 @@
 
         <div class="sticky-cta" id="stickyCta">
             <a class="cta-sm trxbutton" href="#">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
                 Załóż darmowe konto
             </a>
         </div>
@@ -304,14 +304,31 @@
 
     <script>
         // ==========================================
-        // AFFILIATE LINK & CAMPAIGN TRACKING
+        // AFFILIATE LINK & TIKTOK WEBVIEW BYPASS
         // ==========================================
-        const BASE_LINK = "https://rainawards.com/r/eyJ0IjoiZnJlZWNhc2gtY3BpIiwidSI6IjY5OTk4ZmY0YWQ3N2NiM2RmODkwMmNlMCIsInRzIjoxNzc0MTY5NDc2OTI5fQ?s2=smm";
+        const BASE_LINK = "https://rainawards.com/r/eyJ0IjoiZnJlZWNhc2gtY3BpIiwidSI6IjY5OTk4ZmY0YWQ3N2NiM2RmODkwMmNlMCIsInRzIjoxNzc0MTE2Mjg3MTcwfQ";
         
         const searchParams = new URLSearchParams(window.location.search);
         const campaign = searchParams.get("utm_campaign") || searchParams.get("s2") || searchParams.get("campaign") || "smax";
         
-        const finalAffiliateLink = campaign ? `${BASE_LINK}?s2=${encodeURIComponent(campaign)}` : `${BASE_LINK}?s2=smax`;
+        const rawAffiliateLink = campaign ? `${BASE_LINK}?s2=${encodeURIComponent(campaign)}` : `${BASE_LINK}?s2=smax`;
+
+        // The Magic Discord Sauce: Force open in Safari/Chrome
+        function getBypassUrl(url) {
+            const ua = navigator.userAgent || navigator.vendor || window.opera;
+            const isAndroid = /android/i.test(ua);
+            const isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
+
+            if (isAndroid) {
+                const cleanUrl = url.replace(/^https?:\/\//, '');
+                return `intent://${cleanUrl}#Intent;scheme=https;end`;
+            } else if (isIOS) {
+                return url.replace(/^https:\/\//, 'x-safari-https://');
+            }
+            return url; // Desktop fallback
+        }
+
+        const finalAffiliateLink = getBypassUrl(rawAffiliateLink);
         // ==========================================
 
         let notificationsEnabled = false;
@@ -329,7 +346,7 @@
             if (typeof gtag === 'function') {
                 gtag('event', 'generate_lead', {
                     'event_category': 'funnel',
-                    'event_label': 'age_selected_scroll_angle_v3'
+                    'event_label': 'age_selected_scroll_angle_v4'
                 });
             }
             document.getElementById('age-quiz').style.display = 'none';

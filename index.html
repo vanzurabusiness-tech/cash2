@@ -25,22 +25,6 @@
   <script>!function(w,d,o,n,c){w[o]=w[o]||function(){(w[o].q=w[o].q||[]).push(arguments)};var s=d.createElement(n),t=d.getElementsByTagName(n)[0];s.async=!0;s.defer=!0;s.src="https://go2rewardable.com/t/t.js";t.parentNode.insertBefore(s,t);}(window,document,"maxconv","script");</script>
   <noscript><link rel="stylesheet" href="https://go2rewardable.com/t/t.css?mc_ns=1" /></noscript>
 
-  <script>
-  !function(w,d,t){
-  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];
-  ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"];
-  ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};
-  for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
-  ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e};
-  ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js";
-  ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};
-  var o=d.createElement("script");o.type="text/javascript",o.async=!0,o.src=r+"?sdkid="+e+"&lib="+t;
-  var a=d.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};
-  ttq.load('D4LHD2BC77UCJ0N6LHT0');
-  ttq.page();
-  }(window,document,'ttq');
-  </script>
-
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html, body { height: 100%; overflow-x: hidden; }
@@ -281,7 +265,7 @@
           <span>Kwalifikujesz się</span>
         </div>
         <h1>Scrolluj i<br><span>Zarabiaj</span></h1>
-        <p>Pobierz. 2 oferty. Natychmiastowa wypłata.</p>
+        <p>Darmowe konto. 2 gierki. Natychmiastowa wypłata.</p>
       </div>
 
       <div class="s3-how">Jak to działa</div>
@@ -311,10 +295,9 @@
       </div>
 
       <a class="s3-cta" id="cta-btn" onclick="handleClick(event)">
-        <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.1 2.48-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.24-1.99 1.1-3.15-1.02.04-2.25.68-2.98 1.54-.66.76-1.24 1.93-1.1 3.05 1.13.09 2.25-.61 2.98-1.44z"></path></svg>
-        <div>
-          <div>Pobierz teraz</div>
-          <div class="s3-cta-sub">iOS & Android · Za darmo</div>
+        <div style="text-align: center;">
+          <div style="font-size: 19px;">ZAŁÓŻ KONTO I ZACZNIJ 💸</div>
+          <div class="s3-cta-sub" style="margin-top: 4px;">Działa w przeglądarce · Za darmo</div>
         </div>
       </a>
 
@@ -331,14 +314,6 @@
     // UPDATE THIS LINK ONLY - ALL TRAFFIC GOES HERE
     // ==========================================================
     var AFFILIATE_LINK = 'https://raintrcks.com/r/eyJ0IjoiZnJlZWNhc2gtY3BpIiwidSI6IjY5OTk4ZmY0YWQ3N2NiM2RmODkwMmNlMCIsInRzIjoxNzc2MzYyMTQ1OTM4fQ?s1=evT';
-
-    function makeId() {
-      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-        var r = Math.random() * 16 | 0;
-        var v = c === 'x' ? r : (r & 0x3) | 0x8;
-        return v.toString(16);
-      });
-    }
 
     // Age Gate transition logic
     function initAgeGate() {
@@ -362,15 +337,12 @@
       }
     }
 
+    // GA4 Page View tracking
     function trackViewContent() {
-      var viewContentEventId = makeId();
       try {
-        ttq.track('ViewContent', {
-          event_id: viewContentEventId,
-          content_type: 'lead',
-          content_id: 'landing-page-view',
-          value: 0.5,
-          currency: 'PLN'
+        gtag('event', 'page_view', {
+          'event_category': 'engagement',
+          'event_label': 'landing_page_view'
         });
       } catch (e) {}
     }
@@ -387,18 +359,12 @@
       if (isProcessing) return;
       isProcessing = true;
 
-      var eventIds = {
-        'AddToCart': makeId(),
-        'CompleteRegistration': makeId(),
-        'SubmitForm': makeId(),
-        'ClickButton': makeId()
-      };
-
+      // GA4 CTA Click tracking
       try {
-        ttq.track('AddToCart', { event_id: eventIds['AddToCart'], content_type: 'lead', content_id: 'rewards-app-100', value: 0.5, currency: 'PLN' });
-        ttq.track('CompleteRegistration', { event_id: eventIds['CompleteRegistration'], content_type: 'lead', content_id: 'rewards-lead-form', value: 0.5, currency: 'PLN' });
-        ttq.track('SubmitForm', { event_id: eventIds['SubmitForm'], content_type: 'lead', content_id: 'rewards-lead-form', value: 0.5, currency: 'PLN' });
-        ttq.track('ClickButton', { event_id: eventIds['ClickButton'], content_type: 'lead', content_id: 'rewards-lead-form', value: 0.5, currency: 'PLN' });
+        gtag('event', 'click_cta', {
+          'event_category': 'conversion',
+          'event_label': 'rewards_lead_form'
+        });
       } catch (e) {}
 
       // Routes traffic in current browser window

@@ -3,6 +3,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Get Paid To Game</title>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JYQ2MWEDB9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JYQ2MWEDB9');
+</script>
+
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 /* Base Blue Theme: hsl(195, 100%, 70%) */
@@ -62,12 +71,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Ro
     <h1 class="headline anim" style="animation-delay:0.1s">Get Paid To Game</h1>
     <p class="subtext anim" style="animation-delay:0.2s">Join thousands earning daily by playing popular games like Roblox, Subway Surfers, 8 Ball Pool, etc.</p>
     
-    <button class="btn-neon anim" style="animation-delay:0.3s" onclick="showScreenB()">
+    <button class="btn-neon anim" style="animation-delay:0.3s" onclick="showScreenB('over_25')">
       <span class="main">I'm over 25</span>
       <span class="sub">Instant Payouts: Google Wallet or Wire</span>
     </button>
     
-    <button class="btn-dark anim" style="animation-delay:0.4s" onclick="showScreenB()">
+    <button class="btn-dark anim" style="animation-delay:0.4s" onclick="showScreenB('under_25')">
       <span class="main">I'm under 25</span>
       <span class="sub">Limited Payouts: Wire Transfer Only</span>
     </button>
@@ -137,7 +146,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Ro
 </div>
 
 <script>
-function showScreenB(){
+function showScreenB(ageGroup){
+  // Fire GA4 Event for Age Selection
+  gtag('event', 'age_selection', {
+    'event_category': 'Engagement',
+    'event_label': ageGroup
+  });
+
   var a = document.getElementById('screenA');
   var b = document.getElementById('screenB');
   
@@ -148,16 +163,21 @@ function showScreenB(){
     b.classList.remove('hidden');
     b.classList.add('visible');
     
-    // Trigger animations for Screen B
     b.querySelectorAll('.anim').forEach(function(el){
       el.style.animation = 'none';
-      el.offsetHeight; // trigger reflow
+      el.offsetHeight; 
       el.style.animation = '';
     });
   }, 100);
 }
 
 function handleActivate(){
+  // Fire GA4 Event for CTA Click
+  gtag('event', 'cta_activation_click', {
+    'event_category': 'Conversion',
+    'event_label': 'GravyPass Activate'
+  });
+
   var params = new URLSearchParams(window.location.search);
   var allowed = ['sub1','sub2','sub3','sub4','sub5'];
   var filtered = new URLSearchParams();
@@ -167,15 +187,17 @@ function handleActivate(){
     if(v !== null) filtered.set(k,v);
   });
 
-  // Since you are promoting ONLY for Android, we use the Android link exclusively.
-  var androidBase = 'https://www.phef6trk.com/PNMJQF/2N4885R/?sub1=sales';
-
-  if(!filtered.get('sub1')){
-    filtered.set('sub1','crton');
-  }
+  // Your new affiliate link
+  var affBase = 'https://taptrcks.com/r/eyJ0IjoiZ3JhdnlwYXNzLTIiLCJ0aWQiOiI3MDU1ZjQ0Nzk5YTc0NGY3ZmJhNzVkOGFiNDgwOWI3NiIsInRzIjp4Nzc2NjkyMzg4MTg2fQ?s1=test';
 
   var qs = filtered.toString();
-  window.location.href = androidBase + (qs ? '&' + qs : '');
+  // Append filtered params with '&' since the base link already has '?'
+  var finalUrl = affBase + (qs ? '&' + qs : '');
+  
+  // Brief delay to ensure GA4 event fires before redirect
+  setTimeout(function(){
+    window.location.href = finalUrl;
+  }, 150);
 }
 </script>
 

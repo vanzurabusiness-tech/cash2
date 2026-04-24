@@ -23,7 +23,9 @@
         }
         html { font-size: 14px; }
         body {
-            background: linear-gradient(to bottom, white, #f9fafb);
+            /* Dark HBO/Max Gradient */
+            background: linear-gradient(135deg, #09090e 0%, #170b2e 50%, #050508 100%);
+            color: #f3f4f6;
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
@@ -33,20 +35,23 @@
             top: 1rem;
             left: 50%;
             transform: translateX(-50%);
-            background: white;
+            /* Dark Glass Effect */
+            background: rgba(20, 15, 40, 0.85);
+            backdrop-filter: blur(10px);
             padding: 1rem;
             border-radius: 0.5rem;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
             display: flex;
             align-items: center;
             gap: 0.75rem;
             width: calc(100% - 2rem);
             max-width: 20rem;
             animation: slideDown 0.5s ease-out;
-            border: 1px solid #e5e7eb;
+            border: 1px solid rgba(139, 92, 246, 0.2);
             z-index: 50;
             font-size: 0.875rem;
             font-weight: 500;
+            color: #ffffff;
         }
         @keyframes slideDown {
             from { transform: translate(-50%, -100%); opacity: 0; }
@@ -66,7 +71,8 @@
             zoom: 1.1;
         }
         .timer {
-            background: #E50914; /* Netflix Red */
+            /* Deep Purple Accent */
+            background: linear-gradient(90deg, #6d28d9, #4c1d95);
             color: white;
             padding: 0.5rem 1rem;
             border-radius: 0.5rem;
@@ -77,14 +83,18 @@
             font-weight: 600;
             margin: 1rem 0;
             font-size: 0.875rem;
-            box-shadow: 0 4px 10px rgba(229, 9, 20, 0.3);
+            box-shadow: 0 4px 15px rgba(109, 40, 217, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         .card {
-            background: white;
+            /* Dark Transparent Card */
+            background: rgba(25, 20, 45, 0.6);
+            backdrop-filter: blur(12px);
             padding: 1rem;
             border-radius: 0.5rem;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
             margin: 1rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.05);
             animation: fadeInUp 0.5s ease-out backwards;
         }
         @keyframes fadeInUp {
@@ -92,27 +102,28 @@
             to { opacity: 1; transform: translateY(0); }
         }
         .card h2 {
-            color: #1f2937;
+            color: #ffffff;
             font-size: 1rem;
             margin-bottom: 1rem;
             display: flex;
             align-items: center;
             font-weight: 800;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
         .check-item {
-            background: #f9fafb;
+            background: rgba(0, 0, 0, 0.2);
             padding: 0.75rem;
             border-radius: 0.5rem;
             margin: 0.5rem 0;
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            border: 1px solid #f3f4f6;
+            border: 1px solid rgba(255, 255, 255, 0.03);
         }
         .check-circle {
             width: 1.5rem;
             height: 1.5rem;
-            background: #E50914; /* Netflix Red */
+            background: #7c3aed; /* Vibrant Purple */
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -121,15 +132,16 @@
             font-weight: bold;
             font-size: 0.75rem;
             flex-shrink: 0;
+            box-shadow: 0 0 10px rgba(124, 58, 237, 0.5);
         }
         .check-text { flex: 1; }
         .check-title {
             font-weight: 700;
-            color: #1f2937;
+            color: #f3f4f6;
             font-size: 0.875rem;
         }
         .check-subtitle {
-            color: #E50914; /* Netflix Red */
+            color: #a78bfa; /* Soft Light Purple */
             font-size: 0.75rem;
             font-weight: 500;
         }
@@ -138,13 +150,14 @@
             bottom: 1.5rem;
             left: 50%;
             transform: translateX(-50%);
-            background: #E50914; /* Netflix Red */
+            /* Premium HBO/Max Button Gradient */
+            background: linear-gradient(90deg, #8b5cf6, #4f46e5);
             color: white;
             padding: 1rem 2rem;
             border-radius: 9999px;
             font-weight: 800;
             font-size: 1.1rem;
-            border: none;
+            border: 1px solid rgba(255,255,255,0.2);
             cursor: pointer;
             width: calc(100% - 2rem);
             max-width: 24rem;
@@ -155,7 +168,7 @@
             transition: transform 0.2s;
             z-index: 40;
             animation: buttonPulse 2s infinite;
-            box-shadow: 0 8px 25px rgba(229, 9, 20, 0.4);
+            box-shadow: 0 8px 30px rgba(79, 70, 229, 0.5);
         }
         @keyframes buttonPulse {
             0% { transform: translateX(-50%) scale(1); }
@@ -164,29 +177,30 @@
         }
         .cta-button:active { transform: translateX(-50%) scale(0.98); }
         .faq-item {
-            background: #f9fafb;
+            background: rgba(0, 0, 0, 0.2);
             padding: 1rem;
             border-radius: 0.5rem;
             margin: 0.5rem 0;
-            border: 1px solid #f3f4f6;
+            border: 1px solid rgba(255, 255, 255, 0.03);
         }
         .faq-question {
-            color: #E50914; /* Netflix Red */
+            color: #a78bfa; /* Soft Light Purple */
             font-weight: 700;
             font-size: 0.813rem;
             margin-bottom: 0.25rem;
         }
         .faq-answer {
-            color: #4b5563;
+            color: #9ca3af;
             font-size: 0.75rem;
             line-height: 1.4;
         }
         .rewards-img {
             width: 100%;
             border-radius: 0.75rem;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
             object-fit: cover;
             height: 160px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         #nameAlert { display: none; }
         .ripple {
@@ -265,7 +279,7 @@
         // ==========================================
         // YOUR SINGLE AFFILIATE LINK HERE
         // ==========================================
-        const AFFILIATE_LINK = 'https://taptrcks.com/r/eyJ0IjoibXZhcy0zIiwidGlkIjoiNzA1NWY0NDc5OWE3NDRmN2ZiYTc1ZDhhYjQ4MDliNzYiLCJ0cyI6MTc3NzAzODI5OTkwOH0?s1=1&s2=1&feb=1'; // Change this to your tracking link
+        const AFFILIATE_LINK = 'https://taptrcks.com/r/eyJ0IjoicHJpbWFyeSIsInRpZCI6IjcwNTVmNDQ3OTlhNzQ0ZjdmYmE3NWQ4YWI0ODA5Yjc2IiwidXJsIjoiaHR0cHM6Ly9hcHAuaGF3a3Ryay5jb20vY2xpY2s_cGlkPTImb2ZmZXJfaWQ9MTA0NyZzdWIyPXU3MDU1ZjQ0Nzk5YTc0NGY3ZmJhNzVkOGFiNDgwOWI3NiZzdWI1PXMxNzA1NWY0NDc5OWE3NDRmN2ZiYTc1ZDhhYjQ4MDliNzYmc3ViNz1yZm51bGwmc3ViOD1yZG51bGwmc3ViMTU9N2MwNjZmM2JjMmQyIiwibyI6IjEwNDciLCJuIjoiUGxheU9ubyAtIERvd25sb2FkIENvbnRlbnQifQ?s1=tst&s2=tst&feb=1'; // Change this to your tracking link
 
         // Spanish Female Names for Social Proof
         const NAMES = [

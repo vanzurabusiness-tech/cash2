@@ -1,205 +1,323 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Get Paid To Game</title>
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JYQ2MWEDB9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-JYQ2MWEDB9');
-</script>
-
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-/* Base Blue Theme: hsl(195, 100%, 70%) */
-body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:hsl(195,20%,5%);color:#fff;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow-x:hidden}
-.bg-glow{position:fixed;inset:0;background:radial-gradient(ellipse at center,hsla(195,100%,30%,0.12) 0%,transparent 60%),radial-gradient(ellipse at center,hsla(195,100%,20%,0.08) 0%,transparent 80%),hsl(195,20%,5%);z-index:0}
-.container{position:relative;z-index:1;width:100%;max-width:540px;padding:40px 24px;display:flex;flex-direction:column;align-items:center;text-align:center}
-
-.headline{font-size:clamp(2.2rem,6vw,3rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;background:linear-gradient(180deg,#fff 0%,hsl(195,30%,60%) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-shadow:none;margin-bottom:16px;filter:drop-shadow(0 0 40px hsla(195,100%,50%,0.15))}
-.subtext{color:hsla(0,0%,100%,0.5);font-size:15px;line-height:1.6;max-width:400px;margin-bottom:24px}
-
-.btn-neon{display:flex;flex-direction:column;align-items:center;gap:4px;width:100%;max-width:420px;padding:20px 40px;border:none;border-radius:16px;cursor:pointer;background:linear-gradient(180deg,hsl(195,100%,70%) 0%,hsl(195,100%,50%) 100%);box-shadow:0 0 30px hsla(195,100%,50%,0.5),0 0 60px hsla(195,100%,50%,0.25),0 4px 15px hsla(0,0%,0%,0.3);transition:all 0.2s ease;margin-bottom:12px}
-.btn-neon:hover{transform:translateY(-2px);box-shadow:0 0 40px hsla(195,100%,50%,0.6),0 0 80px hsla(195,100%,50%,0.3),0 8px 25px hsla(0,0%,0%,0.4)}
-.btn-neon .main{font-size:20px;font-weight:700;color:hsl(195,20%,5%)}
-.btn-neon .sub{font-size:12px;color:hsla(195,20%,5%,0.7)}
-
-.btn-dark{display:flex;flex-direction:column;align-items:center;gap:4px;width:100%;max-width:420px;padding:20px 40px;border:1px solid hsla(195,15%,30%,0.5);border-radius:16px;cursor:pointer;background:hsla(195,10%,15%,0.3);transition:all 0.2s ease}
-.btn-dark:hover{background:hsla(195,10%,15%,0.5)}
-.btn-dark .main{font-size:20px;font-weight:700;color:#fff}
-.btn-dark .sub{font-size:12px;color:hsla(0,0%,100%,0.5)}
-
-.btn-activate{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;max-width:420px;padding:18px 40px;border:none;border-radius:16px;cursor:pointer;background:linear-gradient(180deg,hsl(195,100%,70%) 0%,hsl(195,100%,50%) 100%);box-shadow:0 0 30px hsla(195,100%,50%,0.5),0 0 60px hsla(195,100%,50%,0.25),0 4px 15px hsla(0,0%,0%,0.3);transition:all 0.2s ease;margin-bottom:20px}
-.btn-activate:hover{transform:translateY(-2px);box-shadow:0 0 40px hsla(195,100%,50%,0.6),0 0 80px hsla(195,100%,50%,0.3),0 8px 25px hsla(0,0%,0%,0.4)}
-.btn-activate span{font-size:15px;font-weight:800;color:hsl(195,20%,5%);letter-spacing:0.02em}
-
-.check-row{display:flex;align-items:center;gap:12px;margin-bottom:12px}
-.check-circle{width:40px;height:40px;border-radius:50%;background:hsl(195,100%,55%);display:flex;align-items:center;justify-content:center}
-.youre-in{font-size:clamp(2.2rem,6vw,3rem);font-weight:800;background:linear-gradient(180deg,#fff 0%,hsl(195,30%,60%) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-
-.card-dark{background:hsl(195,10%,10%);border:1px solid hsl(195,15%,18%);border-radius:16px;padding:24px;width:100%;text-align:left;margin-bottom:16px}
-.card-dark h3{text-align:center;font-size:11px;font-weight:700;letter-spacing:0.2em;color:hsla(0,0%,100%,0.5);margin-bottom:24px}
-.step{display:flex;gap:16px;margin-bottom:20px}
-.step:last-child{margin-bottom:0}
-.step-num{width:28px;height:28px;border-radius:50%;background:hsl(195,100%,55%);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:hsl(195,20%,5%);flex-shrink:0}
-.step h4{font-size:14px;font-weight:700;margin-bottom:4px}
-.step p{font-size:12px;color:hsla(0,0%,100%,0.5);line-height:1.5}
-
-.card-important{background:hsl(195,10%,8%);border:1px solid hsl(0,70%,45%);border-radius:16px;padding:20px;width:100%;text-align:left;position:relative;margin-bottom:16px}
-.badge{position:absolute;top:-12px;right:16px;background:hsl(0,70%,50%);color:#fff;font-size:10px;font-weight:700;padding:4px 12px;border-radius:6px;letter-spacing:0.05em}
-.card-important .inner{display:flex;gap:12px;align-items:flex-start}
-.card-important h4{font-size:14px;font-weight:700;margin-bottom:4px}
-.card-important p{font-size:12px;color:hsla(0,0%,100%,0.5);line-height:1.5}
-.card-important .accent{color:hsl(195,100%,55%);font-weight:600}
-.footer{font-size:12px;color:hsla(0,0%,100%,0.4);margin-top:8px}
-
-.anim{opacity:0;animation:fadeSlideUp 0.5s ease forwards}
-@keyframes fadeSlideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-.screen{transition:opacity 0.4s ease;display:flex;flex-direction:column;align-items:center;text-align:center;width:100%}
-.screen.hidden{display:none;opacity:0}
-.screen.visible{display:flex;opacity:1}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Acceso Premium VIP</title>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JYQ2MWEDB9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-JYQ2MWEDB9');
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        html { font-size: 14px; }
+        body {
+            background: linear-gradient(to bottom, white, #f9fafb);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+        .alert {
+            position: fixed;
+            top: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            width: calc(100% - 2rem);
+            max-width: 20rem;
+            animation: slideDown 0.5s ease-out;
+            border: 1px solid #e5e7eb;
+            z-index: 50;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        @keyframes slideDown {
+            from { transform: translate(-50%, -100%); opacity: 0; }
+            to { transform: translate(-50%, 0); opacity: 1; }
+        }
+        .alert-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        .main-content {
+            width: 100%;
+            max-width: 24rem;
+            padding: 1rem;
+            margin: 0 auto;
+            padding-bottom: 8rem;
+            animation: scaleIn 0.5s ease-out;
+            zoom: 1.1;
+        }
+        .timer {
+            background: #E50914; /* Netflix Red */
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            margin: 1rem 0;
+            font-size: 0.875rem;
+            box-shadow: 0 4px 10px rgba(229, 9, 20, 0.3);
+        }
+        .card {
+            background: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin: 1rem 0;
+            animation: fadeInUp 0.5s ease-out backwards;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .card h2 {
+            color: #1f2937;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            font-weight: 800;
+        }
+        .check-item {
+            background: #f9fafb;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            margin: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border: 1px solid #f3f4f6;
+        }
+        .check-circle {
+            width: 1.5rem;
+            height: 1.5rem;
+            background: #E50914; /* Netflix Red */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.75rem;
+            flex-shrink: 0;
+        }
+        .check-text { flex: 1; }
+        .check-title {
+            font-weight: 700;
+            color: #1f2937;
+            font-size: 0.875rem;
+        }
+        .check-subtitle {
+            color: #E50914; /* Netflix Red */
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        .cta-button {
+            position: fixed;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #E50914; /* Netflix Red */
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 9999px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            width: calc(100% - 2rem);
+            max-width: 24rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: transform 0.2s;
+            z-index: 40;
+            animation: buttonPulse 2s infinite;
+            box-shadow: 0 8px 25px rgba(229, 9, 20, 0.4);
+        }
+        @keyframes buttonPulse {
+            0% { transform: translateX(-50%) scale(1); }
+            50% { transform: translateX(-50%) scale(1.03); }
+            100% { transform: translateX(-50%) scale(1); }
+        }
+        .cta-button:active { transform: translateX(-50%) scale(0.98); }
+        .faq-item {
+            background: #f9fafb;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 0.5rem 0;
+            border: 1px solid #f3f4f6;
+        }
+        .faq-question {
+            color: #E50914; /* Netflix Red */
+            font-weight: 700;
+            font-size: 0.813rem;
+            margin-bottom: 0.25rem;
+        }
+        .faq-answer {
+            color: #4b5563;
+            font-size: 0.75rem;
+            line-height: 1.4;
+        }
+        .rewards-img {
+            width: 100%;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            object-fit: cover;
+            height: 160px;
+        }
+        #nameAlert { display: none; }
+        .ripple {
+            position: absolute;
+            background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
+            border-radius: 50%;
+            opacity: 0;
+            animation: rippleEffect 2s linear infinite;
+        }
+        @keyframes rippleEffect {
+            0% { transform: scale(0.5); opacity: 0; }
+            50% { opacity: 0.2; }
+            100% { transform: scale(2); opacity: 0; }
+        }
+        .animated { animation-delay: calc(var(--index) * 0.1s); }
+    </style>
 </head>
 <body>
-<div class="bg-glow"></div>
-
-<div class="container">
-  <div id="screenA" class="screen visible">
-    <h1 class="headline anim" style="animation-delay:0.1s">Get Paid To Game</h1>
-    <p class="subtext anim" style="animation-delay:0.2s">Join thousands earning daily by playing popular games like Roblox, Subway Surfers, 8 Ball Pool, etc.</p>
-    
-    <button class="btn-neon anim" style="animation-delay:0.3s" onclick="showScreenB('over_25')">
-      <span class="main">I'm over 25</span>
-      <span class="sub">Instant Payouts: Google Wallet or Wire</span>
-    </button>
-    
-    <button class="btn-dark anim" style="animation-delay:0.4s" onclick="showScreenB('under_25')">
-      <span class="main">I'm under 25</span>
-      <span class="sub">Limited Payouts: Wire Transfer Only</span>
-    </button>
-  </div>
-
-  <div id="screenB" class="screen hidden">
-    <div class="check-row anim">
-      <div class="check-circle">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <path d="M5 10l3.5 3.5L15 7" stroke="hsl(195,20%,5%)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
-        </svg>
-      </div>
-      <span class="youre-in">You're In!</span>
-    </div>
-    
-    <p class="subtext anim" style="margin-bottom: 20px;">Your account is eligible to unlock exclusive earning features.<br>Activate Gravy Wallet to gain full access.</p>
-    
-    <button class="btn-activate anim" onclick="handleActivate()">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" style="margin-right:8px">
-          <rect x="2" y="5" width="20" height="14" rx="2" stroke="hsl(195,20%,5%)" stroke-width="2.5"></rect>
-          <path d="M16 12h.01" stroke="hsl(195,20%,5%)" stroke-width="2.5" stroke-linecap="round"></path>
-      </svg>
-      <span>ACTIVATE WALLET & START EARNING</span>
-    </button>
-
-    <div class="card-dark anim">
-      <h3>YOUR EARNING JOURNEY</h3>
-      <div class="step">
-          <div class="step-num">1</div>
-          <div>
-              <h4>Add Gravy Pass to Your Wallet</h4>
-              <p>Available on Google Wallet (Android)<br>Takes less than 60 seconds • No app download required</p>
-          </div>
-      </div>
-      <div class="step">
-          <div class="step-num">2</div>
-          <div>
-              <h4>Complete Starter Offers</h4>
-              <p>Play games, try apps, or complete simple challenges<br>Unlock access to popular gaming rewards. (Roblox, Fortnite, Subway Surfers)</p>
-          </div>
-      </div>
-      <div class="step">
-          <div class="step-num">3</div>
-          <div>
-              <h4>Get Paid Instantly</h4>
-              <p>Earnings are credited directly to your Google Wallet<br>No cashout apps. No waiting.</p>
-          </div>
-      </div>
+    <div id="nameAlert" class="alert">
+        <div class="alert-icon">🍿</div>
+        <div><span class="name"></span> acaba de desbloquear la app 🔓</div>
     </div>
 
-    <div class="card-important anim">
-      <span class="badge">IMPORTANT</span>
-      <div class="inner">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;margin-top:2px">
-            <rect x="5" y="11" width="14" height="10" rx="2" stroke="hsl(0,70%,50%)" stroke-width="2"></rect>
-            <path d="M8 11V7a4 4 0 118 0v4" stroke="hsl(0,70%,50%)" stroke-width="2" stroke-linecap="round"></path>
-        </svg>
-        <div>
-            <h4>Activation Required</h4>
-            <p>New users: Complete <span class="accent">2 quick offers</span> to unlock full access and start earning with paid-to-scroll features and top Games like Roblox, Subway Surfers, and more.</p>
+    <div class="main-content">
+        <br><br>
+        <img src="https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?q=80&w=1000&auto=format&fit=crop" alt="Premium Access" class="rewards-img">
+        
+        <div class="timer">
+            ⏳ Acceso expira en: <span id="timer">29:59</span>
         </div>
-      </div>
+
+        <div class="card" style="--index: 1">
+            <h2>Pasos para Desbloquear →</h2>
+            <div class="check-item">
+                <div class="check-circle">1</div>
+                <div class="check-text">
+                    <div class="check-title">Haz clic en el botón de abajo</div>
+                    <div class="check-subtitle">Inicia el proceso seguro</div>
+                </div>
+            </div>
+            <div class="check-item">
+                <div class="check-circle">2</div>
+                <div class="check-text">
+                    <div class="check-title">Ingresa tu número de teléfono</div>
+                    <div class="check-subtitle">Verificación humana obligatoria</div>
+                </div>
+            </div>
+            <div class="check-item">
+                <div class="check-circle">✓</div>
+                <div class="check-text">
+                    <div class="check-title">¡Disfruta tu acceso premium!</div>
+                    <div class="check-subtitle">Series y música sin interrupciones</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="--index: 2">
+            <h2>Preguntas Frecuentes →</h2>
+            <div class="faq-item">
+                <div class="faq-question">¿Por qué debo verificar mi número?</div>
+                <div class="faq-answer">Usamos la verificación móvil para evitar bots y asegurar que solo usuarios reales obtengan acceso a la red premium.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">¿Cuánto tiempo tarda?</div>
+                <div class="faq-answer">La confirmación por SMS es instantánea. Todo el proceso toma menos de 60 segundos.</div>
+            </div>
+        </div>
     </div>
-    
-    <p class="footer anim">Trusted by over 500,000 users earning money daily</p>
-  </div>
-</div>
 
-<script>
-function showScreenB(ageGroup){
-  // Fire GA4 Event for Age Selection
-  gtag('event', 'age_selection', {
-    'event_category': 'Engagement',
-    'event_label': ageGroup
-  });
+    <button class="cta-button" onclick="handleClick()">
+        Verifica tu número ahora →
+        <div class="ripple"></div>
+    </button>
 
-  var a = document.getElementById('screenA');
-  var b = document.getElementById('screenB');
-  
-  a.classList.remove('visible');
-  a.classList.add('hidden');
-  
-  setTimeout(function(){
-    b.classList.remove('hidden');
-    b.classList.add('visible');
-    
-    b.querySelectorAll('.anim').forEach(function(el){
-      el.style.animation = 'none';
-      el.offsetHeight; 
-      el.style.animation = '';
-    });
-  }, 100);
-}
+    <script>
+        // ==========================================
+        // YOUR SINGLE AFFILIATE LINK HERE
+        // ==========================================
+        const AFFILIATE_LINK = 'https://go.paysling.co/click'; // Change this to your tracking link
 
-function handleActivate(){
-  // Fire GA4 Event for CTA Click
-  gtag('event', 'cta_activation_click', {
-    'event_category': 'Conversion',
-    'event_label': 'GravyPass Activate'
-  });
+        // Spanish Female Names for Social Proof
+        const NAMES = [
+            'Lucía M.', 'Valeria R.', 'Alba T.', 'Martina K.', 'Sofía P.',
+            'Julia S.', 'Paula L.', 'Daniela G.', 'Carla T.', 'Emma M.',
+            'Sara D.', 'Carmen R.', 'María V.', 'Ana S.', 'Elena G.'
+        ];
 
-  var params = new URLSearchParams(window.location.search);
-  var allowed = ['sub1','sub2','sub3','sub4','sub5'];
-  var filtered = new URLSearchParams();
+        function handleClick() {
+            // Fire simple GA4 click event
+            try { 
+                gtag('event', 'click_verify', { 'event_category': 'conversion' }); 
+            } catch(e) {}
+            
+            // Redirect to the offer link
+            setTimeout(() => {
+                window.location.href = AFFILIATE_LINK;
+            }, 250);
+        }
 
-  allowed.forEach(function(k){
-    var v = params.get(k);
-    if(v !== null) filtered.set(k,v);
-  });
+        // Timer functionality
+        function updateTimer() {
+            const timerElement = document.getElementById('timer');
+            let [minutes, seconds] = timerElement.textContent.split(':').map(Number);
+            
+            if (seconds > 0) {
+                seconds--;
+            } else if (minutes > 0) {
+                minutes--;
+                seconds = 59;
+            }
+            
+            timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+        setInterval(updateTimer, 1000);
 
-  // Your new affiliate link
-  var affBase = 'https://taptrcks.com/r/eyJ0IjoiZ3JhdnlwYXNzLTIiLCJ0aWQiOiI3MDU1ZjQ0Nzk5YTc0NGY3ZmJhNzVkOGFiNDgwOWI3NiIsInRzIjoxNzc2NzY4NzEzMTcxfQ?s1=TST&feb=1';
+        // Name alert functionality
+        function showNameAlert() {
+            const alert = document.getElementById('nameAlert');
+            const nameSpan = alert.querySelector('.name');
+            const randomName = NAMES[Math.floor(Math.random() * NAMES.length)];
+            
+            nameSpan.textContent = randomName;
+            alert.style.display = 'flex';
+            
+            setTimeout(() => { alert.style.display = 'none'; }, 3000);
+        }
 
-  var qs = filtered.toString();
-  // Append filtered params with '&' since the base link already has '?'
-  var finalUrl = affBase + (qs ? '&' + qs : '');
-  
-  // Brief delay to ensure GA4 event fires before redirect
-  setTimeout(function(){
-    window.location.href = finalUrl;
-  }, 150);
-}
-</script>
-
+        if (window.innerHeight > 600) {
+            setInterval(showNameAlert, 4500);
+            setTimeout(showNameAlert, 1500); 
+        }
+    </script>
 </body>
 </html>

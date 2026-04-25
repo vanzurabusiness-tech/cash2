@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <title>Acceso Premium VIP</title>
+    <title>Acceso VIP</title>
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JYQ2MWEDB9"></script>
     <script>
@@ -12,8 +12,9 @@
       gtag('js', new Date());
       gtag('config', 'G-JYQ2MWEDB9');
     </script>
-    
+
     <style>
+        /* Reset & Base Settings */
         * {
             margin: 0;
             padding: 0;
@@ -21,272 +22,227 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             -webkit-tap-highlight-color: transparent;
         }
-        html { font-size: 14px; }
         body {
             /* Dark HBO/Max Gradient */
             background: linear-gradient(135deg, #09090e 0%, #170b2e 50%, #050508 100%);
-            color: #f3f4f6;
-            min-height: 100vh;
-            position: relative;
-            overflow-x: hidden;
-        }
-        .alert {
-            position: fixed;
-            top: 1rem;
-            left: 50%;
-            transform: translateX(-50%);
-            /* Dark Glass Effect */
-            background: rgba(20, 15, 40, 0.85);
-            backdrop-filter: blur(10px);
-            padding: 1rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            width: calc(100% - 2rem);
-            max-width: 20rem;
-            animation: slideDown 0.5s ease-out;
-            border: 1px solid rgba(139, 92, 246, 0.2);
-            z-index: 50;
-            font-size: 0.875rem;
-            font-weight: 500;
             color: #ffffff;
-        }
-        @keyframes slideDown {
-            from { transform: translate(-50%, -100%); opacity: 0; }
-            to { transform: translate(-50%, 0); opacity: 1; }
-        }
-        .alert-icon {
-            font-size: 1.5rem;
-            flex-shrink: 0;
-        }
-        .main-content {
-            width: 100%;
-            max-width: 24rem;
-            padding: 1rem;
-            margin: 0 auto;
-            padding-bottom: 8rem;
-            animation: scaleIn 0.5s ease-out;
-            zoom: 1.1;
-        }
-        .timer {
-            /* Deep Purple Accent */
-            background: linear-gradient(90deg, #6d28d9, #4c1d95);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 0.5rem;
+            min-height: 100vh;
             display: flex;
-            align-items: center;
             justify-content: center;
-            gap: 0.5rem;
-            font-weight: 600;
-            margin: 1rem 0;
-            font-size: 0.875rem;
-            box-shadow: 0 4px 15px rgba(109, 40, 217, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2.5rem 1.5rem;
         }
-        .card {
-            /* Dark Transparent Card */
-            background: rgba(25, 20, 45, 0.6);
-            backdrop-filter: blur(12px);
-            padding: 1rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-            margin: 1rem 0;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            animation: fadeInUp 0.5s ease-out backwards;
+        .container {
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            animation: fadeIn 0.5s ease-out;
         }
-        @keyframes fadeInUp {
+        @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .card h2 {
-            color: #ffffff;
-            font-size: 1rem;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            font-weight: 800;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-        }
-        .check-item {
-            background: rgba(0, 0, 0, 0.2);
-            padding: 0.75rem;
-            border-radius: 0.5rem;
-            margin: 0.5rem 0;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            border: 1px solid rgba(255, 255, 255, 0.03);
-        }
-        .check-circle {
-            width: 1.5rem;
-            height: 1.5rem;
-            background: #7c3aed; /* Vibrant Purple */
+
+        /* Logo Placeholder */
+        .logo-circle {
+            width: 65px;
+            height: 65px;
+            background: #000;
+            border: 2px solid #7c3aed;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 0.75rem;
-            flex-shrink: 0;
-            box-shadow: 0 0 10px rgba(124, 58, 237, 0.5);
+            margin: 0 auto 1.5rem;
+            font-size: 28px;
+            font-weight: 900;
+            color: #fff;
+            box-shadow: 0 0 20px rgba(124, 58, 237, 0.5);
+            letter-spacing: -1px;
         }
-        .check-text { flex: 1; }
-        .check-title {
-            font-weight: 700;
+
+        /* Headlines */
+        h1 {
+            font-size: 1.6rem;
+            font-weight: 800;
             color: #f3f4f6;
-            font-size: 0.875rem;
+            line-height: 1.3;
+            margin-bottom: 0.5rem;
         }
-        .check-subtitle {
-            color: #a78bfa; /* Soft Light Purple */
-            font-size: 0.75rem;
+        h1 span {
+            color: #a855f7; /* Max Purple Accent */
+        }
+        .subtitle {
+            font-size: 0.9rem;
+            color: #9ca3af;
+            margin-bottom: 2rem;
             font-weight: 500;
         }
-        .cta-button {
-            position: fixed;
-            bottom: 1.5rem;
-            left: 50%;
-            transform: translateX(-50%);
-            /* Premium HBO/Max Button Gradient */
+
+        /* Alert Box */
+        .alert-box {
+            background: rgba(124, 58, 237, 0.08);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            border-radius: 12px;
+            padding: 1.25rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-align: left;
+            margin-bottom: 2.5rem;
+        }
+        .alert-icon {
+            color: #a855f7;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+        .alert-text {
+            font-size: 0.85rem;
+            color: #e5e7eb;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        /* CTA Section */
+        .cta-label {
+            font-size: 0.95rem;
+            color: #d1d5db;
+            margin-bottom: 1rem;
+            display: block;
+            font-weight: 500;
+        }
+        .cta-btn {
             background: linear-gradient(90deg, #8b5cf6, #4f46e5);
             color: white;
-            padding: 1rem 2rem;
-            border-radius: 9999px;
+            border: none;
+            padding: 1.1rem;
+            width: 100%;
+            border-radius: 12px;
+            font-size: 1.2rem;
             font-weight: 800;
-            font-size: 1.1rem;
-            border: 1px solid rgba(255,255,255,0.2);
             cursor: pointer;
-            width: calc(100% - 2rem);
-            max-width: 24rem;
+            box-shadow: 0 8px 25px rgba(79, 70, 229, 0.4);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            animation: pulse 2s infinite;
+            transition: transform 0.1s;
+        }
+        .cta-btn:active {
+            transform: scale(0.97);
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 8px 25px rgba(79, 70, 229, 0.4); }
+            50% { box-shadow: 0 8px 35px rgba(79, 70, 229, 0.7); }
+            100% { box-shadow: 0 8px 25px rgba(79, 70, 229, 0.4); }
+        }
+        
+        /* Stars & Stock Tracker */
+        .stars {
+            color: #fbbf24;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+        }
+        .stock {
+            font-size: 0.85rem;
+            color: #9ca3af;
+            margin-bottom: 2.5rem;
+        }
+        .stock span {
+            color: #a855f7;
+            font-weight: 800;
+            font-size: 0.95rem;
+        }
+
+        /* Step-by-Step Boxes */
+        .step-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+        }
+        .step-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            text-align: left;
+        }
+        /* Highlight the final step to make it pop */
+        .step-box.highlight {
+            border: 1px solid rgba(168, 85, 247, 0.4);
+            background: rgba(168, 85, 247, 0.08);
+        }
+        .step-num {
+            width: 32px;
+            height: 32px;
+            background: rgba(168, 85, 247, 0.15);
+            color: #a855f7;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.5rem;
-            transition: transform 0.2s;
-            z-index: 40;
-            animation: buttonPulse 2s infinite;
-            box-shadow: 0 8px 30px rgba(79, 70, 229, 0.5);
+            font-weight: 800;
+            font-size: 1rem;
+            flex-shrink: 0;
         }
-        @keyframes buttonPulse {
-            0% { transform: translateX(-50%) scale(1); }
-            50% { transform: translateX(-50%) scale(1.03); }
-            100% { transform: translateX(-50%) scale(1); }
+        .step-box.highlight .step-num {
+            background: #a855f7;
+            color: white;
+            box-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
         }
-        .cta-button:active { transform: translateX(-50%) scale(0.98); }
-        .faq-item {
-            background: rgba(0, 0, 0, 0.2);
-            padding: 1rem;
-            border-radius: 0.5rem;
-            margin: 0.5rem 0;
-            border: 1px solid rgba(255, 255, 255, 0.03);
-        }
-        .faq-question {
-            color: #a78bfa; /* Soft Light Purple */
-            font-weight: 700;
-            font-size: 0.813rem;
-            margin-bottom: 0.25rem;
-        }
-        .faq-answer {
-            color: #9ca3af;
-            font-size: 0.75rem;
+        .step-text {
+            font-size: 0.9rem;
+            color: #e5e7eb;
+            font-weight: 500;
             line-height: 1.4;
         }
-        .rewards-img {
-            width: 100%;
-            border-radius: 0.75rem;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
-            object-fit: cover;
-            height: 160px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        #nameAlert { display: none; }
-        .ripple {
-            position: absolute;
-            background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
-            border-radius: 50%;
-            opacity: 0;
-            animation: rippleEffect 2s linear infinite;
-        }
-        @keyframes rippleEffect {
-            0% { transform: scale(0.5); opacity: 0; }
-            50% { opacity: 0.2; }
-            100% { transform: scale(2); opacity: 0; }
-        }
-        .animated { animation-delay: calc(var(--index) * 0.1s); }
     </style>
 </head>
 <body>
-    <div id="nameAlert" class="alert">
-        <div class="alert-icon">🍿</div>
-        <div><span class="name"></span> acaba de desbloquear la app 🔓</div>
-    </div>
 
-    <div class="main-content">
-        <br><br>
-        <img src="https://www.hbomaxpartners.com/_next/static/media/HBO-Max-Iridescent.2d4d755b.png" alt="Premium Access" class="rewards-img">
+    <div class="container">
         
-        <div class="timer">
-            ⏳ Acceso expira en: <span id="timer">29:59</span>
+        <div class="logo-circle">▶</div>
+        
+        <h1>Desbloquea tu <span>Acceso Premium</span></h1>
+        <p class="subtitle">Promoción Limitada a 1 uso por dispositivo</p>
+
+        <div class="alert-box">
+            <div class="alert-icon">ⓘ</div>
+            <div class="alert-text">IMPORTANTE: Tu cuenta se activará en 2-3 minutos tras completar la verificación.</div>
         </div>
 
-        <div class="card" style="--index: 1">
-            <h2>Pasos para Desbloquear →</h2>
-            <div class="check-item">
-                <div class="check-circle">1</div>
-                <div class="check-text">
-                    <div class="check-title">Haz clic en el botón de abajo</div>
-                    <div class="check-subtitle">Inicia el proceso seguro</div>
-                </div>
+        <span class="cta-label">Pulsa el botón para empezar:</span>
+        <button class="cta-btn" onclick="handleClick()">DESBLOQUÉALO YA</button>
+        
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <div class="stock">Quedan <span id="spots">57</span> accesos disponibles</div>
+
+        <div class="step-container">
+            <div class="step-box">
+                <div class="step-num">1</div>
+                <div class="step-text">Pulsa el botón de arriba</div>
             </div>
-            <div class="check-item">
-                <div class="check-circle">2</div>
-                <div class="check-text">
-                    <div class="check-title">Ingresa tu número de teléfono</div>
-                    <div class="check-subtitle">Verificación humana obligatoria</div>
-                </div>
+            <div class="step-box">
+                <div class="step-num">2</div>
+                <div class="step-text">Sigue los pasos que indica para verificar tu dispositivo de forma segura</div>
             </div>
-            <div class="check-item">
-                <div class="check-circle">✓</div>
-                <div class="check-text">
-                    <div class="check-title">¡Disfruta tu acceso premium!</div>
-                    <div class="check-subtitle">Series y música sin interrupciones</div>
-                </div>
+            <div class="step-box highlight">
+                <div class="step-num">3</div>
+                <div class="step-text">Disfruta de todas tus series y películas favoritas al instante</div>
             </div>
         </div>
 
-        <div class="card" style="--index: 2">
-            <h2>Preguntas Frecuentes →</h2>
-            <div class="faq-item">
-                <div class="faq-question">¿Por qué debo verificar mi número?</div>
-                <div class="faq-answer">Usamos la verificación móvil para evitar bots y asegurar que solo usuarios reales obtengan acceso a la red premium.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">¿Cuánto tiempo tarda?</div>
-                <div class="faq-answer">La confirmación por SMS es instantánea. Todo el proceso toma menos de 60 segundos.</div>
-            </div>
-        </div>
     </div>
-
-    <button class="cta-button" onclick="handleClick()">
-        Verifica tu número ahora →
-        <div class="ripple"></div>
-    </button>
 
     <script>
         // ==========================================
         // YOUR SINGLE AFFILIATE LINK HERE
         // ==========================================
-        const AFFILIATE_LINK = 'https://taptrcks.com/r/eyJ0IjoicHJpbWFyeSIsInRpZCI6IjcwNTVmNDQ3OTlhNzQ0ZjdmYmE3NWQ4YWI0ODA5Yjc2IiwidXJsIjoiaHR0cHM6Ly9hcHAuaGF3a3Ryay5jb20vY2xpY2s_cGlkPTImb2ZmZXJfaWQ9MTA0NyZzdWIyPXU3MDU1ZjQ0Nzk5YTc0NGY3ZmJhNzVkOGFiNDgwOWI3NiZzdWI1PXMxNzA1NWY0NDc5OWE3NDRmN2ZiYTc1ZDhhYjQ4MDliNzYmc3ViNz1yZm51bGwmc3ViOD1yZG51bGwmc3ViMTU9N2MwNjZmM2JjMmQyIiwibyI6IjEwNDciLCJuIjoiUGxheU9ubyAtIERvd25sb2FkIENvbnRlbnQifQ?s1=tst&s2=tst&feb=1'; // Change this to your tracking link
-
-        // Spanish Female Names for Social Proof
-        const NAMES = [
-            'Lucía M.', 'Valeria R.', 'Alba T.', 'Martina K.', 'Sofía P.',
-            'Julia S.', 'Paula L.', 'Daniela G.', 'Carla T.', 'Emma M.',
-            'Sara D.', 'Carmen R.', 'María V.', 'Ana S.', 'Elena G.'
-        ];
+        const AFFILIATE_LINK = 'https://taptrcks.com/r/eyJ0IjoibXZhcy0zIiwidGlkIjoiNzA1NWY0NDc5OWE3NDRmN2ZiYTc1ZDhhYjQ4MDliNzYiLCJ0cyI6MTc3NzAzODI5OTkwOH0?s1=1&s2=1&feb=1';
 
         function handleClick() {
             // Fire simple GA4 click event
@@ -297,41 +253,17 @@
             // Redirect to the offer link
             setTimeout(() => {
                 window.location.href = AFFILIATE_LINK;
-            }, 250);
+            }, 200);
         }
 
-        // Timer functionality
-        function updateTimer() {
-            const timerElement = document.getElementById('timer');
-            let [minutes, seconds] = timerElement.textContent.split(':').map(Number);
-            
-            if (seconds > 0) {
-                seconds--;
-            } else if (minutes > 0) {
-                minutes--;
-                seconds = 59;
+        // Optional: Slowly decrease the available spots to create urgency
+        let spots = 57;
+        setInterval(() => {
+            if(spots > 12) {
+                spots--;
+                document.getElementById('spots').innerText = spots;
             }
-            
-            timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-        }
-        setInterval(updateTimer, 1000);
-
-        // Name alert functionality
-        function showNameAlert() {
-            const alert = document.getElementById('nameAlert');
-            const nameSpan = alert.querySelector('.name');
-            const randomName = NAMES[Math.floor(Math.random() * NAMES.length)];
-            
-            nameSpan.textContent = randomName;
-            alert.style.display = 'flex';
-            
-            setTimeout(() => { alert.style.display = 'none'; }, 3000);
-        }
-
-        if (window.innerHeight > 600) {
-            setInterval(showNameAlert, 4500);
-            setTimeout(showNameAlert, 1500); 
-        }
+        }, 12000); // drops a spot every 12 seconds
     </script>
 </body>
 </html>

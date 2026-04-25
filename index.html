@@ -24,8 +24,10 @@
             -webkit-tap-highlight-color: transparent;
         }
         body {
-            background-color: #ffffff;
-            color: #111;
+            /* HBO Max Dark Night Mode */
+            background-color: #050508;
+            background-image: radial-gradient(circle at top, #1c0e3c 0%, #050508 50%);
+            color: #ffffff;
             display: flex;
             justify-content: center;
             align-items: flex-start;
@@ -42,7 +44,7 @@
         .logo {
             width: 50px;
             height: 50px;
-            background-color: #000;
+            background-color: #7c3aed;
             color: #fff;
             border-radius: 50%;
             display: flex;
@@ -51,27 +53,31 @@
             font-size: 26px;
             font-weight: 600;
             margin: 0 auto 15px auto;
+            box-shadow: 0 0 15px rgba(124, 58, 237, 0.4);
         }
 
         /* 1:1 Headlines */
         h1 {
             font-size: 20px;
             font-weight: 800;
-            color: #7c3aed; /* HBO/Max Purple */
+            color: #ffffff;
             line-height: 1.2;
             margin-bottom: 5px;
         }
+        h1 span {
+            color: #a855f7; /* Brighter purple for dark mode */
+        }
         .subtitle {
             font-size: 12px;
-            color: #6b7280;
+            color: #9ca3af;
             margin-bottom: 20px;
             font-weight: 500;
         }
 
-        /* 1:1 Alert Box */
+        /* 1:1 Alert Box - Dark mode glass effect */
         .alert-box {
-            background-color: #f5f3ff;
-            border: 1px solid #ddd6fe;
+            background-color: rgba(124, 58, 237, 0.12);
+            border: 1px solid rgba(124, 58, 237, 0.3);
             border-radius: 10px;
             padding: 12px 15px;
             display: flex;
@@ -81,10 +87,10 @@
             margin-bottom: 20px;
         }
         .alert-icon {
-            color: #7c3aed;
+            color: #a855f7;
             font-size: 16px;
             font-weight: bold;
-            border: 1px solid #7c3aed;
+            border: 1px solid #a855f7;
             border-radius: 50%;
             width: 20px;
             height: 20px;
@@ -95,28 +101,28 @@
         }
         .alert-text {
             font-size: 11px;
-            color: #374151;
+            color: #e5e7eb;
             font-weight: 500;
         }
 
         /* 1:1 CTA Area */
         .cta-label {
             font-size: 12px;
-            color: #4b5563;
+            color: #9ca3af;
             margin-bottom: 10px;
             display: block;
         }
         .cta-btn {
-            background: #7c3aed;
+            background: linear-gradient(90deg, #8b5cf6, #5b21b6);
             color: white;
-            border: none;
+            border: 1px solid rgba(255,255,255,0.1);
             padding: 14px;
             width: 100%;
             border-radius: 12px;
             font-size: 18px;
             font-weight: 800;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+            box-shadow: 0 4px 20px rgba(124, 58, 237, 0.4);
             margin-bottom: 10px;
         }
         
@@ -128,22 +134,23 @@
         }
         .stock {
             font-size: 12px;
-            color: #6b7280;
+            color: #9ca3af;
             margin-bottom: 20px;
         }
         .stock span {
-            color: #7c3aed;
+            color: #a855f7;
             font-weight: 700;
         }
 
-        /* 1:1 Step Boxes */
+        /* 1:1 Step Boxes - Dark mode */
         .step-container {
             display: flex;
             flex-direction: column;
             gap: 8px;
         }
         .step-box {
-            background-color: #f9fafb;
+            background-color: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: 8px;
             padding: 10px 15px;
             display: flex;
@@ -152,14 +159,14 @@
             text-align: left;
         }
         .step-box.highlight {
-            background-color: #f5f3ff;
-            border: 1px solid #ddd6fe;
+            background-color: rgba(124, 58, 237, 0.15);
+            border: 1px solid rgba(124, 58, 237, 0.4);
         }
         .step-num {
             width: 26px;
             height: 26px;
-            background-color: #ddd6fe;
-            color: #7c3aed;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #a855f7;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -169,12 +176,13 @@
             flex-shrink: 0;
         }
         .step-box.highlight .step-num {
-            background-color: #7c3aed;
+            background-color: #a855f7;
             color: white;
+            box-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
         }
         .step-text {
             font-size: 12px;
-            color: #1f2937;
+            color: #f3f4f6;
             font-weight: 500;
         }
     </style>
@@ -185,7 +193,7 @@
         
         <div class="logo">M</div>
         
-        <h1>Desbloquea tu acceso<br>Premium a la app</h1>
+        <h1>Desbloquea tu acceso<br><span>Premium</span> a la app</h1>
         <p class="subtitle">Promoción Limitada a 1 uso por persona</p>
 
         <div class="alert-box">

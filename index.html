@@ -2,8 +2,10 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <title>Acceso VIP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Acceso Premium</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JYQ2MWEDB9"></script>
     <script>
@@ -14,190 +16,166 @@
     </script>
 
     <style>
-        /* Reset & Base Settings */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: 'Poppins', sans-serif;
             -webkit-tap-highlight-color: transparent;
         }
         body {
-            /* Dark HBO/Max Gradient */
-            background: linear-gradient(135deg, #09090e 0%, #170b2e 50%, #050508 100%);
-            color: #ffffff;
-            min-height: 100vh;
+            background-color: #ffffff;
+            color: #111;
             display: flex;
             justify-content: center;
-            padding: 2.5rem 1.5rem;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 20px 15px;
         }
         .container {
-            max-width: 400px;
             width: 100%;
+            max-width: 380px;
             text-align: center;
-            animation: fadeIn 0.5s ease-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Logo Placeholder */
-        .logo-circle {
-            width: 65px;
-            height: 65px;
-            background: #000;
-            border: 2px solid #7c3aed;
+        /* 1:1 Logo */
+        .logo {
+            width: 50px;
+            height: 50px;
+            background-color: #000;
+            color: #fff;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-size: 28px;
-            font-weight: 900;
-            color: #fff;
-            box-shadow: 0 0 20px rgba(124, 58, 237, 0.5);
-            letter-spacing: -1px;
+            font-size: 26px;
+            font-weight: 600;
+            margin: 0 auto 15px auto;
         }
 
-        /* Headlines */
+        /* 1:1 Headlines */
         h1 {
-            font-size: 1.6rem;
+            font-size: 20px;
             font-weight: 800;
-            color: #f3f4f6;
-            line-height: 1.3;
-            margin-bottom: 0.5rem;
-        }
-        h1 span {
-            color: #a855f7; /* Max Purple Accent */
+            color: #7c3aed; /* HBO/Max Purple */
+            line-height: 1.2;
+            margin-bottom: 5px;
         }
         .subtitle {
-            font-size: 0.9rem;
-            color: #9ca3af;
-            margin-bottom: 2rem;
+            font-size: 12px;
+            color: #6b7280;
+            margin-bottom: 20px;
             font-weight: 500;
         }
 
-        /* Alert Box */
+        /* 1:1 Alert Box */
         .alert-box {
-            background: rgba(124, 58, 237, 0.08);
-            border: 1px solid rgba(124, 58, 237, 0.3);
-            border-radius: 12px;
-            padding: 1.25rem 1rem;
+            background-color: #f5f3ff;
+            border: 1px solid #ddd6fe;
+            border-radius: 10px;
+            padding: 12px 15px;
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 10px;
             text-align: left;
-            margin-bottom: 2.5rem;
+            margin-bottom: 20px;
         }
         .alert-icon {
-            color: #a855f7;
-            font-size: 1.4rem;
+            color: #7c3aed;
+            font-size: 16px;
+            font-weight: bold;
+            border: 1px solid #7c3aed;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             flex-shrink: 0;
         }
         .alert-text {
-            font-size: 0.85rem;
-            color: #e5e7eb;
+            font-size: 11px;
+            color: #374151;
             font-weight: 500;
-            line-height: 1.5;
         }
 
-        /* CTA Section */
+        /* 1:1 CTA Area */
         .cta-label {
-            font-size: 0.95rem;
-            color: #d1d5db;
-            margin-bottom: 1rem;
+            font-size: 12px;
+            color: #4b5563;
+            margin-bottom: 10px;
             display: block;
-            font-weight: 500;
         }
         .cta-btn {
-            background: linear-gradient(90deg, #8b5cf6, #4f46e5);
+            background: #7c3aed;
             color: white;
             border: none;
-            padding: 1.1rem;
+            padding: 14px;
             width: 100%;
             border-radius: 12px;
-            font-size: 1.2rem;
+            font-size: 18px;
             font-weight: 800;
             cursor: pointer;
-            box-shadow: 0 8px 25px rgba(79, 70, 229, 0.4);
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            animation: pulse 2s infinite;
-            transition: transform 0.1s;
-        }
-        .cta-btn:active {
-            transform: scale(0.97);
-        }
-        @keyframes pulse {
-            0% { box-shadow: 0 8px 25px rgba(79, 70, 229, 0.4); }
-            50% { box-shadow: 0 8px 35px rgba(79, 70, 229, 0.7); }
-            100% { box-shadow: 0 8px 25px rgba(79, 70, 229, 0.4); }
+            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+            margin-bottom: 10px;
         }
         
-        /* Stars & Stock Tracker */
+        /* 1:1 Stars & Stock */
         .stars {
             color: #fbbf24;
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            letter-spacing: 2px;
+            font-size: 18px;
+            margin-bottom: 2px;
         }
         .stock {
-            font-size: 0.85rem;
-            color: #9ca3af;
-            margin-bottom: 2.5rem;
+            font-size: 12px;
+            color: #6b7280;
+            margin-bottom: 20px;
         }
         .stock span {
-            color: #a855f7;
-            font-weight: 800;
-            font-size: 0.95rem;
+            color: #7c3aed;
+            font-weight: 700;
         }
 
-        /* Step-by-Step Boxes */
+        /* 1:1 Step Boxes */
         .step-container {
             display: flex;
             flex-direction: column;
-            gap: 0.85rem;
+            gap: 8px;
         }
         .step-box {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
-            padding: 1.1rem;
+            background-color: #f9fafb;
+            border-radius: 8px;
+            padding: 10px 15px;
             display: flex;
             align-items: center;
-            gap: 1.2rem;
+            gap: 12px;
             text-align: left;
         }
-        /* Highlight the final step to make it pop */
         .step-box.highlight {
-            border: 1px solid rgba(168, 85, 247, 0.4);
-            background: rgba(168, 85, 247, 0.08);
+            background-color: #f5f3ff;
+            border: 1px solid #ddd6fe;
         }
         .step-num {
-            width: 32px;
-            height: 32px;
-            background: rgba(168, 85, 247, 0.15);
-            color: #a855f7;
+            width: 26px;
+            height: 26px;
+            background-color: #ddd6fe;
+            color: #7c3aed;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 800;
-            font-size: 1rem;
+            font-weight: 700;
+            font-size: 12px;
             flex-shrink: 0;
         }
         .step-box.highlight .step-num {
-            background: #a855f7;
+            background-color: #7c3aed;
             color: white;
-            box-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
         }
         .step-text {
-            font-size: 0.9rem;
-            color: #e5e7eb;
+            font-size: 12px;
+            color: #1f2937;
             font-weight: 500;
-            line-height: 1.4;
         }
     </style>
 </head>
@@ -205,14 +183,14 @@
 
     <div class="container">
         
-        <div class="logo-circle">▶</div>
+        <div class="logo">M</div>
         
-        <h1>Desbloquea tu <span>Acceso Premium</span></h1>
-        <p class="subtitle">Promoción Limitada a 1 uso por dispositivo</p>
+        <h1>Desbloquea tu acceso<br>Premium a la app</h1>
+        <p class="subtitle">Promoción Limitada a 1 uso por persona</p>
 
         <div class="alert-box">
-            <div class="alert-icon">ⓘ</div>
-            <div class="alert-text">IMPORTANTE: Tu cuenta se activará en 2-3 minutos tras completar la verificación.</div>
+            <div class="alert-icon">!</div>
+            <div class="alert-text">IMPORTANTE: Tu acceso se activará en 2-3 minutos tras completar la verificación</div>
         </div>
 
         <span class="cta-label">Pulsa el botón para empezar:</span>
@@ -228,42 +206,31 @@
             </div>
             <div class="step-box">
                 <div class="step-num">2</div>
-                <div class="step-text">Sigue los pasos que indica para verificar tu dispositivo de forma segura</div>
+                <div class="step-text">Sigue los pasos que indica para verificar tu dispositivo</div>
             </div>
             <div class="step-box highlight">
                 <div class="step-num">3</div>
-                <div class="step-text">Disfruta de todas tus series y películas favoritas al instante</div>
+                <div class="step-text">Disfrutarás del acceso en 2-3 minutos tras verificar</div>
             </div>
         </div>
 
     </div>
 
     <script>
-        // ==========================================
-        // YOUR SINGLE AFFILIATE LINK HERE
-        // ==========================================
         const AFFILIATE_LINK = 'https://taptrcks.com/r/eyJ0IjoibXZhcy0zIiwidGlkIjoiNzA1NWY0NDc5OWE3NDRmN2ZiYTc1ZDhhYjQ4MDliNzYiLCJ0cyI6MTc3NzAzODI5OTkwOH0?s1=1&s2=1&feb=1';
 
         function handleClick() {
-            // Fire simple GA4 click event
-            try { 
-                gtag('event', 'click_verify', { 'event_category': 'conversion' }); 
-            } catch(e) {}
-            
-            // Redirect to the offer link
-            setTimeout(() => {
-                window.location.href = AFFILIATE_LINK;
-            }, 200);
+            try { gtag('event', 'click_verify', { 'event_category': 'conversion' }); } catch(e) {}
+            setTimeout(() => { window.location.href = AFFILIATE_LINK; }, 200);
         }
 
-        // Optional: Slowly decrease the available spots to create urgency
         let spots = 57;
         setInterval(() => {
             if(spots > 12) {
                 spots--;
                 document.getElementById('spots').innerText = spots;
             }
-        }, 12000); // drops a spot every 12 seconds
+        }, 12000);
     </script>
 </body>
 </html>

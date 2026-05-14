@@ -1,516 +1,325 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-ES">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <meta name="format-detection" content="telephone=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="mobile-web-app-capable" content="yes">
-    <title>Saldo Vinted</title>
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JYQ2MWEDB9"></script>
+    <title>Gana dinero por tus juegos móviles | Playful</title>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7FRZMX1VN5"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-JYQ2MWEDB9');
+      gtag('config', 'G-7FRZMX1VN5');
     </script>
-
+    
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
-        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        :root {
+            --bg-color: #240b43;
+            --card-bg: #2d134d;
+            --text-main: #ffffff;
+            --text-muted: #a395b5;
+            --accent: #ffd500;
+            --border-color: rgba(255, 255, 255, 0.1);
+        }
 
-        html {
-            -webkit-text-size-adjust: 100%;
-            -ms-text-size-adjust: 100%;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
         }
 
         html, body {
-            overscroll-behavior: none;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        :root {
-            /* Vinted Brand Colors */
-            --teal: #09b1ba;
-            --teal-light: #32c5cd;
+            max-width: 100vw;
+            overflow-x: hidden;
+            background-color: var(--bg-color);
         }
 
         body {
-            font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: #000;
-            color: #fff;
+            font-family: 'Inter', -apple-system, sans-serif;
+            color: var(--text-main);
             min-height: 100vh;
-            min-height: -webkit-fill-available;
-            overflow-x: hidden;
-            padding-top: env(safe-area-inset-top);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            padding-bottom: calc(88px + env(safe-area-inset-bottom));
-        }
-
-        /* TOAST */
-        .toast {
-            position: fixed;
-            bottom: calc(88px + env(safe-area-inset-bottom) + 12px);
-            left: 12px;
-            right: 12px;
-            z-index: 998;
-            background: #111;
-            border: 1px solid #2a2a2a;
-            border-left: 3px solid var(--teal);
-            border-radius: 10px;
-            padding: 10px 14px;
             display: flex;
-            align-items: center;
-            gap: 10px;
-            transform: translateY(20px);
-            opacity: 0;
-            transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), opacity 0.3s ease;
-            pointer-events: none;
-        }
-
-        .toast.show {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        .toast-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--teal);
-            flex-shrink: 0;
-            animation: dot-pulse 1.2s ease-in-out infinite;
-        }
-
-        @keyframes dot-pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.4; transform: scale(0.6); }
-        }
-
-        .toast-text {
-            font-size: 12px;
-            font-weight: 700;
-            color: #aaa;
-            line-height: 1.3;
-        }
-
-        .toast-text strong { color: #fff; }
-
-        /* TOP BAR */
-        .topbar {
-            background: #000;
-            padding: 12px 16px;
-            display: flex;
-            align-items: center;
             justify-content: center;
-            border-bottom: 1px solid #1a1a1a;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            width: 100%;
         }
 
-        .brand-logo-img {
-            height: 28px;
-            width: auto;
-            display: block;
+        .container {
+            width: 100%;
+            max-width: 480px;
+            padding: 30px 20px 40px;
+            display: flex;
+            flex-direction: column;
         }
 
-        /* URGENCY BANNER */
-        .urgency-banner {
-            background: var(--teal);
-            text-align: center;
-            padding: 8px 12px;
+        /* Top Header */
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .logo-wrap {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 800;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+            color: var(--accent);
+        }
+        
+        .logo-img {
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+            object-fit: cover;
+        }
+
+        .trending-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
             font-size: 12px;
+            color: var(--text-muted);
+            border: 1px solid var(--border-color);
+            padding: 6px 12px;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.03);
+        }
+
+        /* Hero Section */
+        h1 {
+            font-size: 36px;
             font-weight: 800;
-            animation: pulse-bg 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse-bg {
-            0%, 100% { background: var(--teal); }
-            50% { background: var(--teal-light); }
-        }
-
-        /* HERO */
-        .hero {
-            padding: 28px 20px 20px;
-            text-align: center;
-        }
-
-        .badge {
-            display: inline-block;
-            background: var(--teal);
-            color: #fff;
-            font-size: 11px;
-            font-weight: 800;
-            letter-spacing: 1.5px;
-            padding: 4px 12px;
-            border-radius: 2px;
-            text-transform: uppercase;
+            line-height: 1.15;
             margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+        
+        .highlight {
+            background-color: var(--accent);
+            color: #1a0833;
+            padding: 2px 6px;
+            border-radius: 4px;
+            display: inline-block;
         }
 
-        .hero h1 {
-            font-family: 'Bebas Neue', 'Arial Black', Impact, sans-serif;
-            font-size: 48px;
-            line-height: 1;
-            letter-spacing: 2px;
-            margin-bottom: 8px;
-        }
-
-        .hero h1 span { color: var(--teal); }
-
-        .hero p {
+        .sub-hero {
             font-size: 15px;
-            color: #aaa;
-            font-weight: 600;
             line-height: 1.5;
+            color: #d8cde6;
+            margin-bottom: 24px;
         }
 
-        /* CODE BOX */
-        .code-box {
-            background: #111;
-            border: 1px solid #2a2a2a;
-            border-radius: 12px;
-            padding: 20px;
-            margin: 20px 20px 24px;
-            text-align: center;
-            position: relative;
+        /* Stats Bar */
+        .stats-bar {
+            display: flex;
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.02);
+            margin-bottom: 30px;
             overflow: hidden;
         }
-
-        .code-box::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--teal), var(--teal-light), var(--teal));
-            background-size: 200% 100%;
-            animation: shimmer 2s linear infinite;
+        
+        .stat-col {
+            flex: 1;
+            text-align: center;
+            padding: 16px 8px;
+            border-right: 1px solid var(--border-color);
+        }
+        
+        .stat-col:last-child {
+            border-right: none;
         }
 
-        @keyframes shimmer {
-            0% { background-position: -200% 0; }
-            100% { background-position: 200% 0; }
-        }
-
-        .code-label {
-            font-size: 11px;
-            font-weight: 700;
-            color: #555;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 8px;
-        }
-
-        .code-value {
-            font-family: 'Bebas Neue', 'Arial Black', Impact, sans-serif;
-            font-size: 56px;
-            color: var(--teal);
-            letter-spacing: 2px;
-            line-height: 1;
+        .stat-val {
+            font-size: 15px;
+            font-weight: 800;
             margin-bottom: 4px;
-        }
-
-        .code-sub {
-            font-size: 12px;
-            color: #444;
-            font-weight: 600;
-        }
-
-        /* TIMER */
-        .timer-section {
-            margin: 0 20px 24px;
-            text-align: center;
-        }
-
-        .timer-label {
-            font-size: 11px;
-            color: #444;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 8px;
-        }
-
-        .timer {
+            color: var(--text-main);
             display: flex;
+            align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 4px;
+        }
+        
+        .stat-val.accent {
+            color: var(--accent);
         }
 
-        .timer-block {
-            background: #111;
-            border: 1px solid #1e1e1e;
-            border-radius: 8px;
-            padding: 10px 14px;
-            min-width: 60px;
-            text-align: center;
-        }
-
-        .timer-num {
-            font-family: 'Bebas Neue', 'Arial Black', Impact, sans-serif;
-            font-size: 32px;
-            color: var(--teal);
-            line-height: 1;
-        }
-
-        .timer-unit {
-            font-size: 10px;
-            color: #444;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        /* STEPS */
-        .steps-section { padding: 0 20px 24px; }
-
-        .steps-title {
+        .stat-label {
             font-size: 11px;
-            font-weight: 700;
-            color: #444;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-            text-align: center;
+            color: var(--text-muted);
         }
 
-        .step {
+        /* Steps / How it works */
+        .steps-container {
             display: flex;
-            align-items: flex-start;
-            gap: 14px;
-            margin-bottom: 10px;
-            background: #0d0d0d;
-            border: 1px solid #1a1a1a;
-            border-radius: 10px;
-            padding: 14px;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .step-card {
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 20px;
+            display: flex;
+            gap: 16px;
+            background: rgba(255, 255, 255, 0.02);
         }
 
         .step-num {
-            background: var(--teal);
-            color: #fff;
-            font-family: 'Bebas Neue', 'Arial Black', Impact, sans-serif;
-            font-size: 18px;
             width: 32px;
             height: 32px;
+            border: 1px solid rgba(255, 213, 0, 0.3);
+            background: rgba(255, 213, 0, 0.1);
+            color: var(--accent);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .step-text {
-            font-size: 14px;
             font-weight: 700;
-            color: #ccc;
-            line-height: 1.4;
-            padding-top: 4px;
+            font-size: 14px;
+            flex-shrink: 0;
+            margin-top: 2px;
         }
 
-        .step-text span { color: var(--teal); }
-
-        /* DISCLAIMER */
-        .disclaimer {
-            padding: 16px 20px 8px;
-            text-align: center;
+        .step-text h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: var(--text-main);
         }
 
-        .disclaimer p {
-            font-size: 10px;
-            color: #444;
-            line-height: 1.6;
+        .step-text p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.5;
         }
 
-        /* SINGLE STICKY CTA */
-        .sticky-cta {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            z-index: 999;
-            background: #000;
-            border-top: 1px solid #1a1a1a;
-            padding: 12px 16px;
-            padding-bottom: calc(12px + env(safe-area-inset-bottom));
-            box-shadow: 0 -12px 40px rgba(9, 177, 186, 0.18);
-        }
-
-        .sticky-cta-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        /* Call to Action */
+        .cta-btn {
+            display: block;
             width: 100%;
-            background: var(--teal);
-            color: #fff;
-            font-family: 'Bebas Neue', 'Arial Black', Impact, sans-serif;
-            font-size: 22px;
-            letter-spacing: 3px;
-            height: 60px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
+            background-color: var(--accent);
+            color: #1a0833;
+            text-align: center;
+            padding: 18px;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 800;
             text-decoration: none;
-            position: relative;
-            overflow: hidden;
-            -webkit-appearance: none;
-            appearance: none;
-            touch-action: manipulation;
-            animation: cta-pulse 1.8s ease-in-out infinite;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 20px rgba(255, 213, 0, 0.2);
+            margin-bottom: 16px;
         }
 
-        .sticky-cta-btn:active {
-            transform: scale(0.97);
-            animation: none;
-            background: var(--teal-light);
+        .cta-btn:active {
+            transform: scale(0.98);
+            box-shadow: 0 2px 10px rgba(255, 213, 0, 0.15);
         }
 
-        .sticky-cta-btn::after {
-            content: '';
-            position: absolute;
-            top: -50%; left: -75%;
-            width: 50%; height: 200%;
-            background: rgba(255,255,255,0.12);
-            transform: skewX(-20deg);
-            animation: btn-shine 2.8s ease-in-out infinite;
-        }
-
-        @keyframes cta-pulse {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(9, 177, 186, 0.5); }
-            50% { box-shadow: 0 0 0 10px rgba(9, 177, 186, 0); }
-        }
-
-        @keyframes btn-shine {
-            0% { left: -75%; }
-            50%, 100% { left: 125%; }
-        }
-
-        .sticky-cta-sub {
+        .footer-terms {
             text-align: center;
             font-size: 11px;
-            color: #555;
-            font-weight: 700;
-            margin-top: 5px;
+            color: var(--text-muted);
+            padding: 0 10px;
         }
     </style>
 </head>
 <body>
 
-<!-- TOAST -->
-<div class="toast" id="toast">
-    <div class="toast-dot"></div>
-    <div class="toast-text" id="toast-text"></div>
-</div>
-
-<!-- TOP BAR -->
-<div class="topbar">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Vinted_logo.png/1280px-Vinted_logo.png" alt="Vinted" class="brand-logo-img">
-</div>
-
-<!-- URGENCY BANNER -->
-<div class="urgency-banner">
-    ⚡ QUEDAN POCOS SALDOS HOY — RECLAMA EL TUYO YA
-</div>
-
-<!-- HERO -->
-<div class="hero">
-    <div class="badge">Promoción Exclusiva</div>
-    <h1><span>150€</span><br> SALDO VINTED</h1>
-    <p>Vinted está regalando saldo a usuarias seleccionadas en España. Solo necesitas verificar por SMS.</p>
-</div>
-
-<!-- CODE BOX -->
-<div class="code-box">
-    <div class="code-label">Tu saldo reservado</div>
-    <div class="code-value">+150,00 €</div>
-    <div class="code-sub">Válido por tiempo limitado</div>
-</div>
-
-<!-- TIMER -->
-<div class="timer-section">
-    <div class="timer-label">El saldo expira en</div>
-    <div class="timer">
-        <div class="timer-block">
-            <div class="timer-num" id="mins">08</div>
-            <div class="timer-unit">min</div>
+    <div class="container">
+        
+        <div class="top-nav">
+            <div class="logo-wrap">
+                <img src="https://play-lh.googleusercontent.com/Lx-lkUUlaa-VfYYO_bgxW4Cp5a-4X3nfjnEHXt1iHn2FZW15s3ewUH5PT-kq9MrI5vs" alt="Playful" class="logo-img">
+                PLAYFUL
+            </div>
+            <div class="trending-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
+                Tendencia en España
+            </div>
         </div>
-        <div class="timer-block">
-            <div class="timer-num" id="secs">40</div>
-            <div class="timer-unit">seg</div>
+
+        <h1>Gana dinero por <br><span class="highlight">tus juegos móviles</span></h1>
+        <p class="sub-hero">Gana dinero por usar tu teléfono. 10 € solo por registrarte. Retiro instantáneo en PayPal.</p>
+
+        <div class="stats-bar">
+            <div class="stat-col">
+                <div class="stat-val">200–250 €</div>
+                <div class="stat-label">Ganancias semanales</div>
+            </div>
+            <div class="stat-col">
+                <div class="stat-val">👥 500K+</div>
+                <div class="stat-label">Miembros</div>
+            </div>
+            <div class="stat-col">
+                <div class="stat-val accent">⭐ 4,7</div>
+                <div class="stat-label">App Store</div>
+            </div>
         </div>
+
+        <div class="steps-container">
+            <div class="step-card">
+                <div class="step-num">1</div>
+                <div class="step-text">
+                    <h3>Regístrate gratis</h3>
+                    <p>Crea tu cuenta en segundos para desbloquear todas las recompensas de los juegos móviles.</p>
+                </div>
+            </div>
+
+            <div class="step-card">
+                <div class="step-num">2</div>
+                <div class="step-text">
+                    <h3>Juega 3 juegos por 10 min y gana 300 €</h3>
+                    <p>Completa 3 juegos rápidos durante 10 minutos para desbloquear un pago de 300 € a través de los juegos móviles. Después ganas automáticamente usando tu teléfono.</p>
+                </div>
+            </div>
+
+            <div class="step-card">
+                <div class="step-num">3</div>
+                <div class="step-text">
+                    <h3>Recibe tu pago</h3>
+                    <p>Los juegos móviles se rastrean en segundo plano. Retira en PayPal, Visa o en cripto. Sin mínimo.</p>
+                </div>
+            </div>
+        </div>
+
+        <a href="https://taprkr.com/r/eyJ0IjoicGxheWZ1bC1yZXdhcmRzLXJldnNoYXJlIiwidGlkIjoiNzA1NWY0NDc5OWE3NDRmN2ZiYTc1ZDhhYjQ4MDliNzYiLCJ0cyI6MTc3ODc4NTE3OTkwOX0?s1=spain1&feb=1" id="main-cta" class="cta-btn">Empezar a ganar</a>
+        
+        <div class="footer-terms">
+            Al continuar, aceptas nuestros términos de uso y nuestra política de privacidad
+        </div>
+
     </div>
-</div>
 
-<!-- STEPS -->
-<div class="steps-section">
-    <div class="steps-title">Cómo reclamar tu saldo</div>
-    <div class="step">
-        <div class="step-num">1</div>
-        <div class="step-text">Pulsa el botón de abajo para <span>iniciar la verificación</span></div>
-    </div>
-    <div class="step">
-        <div class="step-num">2</div>
-        <div class="step-text"><span>Ingresa tu número de teléfono</span> en la siguiente página.</div>
-    </div>
-    <div class="step">
-        <div class="step-num">3</div>
-        <div class="step-text">Te enviarán un código PIN por SMS. Ponlo y <span>recibe tus 150€ de saldo</span> al momento.</div>
-    </div>
-</div>
+    <script>
+        // Track the click before redirecting
+        document.getElementById('main-cta').addEventListener('click', function(e) {
+            e.preventDefault();
+            var targetUrl = this.href;
 
-<!-- DISCLAIMER -->
-<div class="disclaimer">
-    <p>Promoción válida solo para residentes en España. Sujeta a disponibilidad. Al continuar, aceptas los términos del servicio.</p>
-</div>
+            // Fire GA4 Event for conversion
+            gtag('event', 'click_affiliate_link', {
+                'event_category': 'conversion',
+                'event_label': 'spain_playful_revshare'
+            });
 
-<!-- SINGLE STICKY CTA -->
-<div class="sticky-cta">
-    <a href="https://taprkr.com/r/eyJ0IjoicHJpbWFyeSIsInRpZCI6IjcwNTVmNDQ3OTlhNzQ0ZjdmYmE3NWQ4YWI0ODA5Yjc2IiwidXJsIjoiaHR0cHM6Ly9hcHAuaGF3a3Ryay5jb20vY2xpY2s_cGlkPTImb2ZmZXJfaWQ9MTA0NyZzdWIyPXU3MDU1ZjQ0Nzk5YTc0NGY3ZmJhNzVkOGFiNDgwOWI3NiZzdWI1PXMxNzA1NWY0NDc5OWE3NDRmN2ZiYTc1ZDhhYjQ4MDliNzYmc3ViNz1yZm51bGwmc3ViOD1yZG51bGwmc3ViMTU9ZWE3YzhhZmYzMzdmJnMxPTcwNTVmNDQ3OTlhNzQ0ZjdmYmE3NWQ4YWI0ODA5Yjc2JnN1YjE9NzA1NWY0NDc5OWE3NDRmN2ZiYTc1ZDhhYjQ4MDliNzYiLCJvIjoiMTA0NyIsIm4iOiJQbGF5T25vIC0gRG93bmxvYWQgQ29udGVudCJ9?s1=2&s2=2" class="sticky-cta-btn" onclick="gtag('event', 'click_cta', { 'event_category': 'conversion' });">⚡ RECLAMAR MIS 150€ YA →</a>
-    <div class="sticky-cta-sub">Solo necesitas tu móvil · Proceso 100% seguro</div>
-</div>
-
-<script>
-    document.addEventListener('touchstart', function(){}, {passive: true});
-    document.addEventListener('touchmove', function(){}, {passive: true});
-
-    // Countdown
-    let total = 9 * 60 + 59;
-    const minsEl = document.getElementById('mins');
-    const secsEl = document.getElementById('secs');
-    setInterval(() => {
-        if (total <= 0) { total = 9 * 60 + 59; return; }
-        total--;
-        minsEl.textContent = String(Math.floor(total / 60)).padStart(2, '0');
-        secsEl.textContent = String(total % 60).padStart(2, '0');
-    }, 1000);
-
-    // Toast
-    const toastEl = document.getElementById('toast');
-    const toastTextEl = document.getElementById('toast-text');
-    const toasts = [
-        '<strong>Lucía M.</strong> acaba de recibir su saldo',
-        '<strong>Alba R.</strong> acaba de recibir su saldo',
-        '<strong>Sara G.</strong> reclamó hace 2 min',
-        '<strong>Marta P.</strong> acaba de recibir su saldo',
-        '<strong>Elena V.</strong> acaba de recibir su saldo',
-        '<strong>Nuria S.</strong> reclamó hace 1 min',
-        '<strong>Carmen T.</strong> reclamó hace 3 min',
-    ];
-    let toastIdx = 0;
-    function showToast() {
-        toastTextEl.innerHTML = toasts[toastIdx % toasts.length];
-        toastIdx++;
-        toastEl.classList.add('show');
-        setTimeout(() => toastEl.classList.remove('show'), 3500);
-        setTimeout(showToast, 7000 + Math.random() * 6000);
-    }
-    setTimeout(showToast, 4000);
-</script>
+            // Redirect after a tiny delay so GA4 catches it
+            setTimeout(function() {
+                window.location.href = targetUrl;
+            }, 150);
+        });
+    </script>
 
 </body>
 </html>

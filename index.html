@@ -52,13 +52,12 @@
         .container {
             width: 100%;
             max-width: 480px;
-            /* Compressed vertical padding to pull CTA up */
             padding: 16px 20px 24px;
             display: flex;
             flex-direction: column;
         }
 
-        /* Top Header */
+        /* Top Nav */
         .top-nav {
             display: flex;
             justify-content: space-between;
@@ -93,6 +92,23 @@
             padding: 6px 12px;
             border-radius: 20px;
             background: rgba(255,255,255,0.03);
+        }
+
+        /* Bonus Sticker */
+        .bonus-sticker {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: rgba(255, 213, 0, 0.1);
+            border: 1px dashed var(--accent);
+            padding: 10px 16px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 20px;
+            text-align: center;
         }
 
         /* Hero Section */
@@ -163,18 +179,18 @@
             letter-spacing: 0.5px;
         }
 
-        /* Steps / How it works */
+        /* Steps */
         .steps-container {
             display: flex;
             flex-direction: column;
-            gap: 8px; /* Tighter gap */
+            gap: 8px;
             margin-bottom: 20px;
         }
 
         .step-card {
             border: 1px solid var(--border-color);
             border-radius: 12px;
-            padding: 14px; /* Reduced padding */
+            padding: 14px;
             display: flex;
             gap: 12px;
             background: rgba(255, 255, 255, 0.02);
@@ -209,7 +225,7 @@
             line-height: 1.4;
         }
 
-        /* Call to Action */
+        /* CTA Button */
         .cta-btn {
             display: block;
             width: 100%;
@@ -254,8 +270,12 @@
             </div>
         </div>
 
+        <div class="bonus-sticker">
+            🎁 Bono de registro de 20€ activado
+        </div>
+
         <h1>Gana dinero por <br><span class="highlight">tus juegos móviles</span></h1>
-        <p class="sub-hero">Gana dinero por usar tu teléfono. 10 € solo por registrarte. Retiro instantáneo en PayPal.</p>
+        <p class="sub-hero">Gana dinero por usar tu teléfono. 20 € solo por registrarte. Retiro instantáneo en PayPal.</p>
 
         <div class="stats-bar">
             <div class="stat-col">
@@ -284,8 +304,8 @@
             <div class="step-card">
                 <div class="step-num">2</div>
                 <div class="step-text">
-                    <h3>Juega 3 juegos por 10 min y gana 300 €</h3>
-                    <p>Completa 3 juegos rápidos durante 10 minutos para desbloquear un pago de 300 € a través de los juegos móviles. Después ganas automáticamente usando tu teléfono.</p>
+                    <h3>Completa 3 encuestas para duplicar tus pagos (2x)</h3>
+                    <p>Haz 3 encuestas rápidas (tardarás entre 30 y 60 minutos) para activar el multiplicador 2x y potenciar todas tus ganancias en la plataforma.</p>
                 </div>
             </div>
 
